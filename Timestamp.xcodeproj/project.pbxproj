@@ -17,6 +17,7 @@
 		B61F374C16DE487D00E3257E /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B61F372C16DE487C00E3257E /* Cocoa.framework */; };
 		B61F375416DE487D00E3257E /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = B61F375216DE487D00E3257E /* InfoPlist.strings */; };
 		B61F375716DE487D00E3257E /* TimestampTests.m in Sources */ = {isa = PBXBuildFile; fileRef = B61F375616DE487D00E3257E /* TimestampTests.m */; };
+		B6B39D2B16E4DBB800D76E6F /* StatusBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = B6B39D2A16E4DBB800D76E6F /* StatusBarController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +50,8 @@
 		B61F375316DE487D00E3257E /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		B61F375516DE487D00E3257E /* TimestampTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TimestampTests.h; sourceTree = "<group>"; };
 		B61F375616DE487D00E3257E /* TimestampTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TimestampTests.m; sourceTree = "<group>"; };
+		B6B39D2916E4DBB800D76E6F /* StatusBarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StatusBarController.h; sourceTree = "<group>"; };
+		B6B39D2A16E4DBB800D76E6F /* StatusBarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StatusBarController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -116,6 +119,8 @@
 			children = (
 				B61F373E16DE487C00E3257E /* AppDelegate.h */,
 				B61F373F16DE487C00E3257E /* AppDelegate.m */,
+				B6B39D2916E4DBB800D76E6F /* StatusBarController.h */,
+				B6B39D2A16E4DBB800D76E6F /* StatusBarController.m */,
 				B61F374116DE487D00E3257E /* MainMenu.xib */,
 				B61F373316DE487C00E3257E /* Supporting Files */,
 			);
@@ -263,6 +268,7 @@
 			files = (
 				B61F373916DE487C00E3257E /* main.m in Sources */,
 				B61F374016DE487C00E3257E /* AppDelegate.m in Sources */,
+				B6B39D2B16E4DBB800D76E6F /* StatusBarController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
