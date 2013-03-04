@@ -1,4 +1,5 @@
 #import "StatusBarController.h"
+#import "Task.h"
 
 @implementation StatusBarController
 
@@ -19,10 +20,13 @@
 #pragma mark - Actions
 - (IBAction)clickStart:(id)sender {
     NSLog(@"Click start");
+    self.currentTask = [Task startWithCurrentTimeAndName:@"Working"];
 }
 
 - (IBAction)clickStop:(id)sender {
     NSLog(@"Click stop");
+    [self.currentTask endTask];
+    NSLog(@"%@", [self.currentTask getHumanizedDescription]);
 }
 
 - (IBAction)clickQuit:(id)sender {

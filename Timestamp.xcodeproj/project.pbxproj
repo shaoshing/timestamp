@@ -18,6 +18,7 @@
 		B61F375416DE487D00E3257E /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = B61F375216DE487D00E3257E /* InfoPlist.strings */; };
 		B61F375716DE487D00E3257E /* TimestampTests.m in Sources */ = {isa = PBXBuildFile; fileRef = B61F375616DE487D00E3257E /* TimestampTests.m */; };
 		B6B39D2B16E4DBB800D76E6F /* StatusBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = B6B39D2A16E4DBB800D76E6F /* StatusBarController.m */; };
+		B6B39D3016E4E3C400D76E6F /* Task.m in Sources */ = {isa = PBXBuildFile; fileRef = B6B39D2F16E4E3C400D76E6F /* Task.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -52,6 +53,8 @@
 		B61F375616DE487D00E3257E /* TimestampTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TimestampTests.m; sourceTree = "<group>"; };
 		B6B39D2916E4DBB800D76E6F /* StatusBarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StatusBarController.h; sourceTree = "<group>"; };
 		B6B39D2A16E4DBB800D76E6F /* StatusBarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StatusBarController.m; sourceTree = "<group>"; };
+		B6B39D2E16E4E3C400D76E6F /* Task.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Task.h; sourceTree = "<group>"; };
+		B6B39D2F16E4E3C400D76E6F /* Task.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Task.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -78,20 +81,22 @@
 		B61F372016DE487C00E3257E = {
 			isa = PBXGroup;
 			children = (
-				B61F373216DE487C00E3257E /* Timestamp */,
-				B61F374F16DE487D00E3257E /* TimestampTests */,
+				B6B39D2C16E4E32000D76E6F /* Controllers */,
+				B6B39D2D16E4E36300D76E6F /* Models */,
+				B61F373216DE487C00E3257E /* Resources */,
+				B61F374F16DE487D00E3257E /* Tests */,
 				B61F372B16DE487C00E3257E /* Frameworks */,
-				B61F372A16DE487C00E3257E /* Products */,
+				B61F372A16DE487C00E3257E /* Build */,
 			);
 			sourceTree = "<group>";
 		};
-		B61F372A16DE487C00E3257E /* Products */ = {
+		B61F372A16DE487C00E3257E /* Build */ = {
 			isa = PBXGroup;
 			children = (
 				B61F372916DE487C00E3257E /* Timestamp.app */,
 				B61F374916DE487D00E3257E /* TimestampTests.octest */,
 			);
-			name = Products;
+			name = Build;
 			sourceTree = "<group>";
 		};
 		B61F372B16DE487C00E3257E /* Frameworks */ = {
@@ -114,16 +119,13 @@
 			name = "Other Frameworks";
 			sourceTree = "<group>";
 		};
-		B61F373216DE487C00E3257E /* Timestamp */ = {
+		B61F373216DE487C00E3257E /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				B61F373E16DE487C00E3257E /* AppDelegate.h */,
-				B61F373F16DE487C00E3257E /* AppDelegate.m */,
-				B6B39D2916E4DBB800D76E6F /* StatusBarController.h */,
-				B6B39D2A16E4DBB800D76E6F /* StatusBarController.m */,
 				B61F374116DE487D00E3257E /* MainMenu.xib */,
 				B61F373316DE487C00E3257E /* Supporting Files */,
 			);
+			name = Resources;
 			path = Timestamp;
 			sourceTree = "<group>";
 		};
@@ -139,13 +141,14 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		B61F374F16DE487D00E3257E /* TimestampTests */ = {
+		B61F374F16DE487D00E3257E /* Tests */ = {
 			isa = PBXGroup;
 			children = (
 				B61F375516DE487D00E3257E /* TimestampTests.h */,
 				B61F375616DE487D00E3257E /* TimestampTests.m */,
 				B61F375016DE487D00E3257E /* Supporting Files */,
 			);
+			name = Tests;
 			path = TimestampTests;
 			sourceTree = "<group>";
 		};
@@ -156,6 +159,28 @@
 				B61F375216DE487D00E3257E /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		B6B39D2C16E4E32000D76E6F /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				B61F373E16DE487C00E3257E /* AppDelegate.h */,
+				B61F373F16DE487C00E3257E /* AppDelegate.m */,
+				B6B39D2916E4DBB800D76E6F /* StatusBarController.h */,
+				B6B39D2A16E4DBB800D76E6F /* StatusBarController.m */,
+			);
+			name = Controllers;
+			path = Timestamp;
+			sourceTree = "<group>";
+		};
+		B6B39D2D16E4E36300D76E6F /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				B6B39D2E16E4E3C400D76E6F /* Task.h */,
+				B6B39D2F16E4E3C400D76E6F /* Task.m */,
+			);
+			name = Models;
+			path = Timestamp;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -214,7 +239,7 @@
 				en,
 			);
 			mainGroup = B61F372016DE487C00E3257E;
-			productRefGroup = B61F372A16DE487C00E3257E /* Products */;
+			productRefGroup = B61F372A16DE487C00E3257E /* Build */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
@@ -269,6 +294,7 @@
 				B61F373916DE487C00E3257E /* main.m in Sources */,
 				B61F374016DE487C00E3257E /* AppDelegate.m in Sources */,
 				B6B39D2B16E4DBB800D76E6F /* StatusBarController.m in Sources */,
+				B6B39D3016E4E3C400D76E6F /* Task.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
