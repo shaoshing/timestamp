@@ -1,5 +1,6 @@
 #import "StatusBarController.h"
 #import "Task.h"
+#import "PreferrencesWindowController.h"
 
 @implementation StatusBarController
 

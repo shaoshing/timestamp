@@ -19,6 +19,7 @@
 		B61F375716DE487D00E3257E /* TimestampTests.m in Sources */ = {isa = PBXBuildFile; fileRef = B61F375616DE487D00E3257E /* TimestampTests.m */; };
 		B6B39D2B16E4DBB800D76E6F /* StatusBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = B6B39D2A16E4DBB800D76E6F /* StatusBarController.m */; };
 		B6B39D3016E4E3C400D76E6F /* Task.m in Sources */ = {isa = PBXBuildFile; fileRef = B6B39D2F16E4E3C400D76E6F /* Task.m */; };
+		B6B39D3316E4F2E700D76E6F /* PreferrencesWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = B6B39D3216E4F2E700D76E6F /* PreferrencesWindowController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,6 +56,8 @@
 		B6B39D2A16E4DBB800D76E6F /* StatusBarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StatusBarController.m; sourceTree = "<group>"; };
 		B6B39D2E16E4E3C400D76E6F /* Task.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Task.h; sourceTree = "<group>"; };
 		B6B39D2F16E4E3C400D76E6F /* Task.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Task.m; sourceTree = "<group>"; };
+		B6B39D3116E4F2E600D76E6F /* PreferrencesWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PreferrencesWindowController.h; sourceTree = "<group>"; };
+		B6B39D3216E4F2E700D76E6F /* PreferrencesWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PreferrencesWindowController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -168,6 +171,8 @@
 				B61F373F16DE487C00E3257E /* AppDelegate.m */,
 				B6B39D2916E4DBB800D76E6F /* StatusBarController.h */,
 				B6B39D2A16E4DBB800D76E6F /* StatusBarController.m */,
+				B6B39D3116E4F2E600D76E6F /* PreferrencesWindowController.h */,
+				B6B39D3216E4F2E700D76E6F /* PreferrencesWindowController.m */,
 			);
 			name = Controllers;
 			path = Timestamp;
@@ -295,6 +300,7 @@
 				B61F374016DE487C00E3257E /* AppDelegate.m in Sources */,
 				B6B39D2B16E4DBB800D76E6F /* StatusBarController.m in Sources */,
 				B6B39D3016E4E3C400D76E6F /* Task.m in Sources */,
+				B6B39D3316E4F2E700D76E6F /* PreferrencesWindowController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
