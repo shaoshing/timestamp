@@ -452,6 +452,7 @@
 				B61F375C16DE487D00E3257E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		B61F375D16DE487D00E3257E /* Build configuration list for PBXNativeTarget "TimestampTests" */ = {
 			isa = XCConfigurationList;
@@ -460,6 +461,7 @@
 				B61F375F16DE487D00E3257E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

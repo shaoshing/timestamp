@@ -1,18 +1,22 @@
-//
-//  AppDelegate.m
-//  Timestamp
-//
-//  Created by Shaoshing on 2/27/13.
-//  Copyright (c) 2013 Shaoshing. All rights reserved.
-//
-
 #import "AppDelegate.h"
+
 
 @implementation AppDelegate
 
-- (void)applicationDidFinishLaunching:(NSNotification *)aNotification
-{
-    // Insert code here to initialize your application
+- (void)applicationDidFinishLaunching:(NSNotification *)notification{
+    [self activateStatusMenu];
 }
+
+
+- (void) activateStatusMenu{
+	self.statusItem = [[NSStatusBar systemStatusBar] statusItemWithLength:NSVariableStatusItemLength];
+    
+	[self.statusItem setHighlightMode:YES];
+	[self.statusItem setEnabled:YES];
+	[self.statusItem setToolTip:@"Timestamp"];
+	[self.statusItem setTarget:self];
+    [self.statusItem setTitle:@"Timestamp"];
+}
+
 
 @end
