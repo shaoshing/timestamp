@@ -12,14 +12,14 @@
 		B61F373916DE487C00E3257E /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = B61F373816DE487C00E3257E /* main.m */; };
 		B61F373D16DE487C00E3257E /* Credits.rtf in Resources */ = {isa = PBXBuildFile; fileRef = B61F373B16DE487C00E3257E /* Credits.rtf */; };
 		B61F374016DE487C00E3257E /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = B61F373F16DE487C00E3257E /* AppDelegate.m */; };
-		B61F374316DE487D00E3257E /* App.xib in Resources */ = {isa = PBXBuildFile; fileRef = B61F374116DE487D00E3257E /* App.xib */; };
+		B61F374316DE487D00E3257E /* Interfaces.xib in Resources */ = {isa = PBXBuildFile; fileRef = B61F374116DE487D00E3257E /* Interfaces.xib */; };
 		B61F374B16DE487D00E3257E /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B61F374A16DE487D00E3257E /* SenTestingKit.framework */; };
 		B61F374C16DE487D00E3257E /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B61F372C16DE487C00E3257E /* Cocoa.framework */; };
 		B61F375416DE487D00E3257E /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = B61F375216DE487D00E3257E /* InfoPlist.strings */; };
 		B61F375716DE487D00E3257E /* TimestampTests.m in Sources */ = {isa = PBXBuildFile; fileRef = B61F375616DE487D00E3257E /* TimestampTests.m */; };
 		B6B39D2B16E4DBB800D76E6F /* StatusBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = B6B39D2A16E4DBB800D76E6F /* StatusBarController.m */; };
 		B6B39D3016E4E3C400D76E6F /* Task.m in Sources */ = {isa = PBXBuildFile; fileRef = B6B39D2F16E4E3C400D76E6F /* Task.m */; };
-		B6B39D3316E4F2E700D76E6F /* PreferrencesWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = B6B39D3216E4F2E700D76E6F /* PreferrencesWindowController.m */; };
+		B6F5D15816E78997003FE1F2 /* PreferrencesController.m in Sources */ = {isa = PBXBuildFile; fileRef = B6F5D15716E78997003FE1F2 /* PreferrencesController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -45,7 +45,7 @@
 		B61F373C16DE487C00E3257E /* en */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; name = en; path = en.lproj/Credits.rtf; sourceTree = "<group>"; };
 		B61F373E16DE487C00E3257E /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		B61F373F16DE487C00E3257E /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		B61F374216DE487D00E3257E /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/App.xib; sourceTree = "<group>"; };
+		B61F374216DE487D00E3257E /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/Interfaces.xib; sourceTree = "<group>"; };
 		B61F374916DE487D00E3257E /* TimestampTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TimestampTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
 		B61F374A16DE487D00E3257E /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
 		B61F375116DE487D00E3257E /* TimestampTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "TimestampTests-Info.plist"; sourceTree = "<group>"; };
@@ -56,8 +56,8 @@
 		B6B39D2A16E4DBB800D76E6F /* StatusBarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StatusBarController.m; sourceTree = "<group>"; };
 		B6B39D2E16E4E3C400D76E6F /* Task.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Task.h; sourceTree = "<group>"; };
 		B6B39D2F16E4E3C400D76E6F /* Task.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Task.m; sourceTree = "<group>"; };
-		B6B39D3116E4F2E600D76E6F /* PreferrencesWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PreferrencesWindowController.h; sourceTree = "<group>"; };
-		B6B39D3216E4F2E700D76E6F /* PreferrencesWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PreferrencesWindowController.m; sourceTree = "<group>"; };
+		B6F5D15616E78997003FE1F2 /* PreferrencesController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PreferrencesController.h; sourceTree = "<group>"; };
+		B6F5D15716E78997003FE1F2 /* PreferrencesController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PreferrencesController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -125,7 +125,7 @@
 		B61F373216DE487C00E3257E /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				B61F374116DE487D00E3257E /* App.xib */,
+				B61F374116DE487D00E3257E /* Interfaces.xib */,
 				B61F373316DE487C00E3257E /* Supporting Files */,
 			);
 			name = Resources;
@@ -171,8 +171,8 @@
 				B61F373F16DE487C00E3257E /* AppDelegate.m */,
 				B6B39D2916E4DBB800D76E6F /* StatusBarController.h */,
 				B6B39D2A16E4DBB800D76E6F /* StatusBarController.m */,
-				B6B39D3116E4F2E600D76E6F /* PreferrencesWindowController.h */,
-				B6B39D3216E4F2E700D76E6F /* PreferrencesWindowController.m */,
+				B6F5D15616E78997003FE1F2 /* PreferrencesController.h */,
+				B6F5D15716E78997003FE1F2 /* PreferrencesController.m */,
 			);
 			name = Controllers;
 			path = Timestamp;
@@ -261,7 +261,7 @@
 			files = (
 				B61F373716DE487C00E3257E /* InfoPlist.strings in Resources */,
 				B61F373D16DE487C00E3257E /* Credits.rtf in Resources */,
-				B61F374316DE487D00E3257E /* App.xib in Resources */,
+				B61F374316DE487D00E3257E /* Interfaces.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -300,7 +300,7 @@
 				B61F374016DE487C00E3257E /* AppDelegate.m in Sources */,
 				B6B39D2B16E4DBB800D76E6F /* StatusBarController.m in Sources */,
 				B6B39D3016E4E3C400D76E6F /* Task.m in Sources */,
-				B6B39D3316E4F2E700D76E6F /* PreferrencesWindowController.m in Sources */,
+				B6F5D15816E78997003FE1F2 /* PreferrencesController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -339,12 +339,12 @@
 			name = Credits.rtf;
 			sourceTree = "<group>";
 		};
-		B61F374116DE487D00E3257E /* App.xib */ = {
+		B61F374116DE487D00E3257E /* Interfaces.xib */ = {
 			isa = PBXVariantGroup;
 			children = (
 				B61F374216DE487D00E3257E /* en */,
 			);
-			name = App.xib;
+			name = Interfaces.xib;
 			sourceTree = "<group>";
 		};
 		B61F375216DE487D00E3257E /* InfoPlist.strings */ = {

@@ -1,17 +1,19 @@
 #import <Foundation/Foundation.h>
 
 @class Task;
-@class PreferrencesWindowController;
+@class PreferrencesController;
 
 @interface StatusBarController : NSObject 
 
-@property (weak) IBOutlet NSMenu *statusMenu;
 @property (strong) NSStatusItem *statusItem;
 @property (strong) Task *currentTask;
-@property (weak) IBOutlet PreferrencesWindowController *preferrencesWindowController;
+
+@property (weak) IBOutlet NSMenu *statusMenu;
+@property (weak) IBOutlet PreferrencesController *preferrencesController;
 
 - (IBAction)clickStart:(id)sender;
 - (IBAction)clickStop:(id)sender;
 - (IBAction)clickQuit:(id)sender;
+- (IBAction)clickPreferrences:(id)sender;
 
 @end
