@@ -23,13 +23,19 @@
   
   [self.taskNameMenuItem setHidden:false];
   [self.taskTimeDescMenuItem setHidden:false];
+  
   [self toggleStartAndStopMenuItems];
   [self updateMenuItemsOfTaskInfo];
+  
+  self.menuItemTimer = [NSTimer scheduledTimerWithTimeInterval:1.0 target:self selector:@selector(updateMenuItemsOfTaskInfo) userInfo:nil repeats:YES];
 }
 
 - (IBAction)clickStop:(id)sender {
   [self.currentTask finish];
   [self toggleStartAndStopMenuItems];
+  
+  [self.menuItemTimer invalidate];
+  self.menuItemTimer = nil;
   [self updateMenuItemsOfTaskInfo];
 }
 
@@ -47,7 +53,8 @@
   }
   
   NSString *strfTaskName = @"Working on \"%@\":";
-  NSString *strfTaskTime = @"%02d:%02d (Since %@)";
+  NSString *strfTaskTime = @"Lasted %d hours and %d minutes, since %@";
+  
   if ([self.currentTask isFinished]){
     strfTaskName = @"Previously working on \"%@\":";
   }
