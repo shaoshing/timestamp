@@ -13,20 +13,24 @@
 
 #pragma mark - Instance Methods
 
-- (void) endTask{
+- (void) finish{
     self.endedAt = [NSDate date];
 }
 
-- (NSString *) getHumanizedDescription{
-    NSString *strStartedAt = [self.startedAt descriptionWithCalendarFormat:@"%H:%M:%S" timeZone:nil locale:nil];
-    
-    NSString *strEndedAt = [self.endedAt descriptionWithCalendarFormat:@"%H:%M:%S" timeZone:nil locale:nil];
-    
-    NSDate *dateOfInterval = [NSDate dateWithTimeIntervalSince1970:[self.endedAt timeIntervalSinceDate:self.startedAt]];
-    NSString *strInterval = [dateOfInterval descriptionWithCalendarFormat:@"%H:%M:%S" timeZone:nil locale:nil];
-    
-    NSString *description = [NSString stringWithFormat:@"Name: %@, Started at: %@, Ended at: %@, Total time: %@", self.name, strStartedAt, strEndedAt, strInterval];
-    return description;
+- (Boolean) isFinished{
+  return self.endedAt != nil;
 }
+
+// todo: duration is returning with 8 hrs ahead of the actual duration.
+- (NSDate *) duration{
+  NSDate *date = [NSDate date];
+  if (self.endedAt != nil){
+    date = self.endedAt;
+  }
+  NSDate *dateOfDuration = [NSDate dateWithTimeIntervalSince1970:[date timeIntervalSinceDate:self.startedAt]];
+  return dateOfDuration;
+}
+
+
 
 @end

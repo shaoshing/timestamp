@@ -8,7 +8,7 @@
 
 + (Task *) startWithCurrentTimeAndName:(NSString*)name;
 
-- (void) endTask;
-- (NSString *) getHumanizedDescription;
-
+- (void) finish;
+- (NSDate *) duration;
+- (Boolean) isFinished;
 @end

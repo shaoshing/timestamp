@@ -3,13 +3,17 @@
 @class Task;
 @class PreferrencesController;
 
-@interface StatusBarController : NSObject 
+@interface StatusBarController : NSObject
 
 @property (strong) NSStatusItem *statusItem;
 @property (strong) Task *currentTask;
 
 @property (weak) IBOutlet NSMenu *statusMenu;
 @property (weak) IBOutlet PreferrencesController *preferrencesController;
+@property (weak) IBOutlet NSMenuItem *taskNameMenuItem;
+@property (weak) IBOutlet NSMenuItem *taskTimeDescMenuItem;
+@property (weak) IBOutlet NSMenuItem *startMenuItem;
+@property (weak) IBOutlet NSMenuItem *stopMenuItem;
 
 - (IBAction)clickStart:(id)sender;
 - (IBAction)clickStop:(id)sender;

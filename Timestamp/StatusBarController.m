@@ -4,40 +4,64 @@
 
 @implementation StatusBarController
 
-@synthesize statusItem;
-@synthesize statusMenu;
-@synthesize currentTask;
-@synthesize preferrencesController;
-
 #pragma mark - Init
 
 - (void) awakeFromNib{    
-    statusItem = [[NSStatusBar systemStatusBar] statusItemWithLength:NSVariableStatusItemLength];
+    self.statusItem = [[NSStatusBar systemStatusBar] statusItemWithLength:NSVariableStatusItemLength];
     
-    [statusItem setHighlightMode:YES];
-    [statusItem setEnabled:YES];
-    [statusItem setToolTip:@"Timestamp"];
-    [statusItem setTarget:self];
-    [statusItem setTitle:@"Timestamp"];
-    [statusItem setMenu:statusMenu];
+  [self.statusItem setHighlightMode:YES];
+  [self.statusItem setEnabled:YES];
+  [self.statusItem setToolTip:@"Timestamp"];
+  [self.statusItem setTarget:self];
+  [self.statusItem setTitle:@"Timestamp"];
+  [self.statusItem setMenu:self.statusMenu];
 }
 
 #pragma mark - Actions
 - (IBAction)clickStart:(id)sender {
-    currentTask = [Task startWithCurrentTimeAndName:@"Working"];
+  self.currentTask = [Task startWithCurrentTimeAndName:@"Some Tasks"];
+  
+  [self.taskNameMenuItem setHidden:false];
+  [self.taskTimeDescMenuItem setHidden:false];
+  [self toggleStartAndStopMenuItems];
+  [self updateMenuItemsOfTaskInfo];
 }
 
 - (IBAction)clickStop:(id)sender {
-    [currentTask endTask];
-    NSLog(@"%@", [currentTask getHumanizedDescription]);
+  [self.currentTask finish];
+  [self toggleStartAndStopMenuItems];
+  [self updateMenuItemsOfTaskInfo];
 }
 
 - (IBAction)clickQuit:(id)sender {
-    [NSApp terminate: nil];
+  [NSApp terminate: nil];
 }
 
 - (IBAction)clickPreferrences:(id)sender{
-  [preferrencesController showWindow:self];
+  [self.preferrencesController showWindow:self];
+}
+
+- (void)updateMenuItemsOfTaskInfo{
+  if (self.currentTask == nil){
+    return;
+  }
+  
+  NSString *strfTaskName = @"Working on \"%@\":";
+  NSString *strfTaskTime = @"%@ (Since %@)";
+  if ([self.currentTask isFinished]){
+    strfTaskName = @"Previously working on \"%@\":";
+  }
+  
+  [self.taskNameMenuItem setTitle:[NSString stringWithFormat:strfTaskName, self.currentTask.name]];
+  NSString *startedAt = [self.currentTask.startedAt descriptionWithCalendarFormat:@"%H:%M" timeZone:nil locale:nil];
+  NSString *duration = [[self.currentTask duration] descriptionWithCalendarFormat:@"%H:%M" timeZone:nil locale:nil];
+  [self.taskTimeDescMenuItem setTitle:[NSString stringWithFormat:strfTaskTime, duration, startedAt]];
+
+}
+
+- (void) toggleStartAndStopMenuItems{
+  [self.stopMenuItem setHidden:![self.stopMenuItem isHidden]];
+  [self.startMenuItem setHidden:![self.startMenuItem isHidden]];
 }
 
 @end
