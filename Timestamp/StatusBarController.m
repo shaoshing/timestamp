@@ -47,15 +47,15 @@
   }
   
   NSString *strfTaskName = @"Working on \"%@\":";
-  NSString *strfTaskTime = @"%@ (Since %@)";
+  NSString *strfTaskTime = @"%02d:%02d (Since %@)";
   if ([self.currentTask isFinished]){
     strfTaskName = @"Previously working on \"%@\":";
   }
   
   [self.taskNameMenuItem setTitle:[NSString stringWithFormat:strfTaskName, self.currentTask.name]];
   NSString *startedAt = [self.currentTask.startedAt descriptionWithCalendarFormat:@"%H:%M" timeZone:nil locale:nil];
-  NSString *duration = [[self.currentTask duration] descriptionWithCalendarFormat:@"%H:%M" timeZone:nil locale:nil];
-  [self.taskTimeDescMenuItem setTitle:[NSString stringWithFormat:strfTaskTime, duration, startedAt]];
+  TaskDuration *duration = [self.currentTask duration];
+  [self.taskTimeDescMenuItem setTitle:[NSString stringWithFormat:strfTaskTime, duration.hours, duration.minutes, startedAt]];
 
 }
 
