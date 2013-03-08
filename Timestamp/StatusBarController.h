@@ -15,6 +15,9 @@
 @property (weak) IBOutlet NSMenuItem *startMenuItem;
 @property (weak) IBOutlet NSMenuItem *stopMenuItem;
 
+@property (strong) NSImage *icon;
+@property (strong) NSImage *iconHighlighted;
+
 @property (strong) NSTimer *menuItemTimer;
 
 - (IBAction)clickStart:(id)sender;

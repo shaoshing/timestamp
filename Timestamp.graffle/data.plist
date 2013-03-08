@@ -1342,7 +1342,7 @@
 	<key>MasterSheets</key>
 	<array/>
 	<key>ModificationDate</key>
-	<string>2013-03-08 12:45:44 +0000</string>
+	<string>2013-03-08 15:32:06 +0000</string>
 	<key>Modifier</key>
 	<string>Shaoshing</string>
 	<key>NotesVisible</key>
@@ -2028,7 +2028,7 @@
 				</dict>
 				<dict>
 					<key>Bounds</key>
-					<string>{{97, 140.5}, {82, 82.000007629394531}}</string>
+					<string>{{106, 76}, {82, 82.000007629394531}}</string>
 					<key>Class</key>
 					<string>ShapedGraphic</string>
 					<key>ID</key>
@@ -2141,7 +2141,7 @@
 	<key>WindowInfo</key>
 	<dict>
 		<key>CurrentSheet</key>
-		<integer>0</integer>
+		<integer>1</integer>
 		<key>ExpandedCanvases</key>
 		<array>
 			<dict>

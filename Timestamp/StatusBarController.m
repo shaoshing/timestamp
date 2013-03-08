@@ -8,13 +8,24 @@
 
 - (void) awakeFromNib{    
     self.statusItem = [[NSStatusBar systemStatusBar] statusItemWithLength:NSVariableStatusItemLength];
+  
+  NSBundle *bundle = [NSBundle mainBundle];
+  self.icon = [[NSImage alloc] initWithContentsOfFile:[bundle pathForResource:@"StatusBarIcon" ofType:@"png"]];
+  self.iconHighlighted = [[NSImage alloc] initWithContentsOfFile:[bundle pathForResource:@"StatusBarIconHighlighted" ofType:@"png"]];
+  [self.statusItem setImage:self.icon];
+  [self.statusItem setAlternateImage:self.iconHighlighted];
     
   [self.statusItem setHighlightMode:YES];
   [self.statusItem setEnabled:YES];
   [self.statusItem setToolTip:@"Timestamp"];
   [self.statusItem setTarget:self];
-  [self.statusItem setTitle:@"Timestamp"];
+  [self.statusItem setTitle:@""];
   [self.statusItem setMenu:self.statusMenu];
+}
+
+- (void) dealloc{
+//  [self.icon release];
+//  [self.iconAlter release];
 }
 
 #pragma mark - Actions
@@ -28,6 +39,8 @@
   [self updateMenuItemsOfTaskInfo];
   
   self.menuItemTimer = [NSTimer scheduledTimerWithTimeInterval:1.0 target:self selector:@selector(updateMenuItemsOfTaskInfo) userInfo:nil repeats:YES];
+  
+  
 }
 
 - (IBAction)clickStop:(id)sender {
