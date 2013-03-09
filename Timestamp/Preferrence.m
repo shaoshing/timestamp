@@ -1,4 +1,5 @@
 #import "Preferrence.h"
+#import "CalendarEvent.h"
 
 @implementation Preferrence
 
@@ -12,9 +13,9 @@
   self.wifiName = [standardUserDefaults stringForKey:@"WiFi Name"];
   self.taskName = [standardUserDefaults stringForKey:@"Task Name"];
   
-  if (!self.calendarName) self.calendarName = @"";
+  if (!self.calendarName) self.calendarName = [CalendarEvent getCalendarNames][0];
   if (!self.wifiName) self.wifiName = @"";
-  if (!self.taskName) self.taskName = @"";
+  if (!self.taskName) self.taskName = @"Cool Stuff";
   
   return true;
 }

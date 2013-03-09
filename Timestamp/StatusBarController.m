@@ -1,13 +1,14 @@
 #import "StatusBarController.h"
 #import "Task.h"
 #import "PreferrencesController.h"
+#import "Preferrence.h"
 
 @implementation StatusBarController
 
 #pragma mark - Init
 
 - (void) awakeFromNib{    
-    self.statusItem = [[NSStatusBar systemStatusBar] statusItemWithLength:NSVariableStatusItemLength];
+  self.statusItem = [[NSStatusBar systemStatusBar] statusItemWithLength:NSVariableStatusItemLength];
   
   NSBundle *bundle = [NSBundle mainBundle];
   self.icon = [[NSImage alloc] initWithContentsOfFile:[bundle pathForResource:@"StatusBarIcon" ofType:@"png"]];
@@ -21,11 +22,13 @@
   [self.statusItem setTarget:self];
   [self.statusItem setTitle:@""];
   [self.statusItem setMenu:self.statusMenu];
+  
+  self.preferrence = self.preferrencesController.preferrence;
 }
 
 #pragma mark - Actions
 - (IBAction)clickStart:(id)sender {
-  self.currentTask = [Task startWithCurrentTimeAndName:@"Some Tasks"];
+  self.currentTask = [Task startWithCurrentTimeAndName:self.preferrence.taskName SaveInCalendar:self.preferrence.calendarName];
   
   [self.taskNameMenuItem setHidden:false];
   [self.taskTimeDescMenuItem setHidden:false];

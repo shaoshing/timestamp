@@ -6,10 +6,10 @@
 
 @property (strong) NSDate *startedAt;
 @property (strong) NSDate *endedAt;
-@property NSString *name;
 @property (strong) CalendarEvent *calendarEvent;
+@property NSString *name;
 
-+ (Task *) startWithCurrentTimeAndName:(NSString*)name;
++ (Task *) startWithCurrentTimeAndName:(NSString*)name SaveInCalendar:(NSString *)calendarName;
 
 - (void) finish;
 - (TaskDuration *) duration;

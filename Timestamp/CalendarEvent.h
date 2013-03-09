@@ -4,13 +4,14 @@
 @interface CalendarEvent : NSObject
 
 @property NSString *title;
-@property NSDate *from;
-@property NSDate *to;
+@property NSDate *startedAt;
+@property NSDate *endedAt;
 @property EKEvent *ekEvent;
+@property NSString *calendarName;
 
 + (EKEventStore *) getEventStore;
 + (NSArray *) getCalendarNames;
-+ (CalendarEvent *) createEventWithTitle:(NSString *)title From:(NSDate *)from;
++ (CalendarEvent *) createEventWithTitle:(NSString *)title From:(NSDate *)from InCalendar:(NSString *)calendarName;
 
 - (void) createOrUpdateEventInCalendar;
 

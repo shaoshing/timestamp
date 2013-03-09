@@ -1,6 +1,6 @@
 #import <Foundation/Foundation.h>
 
-@class Task, PreferrencesController;
+@class Task, PreferrencesController, Preferrence;
 
 @interface StatusBarController : NSObject
 
@@ -14,6 +14,7 @@
 
 @property (strong) NSImage *icon;
 @property (strong) NSImage *iconHighlighted;
+@property (weak) Preferrence *preferrence;
 
 @property (strong) Task *currentTask;
 @property (strong) NSTimer *menuItemTimer;

@@ -3,20 +3,20 @@
 
 @implementation Task
 
-+ (Task *) startWithCurrentTimeAndName:(NSString*)name{
++ (Task *) startWithCurrentTimeAndName:(NSString*)name SaveInCalendar:(NSString *)calendarName{
   Task *task = [[Task alloc] init];
   task.name = name;
   task.startedAt = [NSDate date];
   
   NSString *calendarEventTitle = [NSString stringWithFormat:@"[Timestamp] Working on \"%@\"", task.name];
-  task.calendarEvent = [CalendarEvent createEventWithTitle:calendarEventTitle From:task.startedAt];
+  task.calendarEvent = [CalendarEvent createEventWithTitle:calendarEventTitle From:task.startedAt InCalendar:calendarName];
   return task;
 }
 
 - (void) finish{
   self.endedAt = [NSDate date];
   
-  self.calendarEvent.to = self.endedAt;
+  self.calendarEvent.endedAt = self.endedAt;
   self.calendarEvent.title = [NSString stringWithFormat:@"[Timestamp] %@", self.name];
   [self.calendarEvent createOrUpdateEventInCalendar];
 }

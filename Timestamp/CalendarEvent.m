@@ -22,11 +22,12 @@ EKEventStore *store;
   return calendarNames;
 }
 
-+ (CalendarEvent *) createEventWithTitle:(NSString *)title From:(NSDate *)from{
++ (CalendarEvent *) createEventWithTitle:(NSString *)title From:(NSDate *)from InCalendar:(NSString *)calendarName{
   CalendarEvent *event = [[CalendarEvent alloc] init];
   event.title = title;
-  event.from = from;
-  event.to = from;
+  event.startedAt = from;
+  event.endedAt = from;
+  event.calendarName = calendarName;
   [event createOrUpdateEventInCalendar];
   return event;
 }
@@ -38,13 +39,15 @@ EKEventStore *store;
   
   EKCalendar *calendar;
   for (calendar in [store calendarsForEntityType:EKEntityTypeEvent]) {
-    if ([calendar.title isEqual:@"frankyue"]){
+    if ([calendar.title isEqual:self.calendarName]){
       break;
     }
   }
   
-  self.ekEvent.startDate = self.from;
-  self.ekEvent.endDate = self.to;
+  NSLog(@"Ended At: %@", self.endedAt);
+  
+  self.ekEvent.startDate = self.startedAt;
+  self.ekEvent.endDate = self.endedAt;
   self.ekEvent.title = self.title;
   self.ekEvent.calendar = calendar;
   

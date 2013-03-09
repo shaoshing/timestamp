@@ -209,12 +209,12 @@
 			children = (
 				B6B39D2E16E4E3C400D76E6F /* Task.h */,
 				B6B39D2F16E4E3C400D76E6F /* Task.m */,
+				B6D4781E16EADD5A00EAAFD3 /* CalendarEvent.h */,
+				B6D4781F16EADD5A00EAAFD3 /* CalendarEvent.m */,
 				B6D4782316EB18F300EAAFD3 /* WiFi.h */,
 				B6D4782416EB18F300EAAFD3 /* WiFi.m */,
 				B6D4782816EB269000EAAFD3 /* Preferrence.h */,
 				B6D4782916EB269000EAAFD3 /* Preferrence.m */,
-				B6D4781E16EADD5A00EAAFD3 /* CalendarEvent.h */,
-				B6D4781F16EADD5A00EAAFD3 /* CalendarEvent.m */,
 			);
 			name = Models;
 			path = Timestamp;

@@ -1,5 +1,7 @@
 #import <Foundation/Foundation.h>
 
+@class CalendarEvent;
+
 @interface Preferrence : NSObject
 
 @property NSString *calendarName;
