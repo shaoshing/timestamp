@@ -6,8 +6,6 @@
 @interface StatusBarController : NSObject
 
 @property (strong) NSStatusItem *statusItem;
-@property (strong) Task *currentTask;
-
 @property (weak) IBOutlet NSMenu *statusMenu;
 @property (weak) IBOutlet PreferrencesController *preferrencesController;
 @property (weak) IBOutlet NSMenuItem *taskNameMenuItem;
@@ -18,6 +16,7 @@
 @property (strong) NSImage *icon;
 @property (strong) NSImage *iconHighlighted;
 
+@property (strong) Task *currentTask;
 @property (strong) NSTimer *menuItemTimer;
 
 - (IBAction)clickStart:(id)sender;

@@ -22,6 +22,8 @@
 		B6D4781816EA3C6500EAAFD3 /* StatusBarIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = B6D4781616EA3C6500EAAFD3 /* StatusBarIcon.png */; };
 		B6D4781916EA3C6500EAAFD3 /* StatusBarIconHighlighted.png in Resources */ = {isa = PBXBuildFile; fileRef = B6D4781716EA3C6500EAAFD3 /* StatusBarIconHighlighted.png */; };
 		B6D4781D16EA480000EAAFD3 /* StatusBarIcon2.png in Resources */ = {isa = PBXBuildFile; fileRef = B6D4781C16EA480000EAAFD3 /* StatusBarIcon2.png */; };
+		B6D4782016EADD5A00EAAFD3 /* CalendarEvent.m in Sources */ = {isa = PBXBuildFile; fileRef = B6D4781F16EADD5A00EAAFD3 /* CalendarEvent.m */; };
+		B6D4782216EAEA8B00EAAFD3 /* EventKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B6D4782116EAEA8B00EAAFD3 /* EventKit.framework */; };
 		B6F5D15816E78997003FE1F2 /* PreferrencesController.m in Sources */ = {isa = PBXBuildFile; fileRef = B6F5D15716E78997003FE1F2 /* PreferrencesController.m */; };
 /* End PBXBuildFile section */
 
@@ -62,6 +64,9 @@
 		B6D4781616EA3C6500EAAFD3 /* StatusBarIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = StatusBarIcon.png; sourceTree = "<group>"; };
 		B6D4781716EA3C6500EAAFD3 /* StatusBarIconHighlighted.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = StatusBarIconHighlighted.png; sourceTree = "<group>"; };
 		B6D4781C16EA480000EAAFD3 /* StatusBarIcon2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = StatusBarIcon2.png; sourceTree = "<group>"; };
+		B6D4781E16EADD5A00EAAFD3 /* CalendarEvent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CalendarEvent.h; sourceTree = "<group>"; };
+		B6D4781F16EADD5A00EAAFD3 /* CalendarEvent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CalendarEvent.m; sourceTree = "<group>"; };
+		B6D4782116EAEA8B00EAAFD3 /* EventKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = EventKit.framework; path = System/Library/Frameworks/EventKit.framework; sourceTree = SDKROOT; };
 		B6F5D15616E78997003FE1F2 /* PreferrencesController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PreferrencesController.h; sourceTree = "<group>"; };
 		B6F5D15716E78997003FE1F2 /* PreferrencesController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PreferrencesController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -71,6 +76,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B6D4782216EAEA8B00EAAFD3 /* EventKit.framework in Frameworks */,
 				B61F372D16DE487C00E3257E /* Cocoa.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -111,6 +117,7 @@
 		B61F372B16DE487C00E3257E /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				B6D4782116EAEA8B00EAAFD3 /* EventKit.framework */,
 				B61F372C16DE487C00E3257E /* Cocoa.framework */,
 				B61F374A16DE487D00E3257E /* SenTestingKit.framework */,
 				B61F372E16DE487C00E3257E /* Other Frameworks */,
@@ -192,6 +199,8 @@
 			children = (
 				B6B39D2E16E4E3C400D76E6F /* Task.h */,
 				B6B39D2F16E4E3C400D76E6F /* Task.m */,
+				B6D4781E16EADD5A00EAAFD3 /* CalendarEvent.h */,
+				B6D4781F16EADD5A00EAAFD3 /* CalendarEvent.m */,
 			);
 			name = Models;
 			path = Timestamp;
@@ -313,6 +322,7 @@
 				B6B39D2B16E4DBB800D76E6F /* StatusBarController.m in Sources */,
 				B6B39D3016E4E3C400D76E6F /* Task.m in Sources */,
 				B6F5D15816E78997003FE1F2 /* PreferrencesController.m in Sources */,
+				B6D4782016EADD5A00EAAFD3 /* CalendarEvent.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

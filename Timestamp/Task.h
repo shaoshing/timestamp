@@ -1,12 +1,14 @@
 #import <Foundation/Foundation.h>
 
 @class TaskDuration;
+@class CalendarEvent;
 
 @interface Task : NSObject
 
 @property (strong) NSDate *startedAt;
 @property (strong) NSDate *endedAt;
 @property NSString *name;
+@property (strong) CalendarEvent *calendarEvent;
 
 + (Task *) startWithCurrentTimeAndName:(NSString*)name;
 

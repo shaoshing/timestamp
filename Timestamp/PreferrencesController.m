@@ -1,24 +1,12 @@
 #import "PreferrencesController.h"
-
-@interface PreferrencesController ()
-
-@end
+#import "CalendarEvent.h"
 
 @implementation PreferrencesController
 
-- (id)initWithWindow:(NSWindow *)window
-{
-    self = [super initWithWindow:window];
-    if (self) {
-        // Initialization code here.
-    }
-    
-    return self;
-}
-
-- (void)windowDidLoad
-{
-  [super windowDidLoad];
+- (void) awakeFromNib{
+  for (NSString *calendarName in [CalendarEvent getCalendarNames]) {
+    [self.calendarsPopUp insertItemWithTitle:calendarName atIndex:0];
+  }
 }
 
 @end

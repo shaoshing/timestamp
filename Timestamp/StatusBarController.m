@@ -23,11 +23,6 @@
   [self.statusItem setMenu:self.statusMenu];
 }
 
-- (void) dealloc{
-//  [self.icon release];
-//  [self.iconAlter release];
-}
-
 #pragma mark - Actions
 - (IBAction)clickStart:(id)sender {
   self.currentTask = [Task startWithCurrentTimeAndName:@"Some Tasks"];
@@ -39,8 +34,6 @@
   [self updateMenuItemsOfTaskInfo];
   
   self.menuItemTimer = [NSTimer scheduledTimerWithTimeInterval:1.0 target:self selector:@selector(updateMenuItemsOfTaskInfo) userInfo:nil repeats:YES];
-  
-  
 }
 
 - (IBAction)clickStop:(id)sender {
