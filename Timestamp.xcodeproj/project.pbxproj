@@ -24,6 +24,8 @@
 		B6D4781D16EA480000EAAFD3 /* StatusBarIcon2.png in Resources */ = {isa = PBXBuildFile; fileRef = B6D4781C16EA480000EAAFD3 /* StatusBarIcon2.png */; };
 		B6D4782016EADD5A00EAAFD3 /* CalendarEvent.m in Sources */ = {isa = PBXBuildFile; fileRef = B6D4781F16EADD5A00EAAFD3 /* CalendarEvent.m */; };
 		B6D4782216EAEA8B00EAAFD3 /* EventKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B6D4782116EAEA8B00EAAFD3 /* EventKit.framework */; };
+		B6D4782516EB18F300EAAFD3 /* WiFi.m in Sources */ = {isa = PBXBuildFile; fileRef = B6D4782416EB18F300EAAFD3 /* WiFi.m */; };
+		B6D4782716EB242500EAAFD3 /* CoreWLAN.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B6D4782616EB242500EAAFD3 /* CoreWLAN.framework */; };
 		B6F5D15816E78997003FE1F2 /* PreferrencesController.m in Sources */ = {isa = PBXBuildFile; fileRef = B6F5D15716E78997003FE1F2 /* PreferrencesController.m */; };
 /* End PBXBuildFile section */
 
@@ -67,6 +69,9 @@
 		B6D4781E16EADD5A00EAAFD3 /* CalendarEvent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CalendarEvent.h; sourceTree = "<group>"; };
 		B6D4781F16EADD5A00EAAFD3 /* CalendarEvent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CalendarEvent.m; sourceTree = "<group>"; };
 		B6D4782116EAEA8B00EAAFD3 /* EventKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = EventKit.framework; path = System/Library/Frameworks/EventKit.framework; sourceTree = SDKROOT; };
+		B6D4782316EB18F300EAAFD3 /* WiFi.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WiFi.h; sourceTree = "<group>"; };
+		B6D4782416EB18F300EAAFD3 /* WiFi.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WiFi.m; sourceTree = "<group>"; };
+		B6D4782616EB242500EAAFD3 /* CoreWLAN.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreWLAN.framework; path = System/Library/Frameworks/CoreWLAN.framework; sourceTree = SDKROOT; };
 		B6F5D15616E78997003FE1F2 /* PreferrencesController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PreferrencesController.h; sourceTree = "<group>"; };
 		B6F5D15716E78997003FE1F2 /* PreferrencesController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PreferrencesController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -76,6 +81,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B6D4782716EB242500EAAFD3 /* CoreWLAN.framework in Frameworks */,
 				B6D4782216EAEA8B00EAAFD3 /* EventKit.framework in Frameworks */,
 				B61F372D16DE487C00E3257E /* Cocoa.framework in Frameworks */,
 			);
@@ -117,6 +123,7 @@
 		B61F372B16DE487C00E3257E /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				B6D4782616EB242500EAAFD3 /* CoreWLAN.framework */,
 				B6D4782116EAEA8B00EAAFD3 /* EventKit.framework */,
 				B61F372C16DE487C00E3257E /* Cocoa.framework */,
 				B61F374A16DE487D00E3257E /* SenTestingKit.framework */,
@@ -199,6 +206,8 @@
 			children = (
 				B6B39D2E16E4E3C400D76E6F /* Task.h */,
 				B6B39D2F16E4E3C400D76E6F /* Task.m */,
+				B6D4782316EB18F300EAAFD3 /* WiFi.h */,
+				B6D4782416EB18F300EAAFD3 /* WiFi.m */,
 				B6D4781E16EADD5A00EAAFD3 /* CalendarEvent.h */,
 				B6D4781F16EADD5A00EAAFD3 /* CalendarEvent.m */,
 			);
@@ -323,6 +332,7 @@
 				B6B39D3016E4E3C400D76E6F /* Task.m in Sources */,
 				B6F5D15816E78997003FE1F2 /* PreferrencesController.m in Sources */,
 				B6D4782016EADD5A00EAAFD3 /* CalendarEvent.m in Sources */,
+				B6D4782516EB18F300EAAFD3 /* WiFi.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
