@@ -1,6 +1,9 @@
 #import "Preferrence.h"
 #import "CalendarEvent.h"
 
+// Tutorial:
+// http://www.mobiledev.nl/how-to-save-and-load-user-preferences-nsuserdefaults-in-objective-c/
+
 @implementation Preferrence
 
 - (Boolean) load{

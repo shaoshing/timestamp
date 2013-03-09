@@ -10,6 +10,7 @@ EKEventStore *store;
   return store;
 }
 
+// Should remove read-only calendars.
 + (NSArray *) getCalendarNames{
   EKEventStore *store = [self getEventStore];
   

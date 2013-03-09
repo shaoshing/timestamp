@@ -7,11 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B60F2E5816EB48B100A41408 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = B60F2E5716EB48B100A41408 /* AppDelegate.m */; };
+		B60F2E5B16EB501B00A41408 /* AutomationController.m in Sources */ = {isa = PBXBuildFile; fileRef = B60F2E5A16EB501B00A41408 /* AutomationController.m */; };
 		B61F372D16DE487C00E3257E /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B61F372C16DE487C00E3257E /* Cocoa.framework */; };
 		B61F373716DE487C00E3257E /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = B61F373516DE487C00E3257E /* InfoPlist.strings */; };
 		B61F373916DE487C00E3257E /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = B61F373816DE487C00E3257E /* main.m */; };
 		B61F373D16DE487C00E3257E /* Credits.rtf in Resources */ = {isa = PBXBuildFile; fileRef = B61F373B16DE487C00E3257E /* Credits.rtf */; };
-		B61F374016DE487C00E3257E /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = B61F373F16DE487C00E3257E /* AppDelegate.m */; };
 		B61F374316DE487D00E3257E /* Interfaces.xib in Resources */ = {isa = PBXBuildFile; fileRef = B61F374116DE487D00E3257E /* Interfaces.xib */; };
 		B61F374B16DE487D00E3257E /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B61F374A16DE487D00E3257E /* SenTestingKit.framework */; };
 		B61F374C16DE487D00E3257E /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B61F372C16DE487C00E3257E /* Cocoa.framework */; };
@@ -28,6 +29,7 @@
 		B6D4782716EB242500EAAFD3 /* CoreWLAN.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B6D4782616EB242500EAAFD3 /* CoreWLAN.framework */; };
 		B6D4782A16EB269000EAAFD3 /* Preferrence.m in Sources */ = {isa = PBXBuildFile; fileRef = B6D4782916EB269000EAAFD3 /* Preferrence.m */; };
 		B6F5D15816E78997003FE1F2 /* PreferrencesController.m in Sources */ = {isa = PBXBuildFile; fileRef = B6F5D15716E78997003FE1F2 /* PreferrencesController.m */; };
+		ED0B703F2B154860A32C9D69 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BF43A2D20C1A483B932AD556 /* libPods.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -41,6 +43,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		B60F2E5716EB48B100A41408 /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		B60F2E5916EB501B00A41408 /* AutomationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AutomationController.h; sourceTree = "<group>"; };
+		B60F2E5A16EB501B00A41408 /* AutomationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AutomationController.m; sourceTree = "<group>"; };
 		B61F372916DE487C00E3257E /* Timestamp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Timestamp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B61F372C16DE487C00E3257E /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		B61F372F16DE487C00E3257E /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
@@ -52,7 +57,6 @@
 		B61F373A16DE487C00E3257E /* Timestamp-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Timestamp-Prefix.pch"; sourceTree = "<group>"; };
 		B61F373C16DE487C00E3257E /* en */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; name = en; path = en.lproj/Credits.rtf; sourceTree = "<group>"; };
 		B61F373E16DE487C00E3257E /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
-		B61F373F16DE487C00E3257E /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		B61F374216DE487D00E3257E /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/Interfaces.xib; sourceTree = "<group>"; };
 		B61F374916DE487D00E3257E /* TimestampTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TimestampTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
 		B61F374A16DE487D00E3257E /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
@@ -77,6 +81,8 @@
 		B6D4782916EB269000EAAFD3 /* Preferrence.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Preferrence.m; sourceTree = "<group>"; };
 		B6F5D15616E78997003FE1F2 /* PreferrencesController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PreferrencesController.h; sourceTree = "<group>"; };
 		B6F5D15716E78997003FE1F2 /* PreferrencesController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PreferrencesController.m; sourceTree = "<group>"; };
+		BF43A2D20C1A483B932AD556 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		F8F175DB4EB8432097AC63D8 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -87,6 +93,7 @@
 				B6D4782716EB242500EAAFD3 /* CoreWLAN.framework in Frameworks */,
 				B6D4782216EAEA8B00EAAFD3 /* EventKit.framework in Frameworks */,
 				B61F372D16DE487C00E3257E /* Cocoa.framework in Frameworks */,
+				ED0B703F2B154860A32C9D69 /* libPods.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -111,6 +118,7 @@
 				B61F374F16DE487D00E3257E /* Tests */,
 				B61F372B16DE487C00E3257E /* Frameworks */,
 				B61F372A16DE487C00E3257E /* Build */,
+				F8F175DB4EB8432097AC63D8 /* Pods.xcconfig */,
 			);
 			sourceTree = "<group>";
 		};
@@ -131,6 +139,7 @@
 				B61F372C16DE487C00E3257E /* Cocoa.framework */,
 				B61F374A16DE487D00E3257E /* SenTestingKit.framework */,
 				B61F372E16DE487C00E3257E /* Other Frameworks */,
+				BF43A2D20C1A483B932AD556 /* libPods.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -194,9 +203,11 @@
 			isa = PBXGroup;
 			children = (
 				B61F373E16DE487C00E3257E /* AppDelegate.h */,
-				B61F373F16DE487C00E3257E /* AppDelegate.m */,
+				B60F2E5716EB48B100A41408 /* AppDelegate.m */,
 				B6B39D2916E4DBB800D76E6F /* StatusBarController.h */,
 				B6B39D2A16E4DBB800D76E6F /* StatusBarController.m */,
+				B60F2E5916EB501B00A41408 /* AutomationController.h */,
+				B60F2E5A16EB501B00A41408 /* AutomationController.m */,
 				B6F5D15616E78997003FE1F2 /* PreferrencesController.h */,
 				B6F5D15716E78997003FE1F2 /* PreferrencesController.m */,
 			);
@@ -230,6 +241,7 @@
 				B61F372516DE487C00E3257E /* Sources */,
 				B61F372616DE487C00E3257E /* Frameworks */,
 				B61F372716DE487C00E3257E /* Resources */,
+				E3560C3CC9E9465DA4B8FA8C /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -324,6 +336,20 @@
 			shellPath = /bin/sh;
 			shellScript = "# Run the unit tests in this test bundle.\n\"${SYSTEM_DEVELOPER_DIR}/Tools/RunUnitTests\"\n";
 		};
+		E3560C3CC9E9465DA4B8FA8C /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Pods-resources.sh\"\n";
+		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -332,13 +358,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				B61F373916DE487C00E3257E /* main.m in Sources */,
-				B61F374016DE487C00E3257E /* AppDelegate.m in Sources */,
 				B6B39D2B16E4DBB800D76E6F /* StatusBarController.m in Sources */,
 				B6B39D3016E4E3C400D76E6F /* Task.m in Sources */,
 				B6F5D15816E78997003FE1F2 /* PreferrencesController.m in Sources */,
 				B6D4782016EADD5A00EAAFD3 /* CalendarEvent.m in Sources */,
 				B6D4782516EB18F300EAAFD3 /* WiFi.m in Sources */,
 				B6D4782A16EB269000EAAFD3 /* Preferrence.m in Sources */,
+				B60F2E5816EB48B100A41408 /* AppDelegate.m in Sources */,
+				B60F2E5B16EB501B00A41408 /* AutomationController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -457,6 +484,7 @@
 		};
 		B61F375B16DE487D00E3257E /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = F8F175DB4EB8432097AC63D8 /* Pods.xcconfig */;
 			buildSettings = {
 				COMBINE_HIDPI_IMAGES = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
@@ -469,6 +497,7 @@
 		};
 		B61F375C16DE487D00E3257E /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = F8F175DB4EB8432097AC63D8 /* Pods.xcconfig */;
 			buildSettings = {
 				COMBINE_HIDPI_IMAGES = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;

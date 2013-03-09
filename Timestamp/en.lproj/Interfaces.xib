@@ -155,7 +155,7 @@
 							<string key="NSFrame">{{110, 174}, {60, 17}}</string>
 							<reference key="NSSuperview" ref="635531934"/>
 							<reference key="NSWindow"/>
-							<reference key="NSNextKeyView"/>
+							<reference key="NSNextKeyView" ref="85567549"/>
 							<string key="NSReuseIdentifierKey">_NS:1535</string>
 							<bool key="NSEnabled">YES</bool>
 							<object class="NSTextFieldCell" key="NSCell" id="775950484">
@@ -263,7 +263,7 @@
 							<string key="NSFrame">{{48, 49}, {119, 17}}</string>
 							<reference key="NSSuperview" ref="635531934"/>
 							<reference key="NSWindow"/>
-							<reference key="NSNextKeyView"/>
+							<reference key="NSNextKeyView" ref="1004028553"/>
 							<string key="NSReuseIdentifierKey">_NS:1535</string>
 							<bool key="NSEnabled">YES</bool>
 							<object class="NSTextFieldCell" key="NSCell" id="598080390">
@@ -284,6 +284,7 @@
 							<string key="NSFrame">{{177, 139}, {178, 22}}</string>
 							<reference key="NSSuperview" ref="635531934"/>
 							<reference key="NSWindow"/>
+							<reference key="NSNextKeyView" ref="653869995"/>
 							<string key="NSReuseIdentifierKey">_NS:9</string>
 							<bool key="NSEnabled">YES</bool>
 							<object class="NSTextFieldCell" key="NSCell" id="146137106">
@@ -346,6 +347,7 @@
 							<string key="NSFrame">{{174, 169}, {211, 26}}</string>
 							<reference key="NSSuperview" ref="635531934"/>
 							<reference key="NSWindow"/>
+							<reference key="NSNextKeyView" ref="384386169"/>
 							<string key="NSReuseIdentifierKey">_NS:9</string>
 							<bool key="NSEnabled">YES</bool>
 							<object class="NSPopUpButtonCell" key="NSCell" id="640389875">
@@ -381,6 +383,7 @@
 							<string key="NSFrame">{{174, 44}, {211, 26}}</string>
 							<reference key="NSSuperview" ref="635531934"/>
 							<reference key="NSWindow"/>
+							<reference key="NSNextKeyView"/>
 							<string key="NSReuseIdentifierKey">_NS:9</string>
 							<bool key="NSEnabled">YES</bool>
 							<object class="NSPopUpButtonCell" key="NSCell" id="98789671">
@@ -426,6 +429,14 @@
 		</array>
 		<object class="IBObjectContainer" key="IBDocument.Objects">
 			<array class="NSMutableArray" key="connectionRecords">
+				<object class="IBConnectionRecord">
+					<object class="IBOutletConnection" key="connection">
+						<string key="label">delegate</string>
+						<reference key="source" ref="1050"/>
+						<reference key="destination" ref="976324537"/>
+					</object>
+					<int key="connectionID">1170</int>
+				</object>
 				<object class="IBConnectionRecord">
 					<object class="IBActionConnection" key="connection">
 						<string key="label">clickStart:</string>
@@ -1465,7 +1476,7 @@
 			<nil key="activeLocalization"/>
 			<dictionary class="NSMutableDictionary" key="localizations"/>
 			<nil key="sourceID"/>
-			<int key="maxID">1169</int>
+			<int key="maxID">1171</int>
 		</object>
 		<object class="IBClassDescriber" key="IBDocument.Classes">
 			<array class="NSMutableArray" key="referencedPartialClassDescriptions">
