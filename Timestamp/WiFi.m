@@ -17,6 +17,7 @@
   // Get the primary network interface (en0, en1, etc.)
   CWInterface *currentInterface = [CWInterface interfaceWithName:nil];
   
+  // todo: replace the deprecated method call.
   NSArray *networks = [NSMutableArray arrayWithArray:[currentInterface scanForNetworksWithParameters:nil error:nil]];
   
   NSMutableArray *names = [NSMutableArray array];
@@ -32,7 +33,6 @@
 // https://github.com/tonymillion/Reachability
 + (void) monitorWiFiConnectionAndCall:(void(^)(NSString *newWiFiName))callback{
   void (^onConnectionChanged)(Reachability*) = ^(Reachability *reach){
-    NSLog(@"Reachability Called.");
     callback([WiFi getNameOfCurrentWifi]);
   };
   

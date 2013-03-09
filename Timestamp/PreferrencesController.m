@@ -5,6 +5,16 @@
 
 @implementation PreferrencesController
 
+- (id) init{
+  self = [super init];
+  if (self){
+    self.preferrence = [[Preferrence alloc] init];
+    if (![self.preferrence load]) @throw @"Could not load preferrence";
+  }
+
+  return self;
+}
+
 - (void) awakeFromNib{
   for (NSString *calendarName in [CalendarEvent getCalendarNames]) {
     [self.calendarsPopUp insertItemWithTitle:calendarName atIndex:0];
@@ -13,9 +23,6 @@
   for (NSString *wifiName in [WiFi getNamesOfAvaiableWifi]) {
     [self.wifisPopUp insertItemWithTitle:wifiName atIndex:0];
   }
-  
-  self.preferrence = [[Preferrence alloc] init];
-  if (![self.preferrence load]) @throw @"Could not load preferrence";
 
   [self.calendarsPopUp selectItemWithTitle:self.preferrence.calendarName];
   [self.wifisPopUp selectItemWithTitle:self.preferrence.wifiName];

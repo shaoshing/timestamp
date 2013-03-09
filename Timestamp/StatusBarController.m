@@ -22,12 +22,18 @@
   [self.statusItem setTarget:self];
   [self.statusItem setTitle:@""];
   [self.statusItem setMenu:self.statusMenu];
-  
-  self.preferrence = self.preferrencesController.preferrence;
 }
 
 #pragma mark - Actions
 - (IBAction)clickStart:(id)sender {
+  if (self.currentTask){
+    return;
+  }
+  
+  if (!self.preferrence){
+    self.preferrence = self.preferrencesController.preferrence;
+  }
+  
   self.currentTask = [Task startWithCurrentTimeAndName:self.preferrence.taskName SaveInCalendar:self.preferrence.calendarName];
   
   [self.taskNameMenuItem setHidden:false];
@@ -40,7 +46,13 @@
 }
 
 - (IBAction)clickStop:(id)sender {
+  if (!self.currentTask){
+    return;
+  }
+  
   [self.currentTask finish];
+  self.currentTask = nil;
+  
   [self toggleStartAndStopMenuItems];
   
   [self.menuItemTimer invalidate];
@@ -49,7 +61,16 @@
 }
 
 - (IBAction)clickQuit:(id)sender {
+  [self clickStop:nil];
   [NSApp terminate: nil];
+}
+
+- (void) shouldStartAutomatically:(id)sender{
+  [self clickStart:nil];
+}
+
+- (void) shouldStopAutomatically:(id)sender{
+  [self clickStop:nil];
 }
 
 - (IBAction)clickPreferrences:(id)sender{

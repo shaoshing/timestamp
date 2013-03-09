@@ -23,5 +23,7 @@
 - (IBAction)clickStop:(id)sender;
 - (IBAction)clickQuit:(id)sender;
 - (IBAction)clickPreferrences:(id)sender;
+- (void) shouldStartAutomatically:(id)sender;
+- (void) shouldStopAutomatically:(id)sender;
 
 @end

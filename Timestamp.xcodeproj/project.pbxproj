@@ -204,12 +204,12 @@
 			children = (
 				B61F373E16DE487C00E3257E /* AppDelegate.h */,
 				B60F2E5716EB48B100A41408 /* AppDelegate.m */,
-				B6B39D2916E4DBB800D76E6F /* StatusBarController.h */,
-				B6B39D2A16E4DBB800D76E6F /* StatusBarController.m */,
 				B60F2E5916EB501B00A41408 /* AutomationController.h */,
 				B60F2E5A16EB501B00A41408 /* AutomationController.m */,
 				B6F5D15616E78997003FE1F2 /* PreferrencesController.h */,
 				B6F5D15716E78997003FE1F2 /* PreferrencesController.m */,
+				B6B39D2916E4DBB800D76E6F /* StatusBarController.h */,
+				B6B39D2A16E4DBB800D76E6F /* StatusBarController.m */,
 			);
 			name = Controllers;
 			path = Timestamp;

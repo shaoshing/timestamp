@@ -10,7 +10,7 @@ EKEventStore *store;
   return store;
 }
 
-// Should remove read-only calendars.
+//todo: Should remove read-only calendars.
 + (NSArray *) getCalendarNames{
   EKEventStore *store = [self getEventStore];
   
@@ -34,8 +34,12 @@ EKEventStore *store;
 }
 
 - (void) createOrUpdateEventInCalendar{
+  EKEvent *ekEvent;
   if (self.ekEvent == nil){
     self.ekEvent = [EKEvent eventWithEventStore:[CalendarEvent getEventStore]];
+    ekEvent = self.ekEvent;
+  }else{
+    ekEvent = [[CalendarEvent getEventStore] eventWithIdentifier:self.ekEvent.eventIdentifier];
   }
   
   EKCalendar *calendar;
@@ -45,14 +49,12 @@ EKEventStore *store;
     }
   }
   
-  NSLog(@"Ended At: %@", self.endedAt);
+  ekEvent.startDate = self.startedAt;
+  ekEvent.endDate = self.endedAt;
+  ekEvent.title = self.title;
+  ekEvent.calendar = calendar;
   
-  self.ekEvent.startDate = self.startedAt;
-  self.ekEvent.endDate = self.endedAt;
-  self.ekEvent.title = self.title;
-  self.ekEvent.calendar = calendar;
-  
-  [[CalendarEvent getEventStore] saveEvent:self.ekEvent span:EKSpanThisEvent commit:YES error:nil];
+  [[CalendarEvent getEventStore] saveEvent:ekEvent span:EKSpanThisEvent commit:YES error:nil];
 }
 
 

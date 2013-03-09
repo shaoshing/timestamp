@@ -15,7 +15,7 @@
 
 - (void) finish{
   self.endedAt = [NSDate date];
-  
+  NSLog(@"Finished at: %@", self.endedAt);
   self.calendarEvent.endedAt = self.endedAt;
   self.calendarEvent.title = [NSString stringWithFormat:@"[Timestamp] %@", self.name];
   [self.calendarEvent createOrUpdateEventInCalendar];
