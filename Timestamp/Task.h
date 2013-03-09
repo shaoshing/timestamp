@@ -1,7 +1,6 @@
 #import <Foundation/Foundation.h>
 
-@class TaskDuration;
-@class CalendarEvent;
+@class TaskDuration, CalendarEvent;
 
 @interface Task : NSObject
 

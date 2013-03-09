@@ -1,7 +1,6 @@
 #import <Foundation/Foundation.h>
 
-@class Task;
-@class PreferrencesController;
+@class Task, PreferrencesController;
 
 @interface StatusBarController : NSObject
 
