@@ -26,6 +26,7 @@
 		B6D4782216EAEA8B00EAAFD3 /* EventKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B6D4782116EAEA8B00EAAFD3 /* EventKit.framework */; };
 		B6D4782516EB18F300EAAFD3 /* WiFi.m in Sources */ = {isa = PBXBuildFile; fileRef = B6D4782416EB18F300EAAFD3 /* WiFi.m */; };
 		B6D4782716EB242500EAAFD3 /* CoreWLAN.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B6D4782616EB242500EAAFD3 /* CoreWLAN.framework */; };
+		B6D4782A16EB269000EAAFD3 /* Preferrence.m in Sources */ = {isa = PBXBuildFile; fileRef = B6D4782916EB269000EAAFD3 /* Preferrence.m */; };
 		B6F5D15816E78997003FE1F2 /* PreferrencesController.m in Sources */ = {isa = PBXBuildFile; fileRef = B6F5D15716E78997003FE1F2 /* PreferrencesController.m */; };
 /* End PBXBuildFile section */
 
@@ -72,6 +73,8 @@
 		B6D4782316EB18F300EAAFD3 /* WiFi.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WiFi.h; sourceTree = "<group>"; };
 		B6D4782416EB18F300EAAFD3 /* WiFi.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WiFi.m; sourceTree = "<group>"; };
 		B6D4782616EB242500EAAFD3 /* CoreWLAN.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreWLAN.framework; path = System/Library/Frameworks/CoreWLAN.framework; sourceTree = SDKROOT; };
+		B6D4782816EB269000EAAFD3 /* Preferrence.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Preferrence.h; sourceTree = "<group>"; };
+		B6D4782916EB269000EAAFD3 /* Preferrence.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Preferrence.m; sourceTree = "<group>"; };
 		B6F5D15616E78997003FE1F2 /* PreferrencesController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PreferrencesController.h; sourceTree = "<group>"; };
 		B6F5D15716E78997003FE1F2 /* PreferrencesController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PreferrencesController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -208,6 +211,8 @@
 				B6B39D2F16E4E3C400D76E6F /* Task.m */,
 				B6D4782316EB18F300EAAFD3 /* WiFi.h */,
 				B6D4782416EB18F300EAAFD3 /* WiFi.m */,
+				B6D4782816EB269000EAAFD3 /* Preferrence.h */,
+				B6D4782916EB269000EAAFD3 /* Preferrence.m */,
 				B6D4781E16EADD5A00EAAFD3 /* CalendarEvent.h */,
 				B6D4781F16EADD5A00EAAFD3 /* CalendarEvent.m */,
 			);
@@ -333,6 +338,7 @@
 				B6F5D15816E78997003FE1F2 /* PreferrencesController.m in Sources */,
 				B6D4782016EADD5A00EAAFD3 /* CalendarEvent.m in Sources */,
 				B6D4782516EB18F300EAAFD3 /* WiFi.m in Sources */,
+				B6D4782A16EB269000EAAFD3 /* Preferrence.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
