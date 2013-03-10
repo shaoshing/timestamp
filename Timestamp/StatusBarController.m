@@ -67,18 +67,23 @@
     return;
   }
   
-  NSString *strfTaskName = @"Working on \"%@\":";
-  NSString *strfTaskTime = @"Lasted %d hours and %d minutes, since %@";
-  
+  NSString *strfTaskName = @"Working on \"%@\"";
   if ([self.currentTask isFinished]){
     strfTaskName = @"Previously working on \"%@\":";
   }
-  
   [self.taskNameMenuItem setTitle:[NSString stringWithFormat:strfTaskName, self.currentTask.name]];
+  
+  
   NSString *startedAt = [self.currentTask.startedAt descriptionWithCalendarFormat:@"%H:%M" timeZone:nil locale:nil];
   TaskDuration *duration = [self.currentTask duration];
-  [self.taskTimeDescMenuItem setTitle:[NSString stringWithFormat:strfTaskTime, duration.hours, duration.minutes, startedAt]];
-
+  NSString *strTimeInfo = [NSString stringWithFormat:@"Just started at %@", startedAt];
+  if (duration.hours > 0) {
+    strTimeInfo = [NSString stringWithFormat:@"%ld hrs and %ld mins passed, since %@", (long)duration.hours, duration.minutes, startedAt];
+  }else if (duration.minutes > 0){
+    strTimeInfo = [NSString stringWithFormat:@"%ld mins passed, since %@", duration.minutes, startedAt];
+  }
+  
+  [self.taskTimeDescMenuItem setTitle:strTimeInfo];
 }
 
 - (void) toggleStartAndStopMenuItems{
