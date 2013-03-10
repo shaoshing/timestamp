@@ -43,16 +43,24 @@
 
 @implementation TaskDuration
 + (TaskDuration *) initWithStartedDate:(NSDate *)startedAt AndEndedDate:(NSDate *)endedAt{
-  NSDate *duration = [NSDate dateWithTimeIntervalSince1970:[endedAt timeIntervalSinceDate:startedAt]];
+  NSTimeInterval startedInterval = [startedAt timeIntervalSince1970];
+  NSTimeInterval endedInterval = [endedAt timeIntervalSince1970];
+  int intervalDifference = endedInterval - startedInterval;
   
-  NSCalendar *gregorian = [[NSCalendar alloc] initWithCalendarIdentifier:NSGregorianCalendar];
-  NSDateComponents *dateComponents = [gregorian components:(NSHourCalendarUnit  | NSMinuteCalendarUnit | NSSecondCalendarUnit) fromDate:duration];
+  TaskDuration *taskDuration = [[TaskDuration alloc] init];  
+  taskDuration.seconds = intervalDifference%60;
+  intervalDifference -= taskDuration.seconds;
   
-  // todo: duration is returning with 8 hrs ahead of the actual duration.
-  TaskDuration *taskDuration = [[TaskDuration alloc] init];
-  taskDuration.hours = [dateComponents hour]+([dateComponents day]+1)*24-8;
-  taskDuration.minutes = [dateComponents minute];
-  taskDuration.seconds = [dateComponents second];
+  taskDuration.minutes = 0;
+  if (intervalDifference > 0){
+    taskDuration.minutes = (intervalDifference/60)%60;
+    intervalDifference -= taskDuration.minutes*60;
+  }
+  
+  taskDuration.hours = 0;
+  if (intervalDifference > 0){
+    taskDuration.hours = (intervalDifference/3600);
+  }
   
   return taskDuration;
 }

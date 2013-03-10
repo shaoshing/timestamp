@@ -13,6 +13,8 @@
 
 // Detailed example can be found at:
 // http://developer.apple.com/library/mac/#samplecode/CoreWLANWirelessManager/Introduction/Intro.html#//apple_ref/doc/uid/DTS40008921-Intro-DontLinkElementID_2
+
+// todo: should return known WiFis
 + (NSArray *) getNamesOfAvaiableWifi{
   // Get the primary network interface (en0, en1, etc.)
   CWInterface *currentInterface = [CWInterface interfaceWithName:nil];

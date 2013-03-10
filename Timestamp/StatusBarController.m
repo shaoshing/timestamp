@@ -12,8 +12,9 @@
   
   NSBundle *bundle = [NSBundle mainBundle];
   self.icon = [[NSImage alloc] initWithContentsOfFile:[bundle pathForResource:@"StatusBarIcon" ofType:@"png"]];
+  self.iconActivated = [[NSImage alloc] initWithContentsOfFile:[bundle pathForResource:@"StatusBarIconActivated" ofType:@"png"]];
   self.iconHighlighted = [[NSImage alloc] initWithContentsOfFile:[bundle pathForResource:@"StatusBarIconHighlighted" ofType:@"png"]];
-  [self.statusItem setImage:self.icon];
+  [self toggleStatusIcon];
   [self.statusItem setAlternateImage:self.iconHighlighted];
     
   [self.statusItem setHighlightMode:YES];
@@ -53,6 +54,7 @@
   [self.currentTask finish];
   self.currentTask = nil;
   
+  [self toggleStatusIcon];
   [self toggleStartAndStopMenuItems];
   
   [self.menuItemTimer invalidate];
@@ -99,6 +101,14 @@
 - (void) toggleStartAndStopMenuItems{
   [self.stopMenuItem setHidden:![self.stopMenuItem isHidden]];
   [self.startMenuItem setHidden:![self.startMenuItem isHidden]];
+}
+
+- (void) toggleStatusIcon{
+  if (self.currentTask){
+    [self.statusItem setImage:self.iconActivated];
+  }else{
+    [self.statusItem setImage:self.icon];
+  }
 }
 
 @end

@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		B60F2E5816EB48B100A41408 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = B60F2E5716EB48B100A41408 /* AppDelegate.m */; };
 		B60F2E5B16EB501B00A41408 /* AutomationController.m in Sources */ = {isa = PBXBuildFile; fileRef = B60F2E5A16EB501B00A41408 /* AutomationController.m */; };
+		B61F137216EC57DD00672649 /* StatusBarIconActivated.png in Resources */ = {isa = PBXBuildFile; fileRef = B61F137116EC57DD00672649 /* StatusBarIconActivated.png */; };
 		B61F372D16DE487C00E3257E /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B61F372C16DE487C00E3257E /* Cocoa.framework */; };
 		B61F373716DE487C00E3257E /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = B61F373516DE487C00E3257E /* InfoPlist.strings */; };
 		B61F373916DE487C00E3257E /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = B61F373816DE487C00E3257E /* main.m */; };
@@ -18,6 +19,7 @@
 		B61F374C16DE487D00E3257E /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B61F372C16DE487C00E3257E /* Cocoa.framework */; };
 		B61F375416DE487D00E3257E /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = B61F375216DE487D00E3257E /* InfoPlist.strings */; };
 		B61F375716DE487D00E3257E /* TimestampTests.m in Sources */ = {isa = PBXBuildFile; fileRef = B61F375616DE487D00E3257E /* TimestampTests.m */; };
+		B62DF06916EC585600BE2D6D /* StatusBarIcon2.png in Resources */ = {isa = PBXBuildFile; fileRef = B62DF06816EC585600BE2D6D /* StatusBarIcon2.png */; };
 		B6B39D2B16E4DBB800D76E6F /* StatusBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = B6B39D2A16E4DBB800D76E6F /* StatusBarController.m */; };
 		B6B39D3016E4E3C400D76E6F /* Task.m in Sources */ = {isa = PBXBuildFile; fileRef = B6B39D2F16E4E3C400D76E6F /* Task.m */; };
 		B6D4781816EA3C6500EAAFD3 /* StatusBarIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = B6D4781616EA3C6500EAAFD3 /* StatusBarIcon.png */; };
@@ -46,6 +48,7 @@
 		B60F2E5716EB48B100A41408 /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		B60F2E5916EB501B00A41408 /* AutomationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AutomationController.h; sourceTree = "<group>"; };
 		B60F2E5A16EB501B00A41408 /* AutomationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AutomationController.m; sourceTree = "<group>"; };
+		B61F137116EC57DD00672649 /* StatusBarIconActivated.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = StatusBarIconActivated.png; sourceTree = "<group>"; };
 		B61F372916DE487C00E3257E /* Timestamp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Timestamp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B61F372C16DE487C00E3257E /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		B61F372F16DE487C00E3257E /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
@@ -64,6 +67,7 @@
 		B61F375316DE487D00E3257E /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		B61F375516DE487D00E3257E /* TimestampTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TimestampTests.h; sourceTree = "<group>"; };
 		B61F375616DE487D00E3257E /* TimestampTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TimestampTests.m; sourceTree = "<group>"; };
+		B62DF06816EC585600BE2D6D /* StatusBarIcon2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = StatusBarIcon2.png; sourceTree = "<group>"; };
 		B6B39D2916E4DBB800D76E6F /* StatusBarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StatusBarController.h; sourceTree = "<group>"; };
 		B6B39D2A16E4DBB800D76E6F /* StatusBarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StatusBarController.m; sourceTree = "<group>"; };
 		B6B39D2E16E4E3C400D76E6F /* Task.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Task.h; sourceTree = "<group>"; };
@@ -109,11 +113,25 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		B61F136E16EC561600672649 /* Assets */ = {
+			isa = PBXGroup;
+			children = (
+				B6D4781616EA3C6500EAAFD3 /* StatusBarIcon.png */,
+				B61F137116EC57DD00672649 /* StatusBarIconActivated.png */,
+				B6D4781716EA3C6500EAAFD3 /* StatusBarIconHighlighted.png */,
+				B6D4781C16EA480000EAAFD3 /* StatusBarIcon2.png */,
+			);
+			name = Assets;
+			path = Timestamp;
+			sourceTree = "<group>";
+		};
 		B61F372016DE487C00E3257E = {
 			isa = PBXGroup;
 			children = (
+				B62DF06816EC585600BE2D6D /* StatusBarIcon2.png */,
 				B6B39D2C16E4E32000D76E6F /* Controllers */,
 				B6B39D2D16E4E36300D76E6F /* Models */,
+				B61F136E16EC561600672649 /* Assets */,
 				B61F373216DE487C00E3257E /* Resources */,
 				B61F374F16DE487D00E3257E /* Tests */,
 				B61F372B16DE487C00E3257E /* Frameworks */,
@@ -158,9 +176,6 @@
 			isa = PBXGroup;
 			children = (
 				B61F374116DE487D00E3257E /* Interfaces.xib */,
-				B6D4781616EA3C6500EAAFD3 /* StatusBarIcon.png */,
-				B6D4781716EA3C6500EAAFD3 /* StatusBarIconHighlighted.png */,
-				B6D4781C16EA480000EAAFD3 /* StatusBarIcon2.png */,
 				B61F373316DE487C00E3257E /* Supporting Files */,
 			);
 			name = Resources;
@@ -309,6 +324,8 @@
 				B6D4781816EA3C6500EAAFD3 /* StatusBarIcon.png in Resources */,
 				B6D4781916EA3C6500EAAFD3 /* StatusBarIconHighlighted.png in Resources */,
 				B6D4781D16EA480000EAAFD3 /* StatusBarIcon2.png in Resources */,
+				B61F137216EC57DD00672649 /* StatusBarIconActivated.png in Resources */,
+				B62DF06916EC585600BE2D6D /* StatusBarIcon2.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

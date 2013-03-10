@@ -13,6 +13,7 @@
 @property (weak) IBOutlet NSMenuItem *stopMenuItem;
 
 @property (strong) NSImage *icon;
+@property (strong) NSImage *iconActivated;
 @property (strong) NSImage *iconHighlighted;
 @property (weak) Preferrence *preferrence;
 
