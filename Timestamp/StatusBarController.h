@@ -19,6 +19,7 @@
 
 @property (strong) Task *currentTask;
 @property (strong) NSTimer *menuItemTimer;
+@property Boolean startedManually;
 
 - (IBAction)clickStart:(id)sender;
 - (IBAction)clickStop:(id)sender;

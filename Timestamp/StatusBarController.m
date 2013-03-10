@@ -27,39 +27,12 @@
 
 #pragma mark - Actions
 - (IBAction)clickStart:(id)sender {
-  if (self.currentTask){
-    return;
-  }
-  
-  if (!self.preferrence){
-    self.preferrence = self.preferrencesController.preferrence;
-  }
-  
-  self.currentTask = [Task startWithCurrentTimeAndName:self.preferrence.taskName SaveInCalendar:self.preferrence.calendarName];
-  
-  [self.taskNameMenuItem setHidden:false];
-  [self.taskTimeDescMenuItem setHidden:false];
-  
-  [self toggleStartAndStopMenuItems];
-  [self updateMenuItemsOfTaskInfo];
-  
-  self.menuItemTimer = [NSTimer scheduledTimerWithTimeInterval:1.0 target:self selector:@selector(updateMenuItemsOfTaskInfo) userInfo:nil repeats:YES];
+  self.startedManually = true;
+  [self startTask];
 }
 
 - (IBAction)clickStop:(id)sender {
-  if (!self.currentTask){
-    return;
-  }
-  
-  [self.currentTask finish];
-  self.currentTask = nil;
-  
-  [self toggleStatusIcon];
-  [self toggleStartAndStopMenuItems];
-  
-  [self.menuItemTimer invalidate];
-  self.menuItemTimer = nil;
-  [self updateMenuItemsOfTaskInfo];
+  [self stopTask];
 }
 
 - (IBAction)clickQuit:(id)sender {
@@ -67,17 +40,27 @@
   [NSApp terminate: nil];
 }
 
-- (void) shouldStartAutomatically:(id)sender{
-  [self clickStart:nil];
-}
-
-- (void) shouldStopAutomatically:(id)sender{
-  [self clickStop:nil];
-}
-
 - (IBAction)clickPreferrences:(id)sender{
   [self.preferrencesController showWindow:self];
 }
+
+- (void) shouldStartAutomatically:(id)sender{
+  if (self.currentTask){
+    self.startedManually = false;
+    [self startTask];
+  }
+}
+
+- (void) shouldStopAutomatically:(id)sender{
+  if (!self.startedManually){
+    [self stopTask];
+  }
+}
+
+
+
+
+#pragma mark - Private Methods
 
 - (void)updateMenuItemsOfTaskInfo{
   if (self.currentTask == nil){
@@ -109,6 +92,43 @@
   }else{
     [self.statusItem setImage:self.icon];
   }
+}
+
+- (void) startTask{
+  if (self.currentTask){
+    return;
+  }
+  
+  if (!self.preferrence){
+    self.preferrence = self.preferrencesController.preferrence;
+  }
+  
+  self.currentTask = [Task startWithCurrentTimeAndName:self.preferrence.taskName SaveInCalendar:self.preferrence.calendarName];
+  
+  [self.taskNameMenuItem setHidden:false];
+  [self.taskTimeDescMenuItem setHidden:false];
+  
+  [self toggleStatusIcon];
+  [self toggleStartAndStopMenuItems];
+  [self updateMenuItemsOfTaskInfo];
+  
+  self.menuItemTimer = [NSTimer scheduledTimerWithTimeInterval:1.0 target:self selector:@selector(updateMenuItemsOfTaskInfo) userInfo:nil repeats:YES];
+}
+
+- (void) stopTask{
+  if (!self.currentTask){
+    return;
+  }
+  
+  [self.currentTask finish];
+  self.currentTask = nil;
+  
+  [self toggleStatusIcon];
+  [self toggleStartAndStopMenuItems];
+  
+  [self.menuItemTimer invalidate];
+  self.menuItemTimer = nil;
+  [self updateMenuItemsOfTaskInfo];
 }
 
 @end
