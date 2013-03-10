@@ -29,6 +29,11 @@
   [self.taskNameText setStringValue:self.preferrence.taskName];
 }
 
+- (IBAction)showWindow:(id)sender{
+  [super showWindow:sender];
+  [[NSApplication sharedApplication] activateIgnoringOtherApps:YES];
+}
+
 - (IBAction)selectCalendar:(id)sender {
   self.preferrence.calendarName = [self.calendarsPopUp.selectedItem title];
   [self.preferrence save];

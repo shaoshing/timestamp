@@ -15,5 +15,6 @@
 - (IBAction)selectCalendar:(id)sender;
 - (IBAction)selectWiFi:(id)sender;
 - (IBAction)enterTaskName:(id)sender;
+- (IBAction)showWindow:(id)sender;
 
 @end
