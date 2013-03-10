@@ -32,7 +32,11 @@
 }
 
 - (IBAction)clickStop:(id)sender {
-  [self stopTask];
+  [self stopTaskAndSave:YES];
+}
+
+- (IBAction)clickCancel:(id)sender {
+  [self stopTaskAndSave:NO];
 }
 
 - (IBAction)clickQuit:(id)sender {
@@ -53,7 +57,7 @@
 
 - (void) shouldStopAutomatically:(id)sender{
   if (!self.startedManually){
-    [self stopTask];
+    [self stopTaskAndSave:YES];
   }
 }
 
@@ -64,11 +68,11 @@
 
 - (void)updateMenuItemsOfTaskInfo{
   if (self.currentTask == nil){
-    return;
+    @throw @"currentTask is nil";
   }
   
   NSString *strfTaskName = @"Working on \"%@\"";
-  if ([self.currentTask isFinished]){
+  if ([self.currentTask isFinished] || [self.currentTask isCancelled]){
     strfTaskName = @"Previously working on \"%@\":";
   }
   [self.taskNameMenuItem setTitle:[NSString stringWithFormat:strfTaskName, self.currentTask.name]];
@@ -89,6 +93,7 @@
 - (void) toggleStartAndStopMenuItems{
   [self.stopMenuItem setHidden:![self.stopMenuItem isHidden]];
   [self.startMenuItem setHidden:![self.startMenuItem isHidden]];
+  [self.cancelMenuItem setHidden:![self.cancelMenuItem isHidden]];
 }
 
 - (void) toggleStatusIcon{
@@ -120,13 +125,16 @@
   self.menuItemTimer = [NSTimer scheduledTimerWithTimeInterval:1.0 target:self selector:@selector(updateMenuItemsOfTaskInfo) userInfo:nil repeats:YES];
 }
 
-- (void) stopTask{
+- (void) stopTaskAndSave:(Boolean)save{
   if (!self.currentTask){
     return;
   }
   
-  [self.currentTask finish];
-  self.currentTask = nil;
+  if (save){
+    [self.currentTask finish];
+  }else{
+    [self.currentTask cancel];
+  }
   
   [self toggleStatusIcon];
   [self toggleStartAndStopMenuItems];
@@ -134,6 +142,8 @@
   [self.menuItemTimer invalidate];
   self.menuItemTimer = nil;
   [self updateMenuItemsOfTaskInfo];
+  
+  self.currentTask = nil;
 }
 
 @end

@@ -57,6 +57,14 @@ EKEventStore *store;
   [[CalendarEvent getEventStore] saveEvent:ekEvent span:EKSpanThisEvent commit:YES error:nil];
 }
 
+- (void) deleteInCalendar{
+  if (!self.ekEvent){
+    return;
+  }
+  
+  [[CalendarEvent getEventStore] removeEvent:self.ekEvent span:EKSpanThisEvent commit:YES error:nil];
+}
+
 
 
 @end

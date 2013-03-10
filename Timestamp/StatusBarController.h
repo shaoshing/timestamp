@@ -11,6 +11,7 @@
 @property (weak) IBOutlet NSMenuItem *taskTimeDescMenuItem;
 @property (weak) IBOutlet NSMenuItem *startMenuItem;
 @property (weak) IBOutlet NSMenuItem *stopMenuItem;
+@property (weak) IBOutlet NSMenuItem *cancelMenuItem;
 
 @property (strong) NSImage *icon;
 @property (strong) NSImage *iconActivated;
@@ -23,6 +24,7 @@
 
 - (IBAction)clickStart:(id)sender;
 - (IBAction)clickStop:(id)sender;
+- (IBAction)clickCancel:(id)sender;
 - (IBAction)clickQuit:(id)sender;
 - (IBAction)clickPreferrences:(id)sender;
 - (void) shouldStartAutomatically:(id)sender;

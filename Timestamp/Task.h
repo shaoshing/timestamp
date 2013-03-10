@@ -8,12 +8,15 @@
 @property (strong) NSDate *endedAt;
 @property (strong) CalendarEvent *calendarEvent;
 @property NSString *name;
+@property Boolean cancelled;
 
 + (Task *) startWithCurrentTimeAndName:(NSString*)name SaveInCalendar:(NSString *)calendarName;
 
 - (void) finish;
+- (void) cancel;
 - (TaskDuration *) duration;
 - (Boolean) isFinished;
+- (Boolean) isCancelled;
 
 @end
 

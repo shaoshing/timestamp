@@ -21,8 +21,19 @@
   [self.calendarEvent createOrUpdateEventInCalendar];
 }
 
+- (void) cancel{
+  self.endedAt = [NSDate date];
+  self.cancelled = true;
+  NSLog(@"Canceled at: %@", self.endedAt);
+  [self.calendarEvent deleteInCalendar];
+}
+
 - (Boolean) isFinished{
-  return self.endedAt != nil;
+  return self.endedAt != nil && ![self isCancelled];
+}
+
+- (Boolean) isCancelled{
+  return self.cancelled;
 }
 
 - (TaskDuration *) duration{
