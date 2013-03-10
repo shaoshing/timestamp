@@ -45,7 +45,7 @@
 }
 
 - (void) shouldStartAutomatically:(id)sender{
-  if (self.currentTask){
+  if (!self.currentTask){
     self.startedManually = false;
     [self startTask];
   }
