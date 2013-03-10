@@ -97,7 +97,7 @@
 }
 
 - (void) toggleStatusIcon{
-  if (self.currentTask){
+  if ([self.statusItem image] == self.icon){
     [self.statusItem setImage:self.iconActivated];
   }else{
     [self.statusItem setImage:self.icon];
