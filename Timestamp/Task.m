@@ -15,17 +15,31 @@
 
 - (void) finish{
   self.endedAt = [NSDate date];
-  NSLog(@"Finished at: %@", self.endedAt);
+  if (self.pausedAt){
+    self.endedAt = self.pausedAt;
+  }
+  
   self.calendarEvent.endedAt = self.endedAt;
   self.calendarEvent.title = [NSString stringWithFormat:@"[Timestamp] %@", self.name];
   [self.calendarEvent createOrUpdateEventInCalendar];
+  NSLog(@"[Task] Finished at: %@", self.endedAt);
 }
 
 - (void) cancel{
   self.endedAt = [NSDate date];
   self.cancelled = true;
-  NSLog(@"Canceled at: %@", self.endedAt);
   [self.calendarEvent deleteInCalendar];
+  NSLog(@"[Task] Canceled at: %@", self.endedAt);
+}
+
+- (void) pause{
+  self.pausedAt = [NSDate date];
+  NSLog(@"[Task] Paused at: %@", self.pausedAt);
+}
+
+- (void) resume{
+  self.pausedAt = nil;
+  NSLog(@"[Task] Resumed");
 }
 
 - (Boolean) isFinished{

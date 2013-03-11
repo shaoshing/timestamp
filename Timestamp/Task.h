@@ -6,6 +6,7 @@
 
 @property (strong) NSDate *startedAt;
 @property (strong) NSDate *endedAt;
+@property (strong) NSDate *pausedAt;
 @property (strong) CalendarEvent *calendarEvent;
 @property NSString *name;
 @property Boolean cancelled;
@@ -14,6 +15,8 @@
 
 - (void) finish;
 - (void) cancel;
+- (void) pause;
+- (void) resume;
 - (TaskDuration *) duration;
 - (Boolean) isFinished;
 - (Boolean) isCancelled;

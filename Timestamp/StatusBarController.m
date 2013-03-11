@@ -48,6 +48,18 @@
   [self.preferrencesController showWindow:self];
 }
 
+- (void) pauseTask:(id)sender{
+  if(self.currentTask){
+    [self.currentTask pause];
+  }
+}
+
+- (void) resumeTask:(id)sender{
+  if(self.currentTask){
+    [self.currentTask resume];
+  }
+}
+
 - (void) shouldStartAutomatically:(id)sender{
   if (!self.currentTask){
     self.startedManually = false;
@@ -65,7 +77,8 @@
 #pragma mark - Private Methods
 
 - (void)updateMenuItemsOfTaskInfo{
-  NSLog(@"Updated Task Info");
+  //  NSLog(@"[StatusBar] Updated Task Info");
+  
   if (self.currentTask == nil){
     @throw @"currentTask is nil";
   }
