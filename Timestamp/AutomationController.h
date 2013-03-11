@@ -10,5 +10,6 @@
 @property (weak) Preferrence *preferrence;
 
 -(void) wifiChanged:(id)sender NewName:(NSString *)newName;
+-(void) wifiPreferrenceChanged:(id)sender;
 
 @end

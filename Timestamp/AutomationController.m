@@ -18,8 +18,16 @@
   if ([self.preferrence.wifiName length] == 0){
     return;
   }
-  
-  if ([self.preferrence.wifiName isEqualToString:newName]){
+  [self determineWhetherToStartWithWiFiName:newName];
+}
+
+-(void) wifiPreferrenceChanged:(id)sender{
+  [self determineWhetherToStartWithWiFiName:[WiFi getNameOfCurrentWifi]];
+}
+
+
+-(void) determineWhetherToStartWithWiFiName:(NSString *)name{
+  if ([self.preferrence.wifiName isEqualToString:name]){
     NSLog(@"should start");
     [self.statusBarController shouldStartAutomatically:self];
   }else{

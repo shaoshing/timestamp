@@ -2,6 +2,7 @@
 #import "CalendarEvent.h"
 #import "WiFi.h"
 #import "Preferrence.h"
+#import "AutomationController.h"
 
 @implementation PreferrencesController
 
@@ -47,8 +48,15 @@
 }
 
 - (IBAction)selectWiFi:(id)sender {
-  self.preferrence.wifiName = [self.wifisPopUp.selectedItem title];
+  NSString *newWiFiName = [self.wifisPopUp.selectedItem title];
+  
+  if ([self.preferrence.wifiName isEqualToString:newWiFiName]){
+    return;
+  }
+  
+  self.preferrence.wifiName = newWiFiName;
   [self.preferrence save];
+  [self.automationController wifiPreferrenceChanged:self];
 }
 
 - (IBAction)enterTaskName:(id)sender {
