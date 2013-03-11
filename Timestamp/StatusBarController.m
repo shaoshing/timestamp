@@ -56,9 +56,7 @@
 }
 
 - (void) shouldStopAutomatically:(id)sender{
-  if (!self.startedManually){
-    [self stopTaskAndSave:YES];
-  }
+  [self stopTaskAndSave:YES];
 }
 
 
