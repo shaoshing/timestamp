@@ -4,7 +4,7 @@
 
 ## Installation
 
-> gem in pod
+> gem in cocoapods
 
 > pod install
 
