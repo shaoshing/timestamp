@@ -99,10 +99,10 @@
 }
 
 - (void) toggleStatusIcon{
-  if ([self.statusItem image] == self.icon){
-    [self.statusItem setImage:self.iconActivated];
-  }else{
+  if (self.currentTask == nil || [self.currentTask isFinished] || [self.currentTask isCancelled]){
     [self.statusItem setImage:self.icon];
+  }else{
+    [self.statusItem setImage:self.iconActivated];
   }
 }
 
