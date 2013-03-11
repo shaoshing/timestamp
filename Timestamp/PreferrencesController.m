@@ -20,8 +20,15 @@
     [self.calendarsPopUp insertItemWithTitle:calendarName atIndex:0];
   }
   
+  Boolean isPreferredWiFiAdded = NO;
   for (NSString *wifiName in [WiFi getNamesOfAvaiableWifi]) {
     [self.wifisPopUp insertItemWithTitle:wifiName atIndex:0];
+    if ([wifiName isEqualToString:self.preferrence.wifiName]){
+      isPreferredWiFiAdded = YES;
+    }
+  }
+  if (!isPreferredWiFiAdded){
+    [self.wifisPopUp insertItemWithTitle:self.preferrence.wifiName atIndex:0];
   }
 
   [self.calendarsPopUp selectItemWithTitle:self.preferrence.calendarName];
