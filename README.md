@@ -1,8 +1,7 @@
 
-
 # Timestamp
 
-## Installation
+## Development
 
 > gem in cocoapods
 
