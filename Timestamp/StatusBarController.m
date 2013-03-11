@@ -67,20 +67,24 @@
 #pragma mark - Private Methods
 
 - (void)updateMenuItemsOfTaskInfo{
+  NSLog(@"Updated Task Info");
   if (self.currentTask == nil){
     @throw @"currentTask is nil";
   }
   
-  NSString *strfTaskName = @"Working on \"%@\"";
+  NSString *strfTaskName = @"Working on \"%@\"%@";
   if ([self.currentTask isFinished] || [self.currentTask isCancelled]){
-    strfTaskName = @"Previously working on \"%@\":";
+    strfTaskName = @"Previously working on \"%@\"%@";
   }
-  [self.taskNameMenuItem setTitle:[NSString stringWithFormat:strfTaskName, self.currentTask.name]];
-  
-  
+  NSString *automationStatus = @"";
+  if (!self.startedManually){
+    automationStatus = @" (WiFi)";
+  }
+  [self.taskNameMenuItem setTitle:[NSString stringWithFormat:strfTaskName, self.currentTask.name, automationStatus]];
+    
   NSString *startedAt = [self.currentTask.startedAt descriptionWithCalendarFormat:@"%H:%M" timeZone:nil locale:nil];
   TaskDuration *duration = [self.currentTask duration];
-  NSString *strTimeInfo = [NSString stringWithFormat:@"Just started at %@", startedAt];
+  NSString *strTimeInfo = [NSString stringWithFormat:@"Started at %@", startedAt];
   if (duration.hours > 0) {
     strTimeInfo = [NSString stringWithFormat:@"%ld hrs and %ld mins passed, since %@", (long)duration.hours, duration.minutes, startedAt];
   }else if (duration.minutes > 0){
