@@ -10,7 +10,7 @@
 @property NSString *calendarName;
 
 + (EKEventStore *) getEventStore;
-+ (NSArray *) getCalendarNames;
++ (NSArray *) getEditableCalendarNames;
 + (CalendarEvent *) createEventWithTitle:(NSString *)title From:(NSDate *)from InCalendar:(NSString *)calendarName;
 
 - (void) createOrUpdateEventInCalendar;

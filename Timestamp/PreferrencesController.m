@@ -17,7 +17,7 @@
 }
 
 - (void) awakeFromNib{
-  for (NSString *calendarName in [CalendarEvent getCalendarNames]) {
+  for (NSString *calendarName in [CalendarEvent getEditableCalendarNames]) {
     [self.calendarsPopUp insertItemWithTitle:calendarName atIndex:0];
   }
   

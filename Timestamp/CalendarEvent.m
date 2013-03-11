@@ -10,12 +10,14 @@ EKEventStore *store;
   return store;
 }
 
-//todo: Should remove read-only calendars.
-+ (NSArray *) getCalendarNames{
++ (NSArray *) getEditableCalendarNames{
   EKEventStore *store = [self getEventStore];
   
   NSMutableArray *calendarNames = [NSMutableArray array];
   for (EKCalendar *calendar in [store calendarsForEntityType:EKEntityTypeEvent]) {
+    if (!calendar.allowsContentModifications){
+      continue;
+    }
     NSString *calendarName = calendar.title;
     [calendarNames addObject:calendarName];
   }

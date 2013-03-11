@@ -16,7 +16,7 @@
   self.wifiName = [standardUserDefaults stringForKey:@"WiFi Name"];
   self.taskName = [standardUserDefaults stringForKey:@"Task Name"];
   
-  if (!self.calendarName) self.calendarName = [CalendarEvent getCalendarNames][0];
+  if (!self.calendarName) self.calendarName = [CalendarEvent getEditableCalendarNames][0];
   if (!self.wifiName) self.wifiName = @"";
   if (!self.taskName) self.taskName = @"Cool Stuff";
   
