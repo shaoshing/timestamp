@@ -21,6 +21,7 @@
 		B61F375716DE487D00E3257E /* TimestampTests.m in Sources */ = {isa = PBXBuildFile; fileRef = B61F375616DE487D00E3257E /* TimestampTests.m */; };
 		B6B39D2B16E4DBB800D76E6F /* StatusBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = B6B39D2A16E4DBB800D76E6F /* StatusBarController.m */; };
 		B6B39D3016E4E3C400D76E6F /* Task.m in Sources */ = {isa = PBXBuildFile; fileRef = B6B39D2F16E4E3C400D76E6F /* Task.m */; };
+		B6B883C116EF5AB60076D17E /* StatusBarView.m in Sources */ = {isa = PBXBuildFile; fileRef = B6B883C016EF5AB60076D17E /* StatusBarView.m */; };
 		B6D4781816EA3C6500EAAFD3 /* StatusBarIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = B6D4781616EA3C6500EAAFD3 /* StatusBarIcon.png */; };
 		B6D4781916EA3C6500EAAFD3 /* StatusBarIconHighlighted.png in Resources */ = {isa = PBXBuildFile; fileRef = B6D4781716EA3C6500EAAFD3 /* StatusBarIconHighlighted.png */; };
 		B6D4781D16EA480000EAAFD3 /* StatusBarIcon2.png in Resources */ = {isa = PBXBuildFile; fileRef = B6D4781C16EA480000EAAFD3 /* StatusBarIcon2.png */; };
@@ -70,6 +71,8 @@
 		B6B39D2A16E4DBB800D76E6F /* StatusBarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StatusBarController.m; sourceTree = "<group>"; };
 		B6B39D2E16E4E3C400D76E6F /* Task.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Task.h; sourceTree = "<group>"; };
 		B6B39D2F16E4E3C400D76E6F /* Task.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Task.m; sourceTree = "<group>"; };
+		B6B883BF16EF5AB60076D17E /* StatusBarView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StatusBarView.h; sourceTree = "<group>"; };
+		B6B883C016EF5AB60076D17E /* StatusBarView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StatusBarView.m; sourceTree = "<group>"; };
 		B6D4781616EA3C6500EAAFD3 /* StatusBarIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = StatusBarIcon.png; sourceTree = "<group>"; };
 		B6D4781716EA3C6500EAAFD3 /* StatusBarIconHighlighted.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = StatusBarIconHighlighted.png; sourceTree = "<group>"; };
 		B6D4781C16EA480000EAAFD3 /* StatusBarIcon2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = StatusBarIcon2.png; sourceTree = "<group>"; };
@@ -126,6 +129,7 @@
 		B61F372016DE487C00E3257E = {
 			isa = PBXGroup;
 			children = (
+				B6B883C216EF5AC30076D17E /* Views */,
 				B6B39D2C16E4E32000D76E6F /* Controllers */,
 				B6B39D2D16E4E36300D76E6F /* Models */,
 				B61F136E16EC561600672649 /* Assets */,
@@ -240,6 +244,16 @@
 				B6D4782916EB269000EAAFD3 /* Preferrence.m */,
 			);
 			name = Models;
+			path = Timestamp;
+			sourceTree = "<group>";
+		};
+		B6B883C216EF5AC30076D17E /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				B6B883BF16EF5AB60076D17E /* StatusBarView.h */,
+				B6B883C016EF5AB60076D17E /* StatusBarView.m */,
+			);
+			name = Views;
 			path = Timestamp;
 			sourceTree = "<group>";
 		};
@@ -379,6 +393,7 @@
 				B6D4782A16EB269000EAAFD3 /* Preferrence.m in Sources */,
 				B60F2E5816EB48B100A41408 /* AppDelegate.m in Sources */,
 				B60F2E5B16EB501B00A41408 /* AutomationController.m in Sources */,
+				B6B883C116EF5AB60076D17E /* StatusBarView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

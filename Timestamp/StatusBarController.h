@@ -1,6 +1,6 @@
 #import <Foundation/Foundation.h>
 
-@class Task, PreferrencesController, Preferrence;
+@class Task, PreferrencesController, Preferrence, StatusBarView;
 
 @interface StatusBarController : NSObject
 
@@ -13,13 +13,10 @@
 @property (weak) IBOutlet NSMenuItem *stopMenuItem;
 @property (weak) IBOutlet NSMenuItem *cancelMenuItem;
 
-@property (strong) NSImage *icon;
-@property (strong) NSImage *iconActivated;
-@property (strong) NSImage *iconHighlighted;
 @property (weak) Preferrence *preferrence;
+@property (strong) StatusBarView *statusBarView;
 
 @property (strong) Task *currentTask;
-@property (strong) NSTimer *menuItemTimer;
 @property Boolean startedManually;
 
 - (IBAction)clickStart:(id)sender;
