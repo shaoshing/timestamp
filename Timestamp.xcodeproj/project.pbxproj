@@ -24,7 +24,6 @@
 		B6B883C116EF5AB60076D17E /* StatusBarView.m in Sources */ = {isa = PBXBuildFile; fileRef = B6B883C016EF5AB60076D17E /* StatusBarView.m */; };
 		B6D4781816EA3C6500EAAFD3 /* StatusBarIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = B6D4781616EA3C6500EAAFD3 /* StatusBarIcon.png */; };
 		B6D4781916EA3C6500EAAFD3 /* StatusBarIconHighlighted.png in Resources */ = {isa = PBXBuildFile; fileRef = B6D4781716EA3C6500EAAFD3 /* StatusBarIconHighlighted.png */; };
-		B6D4781D16EA480000EAAFD3 /* StatusBarIcon2.png in Resources */ = {isa = PBXBuildFile; fileRef = B6D4781C16EA480000EAAFD3 /* StatusBarIcon2.png */; };
 		B6D4782016EADD5A00EAAFD3 /* CalendarEvent.m in Sources */ = {isa = PBXBuildFile; fileRef = B6D4781F16EADD5A00EAAFD3 /* CalendarEvent.m */; };
 		B6D4782216EAEA8B00EAAFD3 /* EventKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B6D4782116EAEA8B00EAAFD3 /* EventKit.framework */; };
 		B6D4782516EB18F300EAAFD3 /* WiFi.m in Sources */ = {isa = PBXBuildFile; fileRef = B6D4782416EB18F300EAAFD3 /* WiFi.m */; };
@@ -75,7 +74,6 @@
 		B6B883C016EF5AB60076D17E /* StatusBarView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StatusBarView.m; sourceTree = "<group>"; };
 		B6D4781616EA3C6500EAAFD3 /* StatusBarIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = StatusBarIcon.png; sourceTree = "<group>"; };
 		B6D4781716EA3C6500EAAFD3 /* StatusBarIconHighlighted.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = StatusBarIconHighlighted.png; sourceTree = "<group>"; };
-		B6D4781C16EA480000EAAFD3 /* StatusBarIcon2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = StatusBarIcon2.png; sourceTree = "<group>"; };
 		B6D4781E16EADD5A00EAAFD3 /* CalendarEvent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CalendarEvent.h; sourceTree = "<group>"; };
 		B6D4781F16EADD5A00EAAFD3 /* CalendarEvent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CalendarEvent.m; sourceTree = "<group>"; };
 		B6D4782116EAEA8B00EAAFD3 /* EventKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = EventKit.framework; path = System/Library/Frameworks/EventKit.framework; sourceTree = SDKROOT; };
@@ -114,25 +112,12 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		B61F136E16EC561600672649 /* Assets */ = {
-			isa = PBXGroup;
-			children = (
-				B6D4781616EA3C6500EAAFD3 /* StatusBarIcon.png */,
-				B61F137116EC57DD00672649 /* StatusBarIconActivated.png */,
-				B6D4781716EA3C6500EAAFD3 /* StatusBarIconHighlighted.png */,
-				B6D4781C16EA480000EAAFD3 /* StatusBarIcon2.png */,
-			);
-			name = Assets;
-			path = Timestamp;
-			sourceTree = "<group>";
-		};
 		B61F372016DE487C00E3257E = {
 			isa = PBXGroup;
 			children = (
 				B6B883C216EF5AC30076D17E /* Views */,
 				B6B39D2C16E4E32000D76E6F /* Controllers */,
 				B6B39D2D16E4E36300D76E6F /* Models */,
-				B61F136E16EC561600672649 /* Assets */,
 				B61F373216DE487C00E3257E /* Resources */,
 				B61F374F16DE487D00E3257E /* Tests */,
 				B61F372B16DE487C00E3257E /* Frameworks */,
@@ -176,6 +161,9 @@
 		B61F373216DE487C00E3257E /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				B6D4781616EA3C6500EAAFD3 /* StatusBarIcon.png */,
+				B61F137116EC57DD00672649 /* StatusBarIconActivated.png */,
+				B6D4781716EA3C6500EAAFD3 /* StatusBarIconHighlighted.png */,
 				B61F374116DE487D00E3257E /* Interfaces.xib */,
 				B61F373316DE487C00E3257E /* Supporting Files */,
 			);
@@ -334,7 +322,6 @@
 				B61F374316DE487D00E3257E /* Interfaces.xib in Resources */,
 				B6D4781816EA3C6500EAAFD3 /* StatusBarIcon.png in Resources */,
 				B6D4781916EA3C6500EAAFD3 /* StatusBarIconHighlighted.png in Resources */,
-				B6D4781D16EA480000EAAFD3 /* StatusBarIcon2.png in Resources */,
 				B61F137216EC57DD00672649 /* StatusBarIconActivated.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
