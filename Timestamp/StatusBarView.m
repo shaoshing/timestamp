@@ -36,7 +36,7 @@
   [self toggleStartAndStopMenuItems];
   [self updateMenuItemsOfTaskInfo];
   
-  self.menuItemTimer = [NSTimer scheduledTimerWithTimeInterval:1.0 target:self selector:@selector(updateMenuItemsOfTaskInfo) userInfo:nil repeats:YES];
+  self.menuItemTimer = [NSTimer scheduledTimerWithTimeInterval:10.0 target:self selector:@selector(updateMenuItemsOfTaskInfo) userInfo:nil repeats:YES];
 }
 
 - (void) stopTask{
@@ -49,7 +49,7 @@
 }
 
 - (void)updateMenuItemsOfTaskInfo{
-//  NSLog(@"[StatusBarView] Updated Task Info");
+  NSLog(@"[StatusBarView] Updated Task Info");
   
   if (self.controller.currentTask == nil){
     @throw @"currentTask is nil";

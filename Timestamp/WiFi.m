@@ -35,7 +35,9 @@
 // https://github.com/tonymillion/Reachability
 + (void) monitorWiFiConnectionAndCall:(void(^)(NSString *newWiFiName))callback{
   void (^onConnectionChanged)(Reachability*) = ^(Reachability *reach){
-    callback([WiFi getNameOfCurrentWifi]);
+    dispatch_sync(dispatch_get_main_queue(), ^{
+      callback([WiFi getNameOfCurrentWifi]);
+    });
   };
   
   Reachability* reach = [Reachability reachabilityForInternetConnection];
