@@ -16,5 +16,6 @@
 -(void) wifiPreferrenceChanged:(id)sender;
 -(void) systemWillSleep:(id)sender;
 -(void) systemDidWake:(id)sender;
+-(void) systemWillPowerOff:(id)sender;
 
 @end

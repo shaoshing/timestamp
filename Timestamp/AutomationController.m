@@ -16,6 +16,7 @@
   
   [[[NSWorkspace sharedWorkspace] notificationCenter] addObserver: self selector: @selector(systemDidWake:) name: NSWorkspaceDidWakeNotification object: NULL];
   [[[NSWorkspace sharedWorkspace] notificationCenter] addObserver: self selector: @selector(systemWillSleep:) name: NSWorkspaceWillSleepNotification object: NULL];
+  [[[NSWorkspace sharedWorkspace] notificationCenter] addObserver: self selector: @selector(systemWillPowerOff:) name: NSWorkspaceWillPowerOffNotification object: NULL];
 }
 
 -(void) wifiChanged:(id)sender NewName:(NSString *)newName{
@@ -41,6 +42,11 @@
   NSLog(@"[Automation] system did awak");
   [self determineWhetherToStartWithWiFiName:[WiFi getNameOfCurrentWifi]];
   self.systemInSleep = NO;
+}
+
+-(void) systemWillPowerOff:(id)sender{
+  NSLog(@"[Automation] system will power off");
+  [self.statusBarController shouldStopAutomatically:self];
 }
 
 #pragma mark - Private Methods
