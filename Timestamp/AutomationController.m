@@ -9,14 +9,12 @@
 - (void) awakeFromNib{
   self.preferrence = self.preferrencesController.preferrence;
   self.previousChangedWifiName = @"";
-  AutomationController *controller = self;
-  [WiFi monitorWiFiConnectionAndCall:^(NSString *newWiFiName){
-    [controller wifiChanged:nil NewName:newWiFiName];
-  }];
   
   [[[NSWorkspace sharedWorkspace] notificationCenter] addObserver: self selector: @selector(systemDidWake:) name: NSWorkspaceDidWakeNotification object: NULL];
   [[[NSWorkspace sharedWorkspace] notificationCenter] addObserver: self selector: @selector(systemWillSleep:) name: NSWorkspaceWillSleepNotification object: NULL];
   [[[NSWorkspace sharedWorkspace] notificationCenter] addObserver: self selector: @selector(systemWillPowerOff:) name: NSWorkspaceWillPowerOffNotification object: NULL];
+  
+  [NSTimer scheduledTimerWithTimeInterval:3.0 target:self selector:@selector(monitorWiFiChanges) userInfo:nil repeats:NO];
 }
 
 -(void) wifiChanged:(id)sender NewName:(NSString *)newName{
@@ -72,6 +70,13 @@
   }else{
     NSLog(@"[Automation] ignored. WiFi name is same as previous");
   }
+}
+
+-(void) monitorWiFiChanges{
+  AutomationController *controller = self;
+  [WiFi monitorWiFiConnectionAndCall:^(NSString *newWiFiName){
+    [controller wifiChanged:nil NewName:newWiFiName];
+  }];
 }
 
 @end
