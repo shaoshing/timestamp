@@ -6,6 +6,7 @@
 
 @property (weak) StatusBarController *controller;
 @property (strong) NSTimer *menuItemTimer;
+@property (strong) NSTimer *iconTimer;
 
 @property (strong) NSImage *icon;
 @property (strong) NSImage *iconActivated;

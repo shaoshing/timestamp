@@ -14,7 +14,6 @@
 - (void) initStatusBar{
   NSBundle *bundle = [NSBundle mainBundle];
   self.icon = [[NSImage alloc] initWithContentsOfFile:[bundle pathForResource:@"StatusBarIcon" ofType:@"png"]];
-  self.iconActivated = [[NSImage alloc] initWithContentsOfFile:[bundle pathForResource:@"StatusBarIconActivated" ofType:@"png"]];
   self.iconHighlighted = [[NSImage alloc] initWithContentsOfFile:[bundle pathForResource:@"StatusBarIconHighlighted" ofType:@"png"]];
   [self.controller.statusItem setAlternateImage:self.iconHighlighted];
   
@@ -35,8 +34,10 @@
   [self toggleStatusIcon];
   [self toggleStartAndStopMenuItems];
   [self updateMenuItemsOfTaskInfo];
+  [self updateIcon];
   
-  self.menuItemTimer = [NSTimer scheduledTimerWithTimeInterval:10.0 target:self selector:@selector(updateMenuItemsOfTaskInfo) userInfo:nil repeats:YES];
+  self.menuItemTimer = [NSTimer scheduledTimerWithTimeInterval:10 target:self selector:@selector(updateMenuItemsOfTaskInfo) userInfo:nil repeats:YES];
+  self.iconTimer = [NSTimer scheduledTimerWithTimeInterval:60 target:self selector:@selector(updateIcon) userInfo:nil repeats:YES];
 }
 
 - (void) stopTask{
@@ -45,6 +46,8 @@
   
   [self.menuItemTimer invalidate];
   self.menuItemTimer = nil;
+  [self.iconTimer invalidate];
+  self.iconTimer = nil;
   [self updateMenuItemsOfTaskInfo];
 }
 
@@ -84,6 +87,38 @@
   [self.controller.taskTimeDescMenuItem setTitle:strTimeInfo];
 }
 
+const int StartEngle = 270;
+
+- (void) updateIcon{
+  self.iconActivated = [[NSImage alloc] initWithSize:NSMakeSize(19, 19)];
+  [self.iconActivated setFlipped:YES];
+  [self.iconActivated lockFocus];
+  
+  NSBezierPath* thePath = [NSBezierPath bezierPath];
+  [[NSColor colorWithCalibratedRed:0.61 green:0.61 blue:0.61 alpha:1] setStroke];
+  [thePath setLineWidth:2];
+  [thePath setFlatness:0];
+  [thePath appendBezierPathWithOvalInRect:NSMakeRect(1,1, 16, 16)];
+  [thePath stroke];
+
+  TaskDuration *duration = [self.controller.currentTask duration];
+  CGFloat endAngel = ((int)(360.0*(duration.minutes/60.0)+StartEngle))%360;
+  NSBezierPath* thePath2 = [NSBezierPath bezierPath];
+  [[NSColor blackColor] setStroke];
+  [thePath2 setLineWidth:2];
+  [thePath2 appendBezierPathWithArcWithCenter:NSMakePoint(9,9) radius:8  startAngle:StartEngle endAngle:endAngel];
+  [thePath2 stroke];
+  
+  
+//  [@"1" drawAtPoint:NSMakePoint(0, 0) withAttributes:nil];
+  
+  [self.iconActivated unlockFocus];
+
+  
+  [self.controller.statusItem setImage:self.iconActivated];
+  [self.controller.statusItem setAlternateImage:self.iconActivated];
+}
+
 - (void) toggleStartAndStopMenuItems{
   [self.controller.stopMenuItem setHidden:![self.controller.stopMenuItem isHidden]];
   [self.controller.startMenuItem setHidden:![self.controller.startMenuItem isHidden]];
@@ -96,6 +131,6 @@
   }else{
     [self.controller.statusItem setImage:self.iconActivated];
   }
+  [self.controller.statusItem setAlternateImage:self.iconHighlighted];
 }
-
 @end
