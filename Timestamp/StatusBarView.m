@@ -91,6 +91,8 @@
 
 
 - (void) updateIcon{
+  NSLog(@"[StatusBarView] Updated Task Info");
+  
   self.iconActivated = [[NSImage alloc] initWithSize:NSMakeSize(StatusIconWidth, StatusIconWidth)];
   [self.iconActivated setFlipped:YES];
   
