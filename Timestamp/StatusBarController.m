@@ -9,7 +9,7 @@
 #pragma mark - Init
 
 - (void) awakeFromNib{    
-  self.statusItem = [[NSStatusBar systemStatusBar] statusItemWithLength:21];
+  self.statusItem = [[NSStatusBar systemStatusBar] statusItemWithLength:StatusIconWidth];
   self.statusBarView = [StatusBarView initWithStatusBarController:self];
   [self.statusBarView initStatusBar];
 }

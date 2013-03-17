@@ -2,9 +2,6 @@
 #import "StatusBarController.h"
 #import "Task.h"
 
-#define MenuItemInterval 10
-#define IconInterval 60
-
 @implementation StatusBarView
 
 
@@ -39,8 +36,8 @@
   [self updateMenuItemsOfTaskInfo];
   [self updateIcon];
   
-  self.menuItemTimer = [NSTimer scheduledTimerWithTimeInterval:MenuItemInterval target:self selector:@selector(updateMenuItemsOfTaskInfo) userInfo:nil repeats:YES];
-  self.iconTimer = [NSTimer scheduledTimerWithTimeInterval:IconInterval target:self selector:@selector(updateIcon) userInfo:nil repeats:YES];
+  self.menuItemTimer = [NSTimer scheduledTimerWithTimeInterval:MenuItemUpdateInterval target:self selector:@selector(updateMenuItemsOfTaskInfo) userInfo:nil repeats:YES];
+  self.iconTimer = [NSTimer scheduledTimerWithTimeInterval:IconUpdateInterval target:self selector:@selector(updateIcon) userInfo:nil repeats:YES];
 }
 
 - (void) stopTask{
@@ -94,7 +91,7 @@
 
 
 - (void) updateIcon{
-  self.iconActivated = [[NSImage alloc] initWithSize:NSMakeSize(21, 21)];
+  self.iconActivated = [[NSImage alloc] initWithSize:NSMakeSize(StatusIconWidth, StatusIconWidth)];
   [self.iconActivated setFlipped:YES];
   
   TaskDuration *duration = [self.controller.currentTask duration];

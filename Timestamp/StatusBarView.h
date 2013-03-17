@@ -1,5 +1,9 @@
 #import <Cocoa/Cocoa.h>
 
+#define StatusIconWidth 21
+#define MenuItemUpdateInterval 10
+#define IconUpdateInterval 60
+
 @class StatusBarController, Task;
 
 @interface StatusBarView : NSObject
