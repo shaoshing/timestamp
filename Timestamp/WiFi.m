@@ -20,7 +20,9 @@
   CWInterface *currentInterface = [CWInterface interfaceWithName:nil];
   
   // todo: replace the deprecated method call.
+  #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
   NSArray *networks = [NSMutableArray arrayWithArray:[currentInterface scanForNetworksWithParameters:nil error:nil]];
+  
   
   NSMutableArray *names = [NSMutableArray array];
   for (CWNetwork *network in networks) {
@@ -48,6 +50,8 @@
   // Invoke the callback manually for the first time, because Reachability won't
   // first the callback if the current internet connection is available.
   callback([WiFi getNameOfCurrentWifi]);
+  
+  
 }
 
 
