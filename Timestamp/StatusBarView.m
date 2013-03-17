@@ -96,6 +96,8 @@
   self.iconActivated = [[NSImage alloc] initWithSize:NSMakeSize(StatusIconWidth, StatusIconWidth)];
   [self.iconActivated setFlipped:YES];
   
+  NSPoint center = NSMakePoint(11, 11);
+  
   TaskDuration *duration = [self.controller.currentTask duration];
   CGFloat endAngel = ((int)(360.0*(duration.minutes/60.0)+StartEngle))%360;
   
@@ -105,14 +107,14 @@
   [[self ColorWithR:109 G:123 B:132] setStroke];
   [path setLineWidth:1];
   [path setFlatness:0];
-  [path appendBezierPathWithArcWithCenter:NSMakePoint(11,11) radius:7  startAngle:StartEngle endAngle:endAngel];
+  [path appendBezierPathWithArcWithCenter:center radius:7  startAngle:StartEngle endAngle:endAngel];
   [path stroke];
   [path removeAllPoints];
 
   [[NSColor blackColor] setStroke];  
   [path setLineWidth:1.8];
   [path setFlatness:0];
-  [path appendBezierPathWithArcWithCenter:NSMakePoint(11,11) radius:7  startAngle:endAngel endAngle:StartEngle-1];
+  [path appendBezierPathWithArcWithCenter:center radius:7  startAngle:endAngel endAngle:StartEngle-1];
   [path stroke];
   
   if (duration.hours > 0){
@@ -129,7 +131,7 @@
   } else{
     [path removeAllPoints];
     [path setLineWidth:0.1];
-    [path appendBezierPathWithArcWithCenter:NSMakePoint(11,11) radius:1.5  startAngle:StartEngle endAngle:StartEngle-1];
+    [path appendBezierPathWithArcWithCenter:center radius:1.5  startAngle:StartEngle endAngle:StartEngle-1];
     [path fill];
   }
   
