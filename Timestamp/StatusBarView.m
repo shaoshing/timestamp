@@ -2,6 +2,9 @@
 #import "StatusBarController.h"
 #import "Task.h"
 
+#define MenuItemInterval 10
+#define IconInterval 60
+
 @implementation StatusBarView
 
 
@@ -36,8 +39,8 @@
   [self updateMenuItemsOfTaskInfo];
   [self updateIcon];
   
-  self.menuItemTimer = [NSTimer scheduledTimerWithTimeInterval:10 target:self selector:@selector(updateMenuItemsOfTaskInfo) userInfo:nil repeats:YES];
-  self.iconTimer = [NSTimer scheduledTimerWithTimeInterval:60 target:self selector:@selector(updateIcon) userInfo:nil repeats:YES];
+  self.menuItemTimer = [NSTimer scheduledTimerWithTimeInterval:MenuItemInterval target:self selector:@selector(updateMenuItemsOfTaskInfo) userInfo:nil repeats:YES];
+  self.iconTimer = [NSTimer scheduledTimerWithTimeInterval:IconInterval target:self selector:@selector(updateIcon) userInfo:nil repeats:YES];
 }
 
 - (void) stopTask{
@@ -87,36 +90,59 @@
   [self.controller.taskTimeDescMenuItem setTitle:strTimeInfo];
 }
 
-const int StartEngle = 270;
+#define StartEngle 270
+
 
 - (void) updateIcon{
-  self.iconActivated = [[NSImage alloc] initWithSize:NSMakeSize(19, 19)];
+  self.iconActivated = [[NSImage alloc] initWithSize:NSMakeSize(21, 21)];
   [self.iconActivated setFlipped:YES];
-  [self.iconActivated lockFocus];
   
-  NSBezierPath* thePath = [NSBezierPath bezierPath];
-  [[NSColor colorWithCalibratedRed:0.61 green:0.61 blue:0.61 alpha:1] setStroke];
-  [thePath setLineWidth:2];
-  [thePath setFlatness:0];
-  [thePath appendBezierPathWithOvalInRect:NSMakeRect(1,1, 16, 16)];
-  [thePath stroke];
-
   TaskDuration *duration = [self.controller.currentTask duration];
   CGFloat endAngel = ((int)(360.0*(duration.minutes/60.0)+StartEngle))%360;
-  NSBezierPath* thePath2 = [NSBezierPath bezierPath];
-  [[NSColor blackColor] setStroke];
-  [thePath2 setLineWidth:2];
-  [thePath2 appendBezierPathWithArcWithCenter:NSMakePoint(9,9) radius:8  startAngle:StartEngle endAngle:endAngel];
-  [thePath2 stroke];
   
+  [self.iconActivated lockFocus];
   
-//  [@"1" drawAtPoint:NSMakePoint(0, 0) withAttributes:nil];
+  NSBezierPath* path = [NSBezierPath bezierPath];
+  [[self ColorWithR:109 G:123 B:132] setStroke];
+  [path setLineWidth:1];
+  [path setFlatness:0];
+  [path appendBezierPathWithArcWithCenter:NSMakePoint(11,11) radius:7  startAngle:StartEngle endAngle:endAngel];
+  [path stroke];
+  [path removeAllPoints];
+
+  [[NSColor blackColor] setStroke];  
+  [path setLineWidth:1.8];
+  [path setFlatness:0];
+  [path appendBezierPathWithArcWithCenter:NSMakePoint(11,11) radius:7  startAngle:endAngel endAngle:StartEngle-1];
+  [path stroke];
+  
+  if (duration.hours > 0){
+    NSFont* font= [NSFont fontWithName:@"Helvetica" size:10.0];
+    NSMutableParagraphStyle * paragraphStyle = [[NSParagraphStyle defaultParagraphStyle] mutableCopy];
+    [paragraphStyle setAlignment:NSCenterTextAlignment];
+    
+    NSMutableDictionary * attributes = [[NSMutableDictionary alloc] init];
+    [attributes setObject:font forKey:NSFontAttributeName];
+    [attributes setObject:paragraphStyle forKey:NSParagraphStyleAttributeName];
+    
+    NSString *strHour = [NSString stringWithFormat:@"%d", (int)duration.hours];
+    [strHour drawInRect:NSMakeRect(3, 4, 16, 16) withAttributes:attributes];
+  } else{
+    [path removeAllPoints];
+    [path setLineWidth:0.1];
+    [path appendBezierPathWithArcWithCenter:NSMakePoint(11,11) radius:1.5  startAngle:StartEngle endAngle:StartEngle-1];
+    [path fill];
+  }
   
   [self.iconActivated unlockFocus];
 
   
   [self.controller.statusItem setImage:self.iconActivated];
   [self.controller.statusItem setAlternateImage:self.iconActivated];
+}
+
+- (NSColor *) ColorWithR:(int)red G:(int)gree B:(int)blue{
+  return [NSColor colorWithCalibratedRed:red/255.0 green:gree/255.0 blue:blue/255.0 alpha:1.0];
 }
 
 - (void) toggleStartAndStopMenuItems{
