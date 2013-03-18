@@ -2,6 +2,8 @@
 #import "StatusBarController.h"
 #import "Task.h"
 
+#define StartEngle 270
+
 @implementation StatusBarView
 
 
@@ -12,11 +14,6 @@
 }
 
 - (void) initStatusBar{
-  NSBundle *bundle = [NSBundle mainBundle];
-  self.icon = [[NSImage alloc] initWithContentsOfFile:[bundle pathForResource:@"StatusBarIcon" ofType:@"png"]];
-  self.iconHighlighted = [[NSImage alloc] initWithContentsOfFile:[bundle pathForResource:@"StatusBarIconHighlighted" ofType:@"png"]];
-  [self.controller.statusItem setAlternateImage:self.iconHighlighted];
-  
   [self toggleStatusIcon];
   
   [self.controller.statusItem setHighlightMode:YES];
@@ -87,7 +84,7 @@
   [self.controller.taskTimeDescMenuItem setTitle:strTimeInfo];
 }
 
-#define StartEngle 270
+
 
 
 - (void) updateIcon{
@@ -153,11 +150,51 @@
 }
 
 - (void) toggleStatusIcon{
+  if (self.icon == nil){
+    NSPoint center = NSMakePoint(11, 11);
+    NSBezierPath* path = [NSBezierPath bezierPath];
+    [path setLineWidth:1.8];
+    [path setFlatness:0];
+    
+    self.icon = [[NSImage alloc] initWithSize:NSMakeSize(StatusIconWidth, StatusIconWidth)];
+    [self.icon setFlipped:YES];
+    [self.icon lockFocus];
+    [[self ColorWithR:109 G:123 B:132] setStroke];
+    [path appendBezierPathWithArcWithCenter:center radius:7  startAngle:StartEngle endAngle:StartEngle-1];
+    [path stroke];
+    [path removeAllPoints];
+    [[self ColorWithR:109 G:123 B:132] setFill];
+    [path appendBezierPathWithArcWithCenter:center radius:1.5  startAngle:StartEngle endAngle:StartEngle-1];
+    [path fill];
+    [path removeAllPoints];
+    [self.icon unlockFocus];
+    
+    
+    self.iconHighlighted = [[NSImage alloc] initWithSize:NSMakeSize(StatusIconWidth, StatusIconWidth)];
+    [self.iconHighlighted setFlipped:YES];
+    [self.iconHighlighted lockFocus];
+    [[NSColor whiteColor] setStroke];
+    [path appendBezierPathWithArcWithCenter:center radius:7  startAngle:StartEngle endAngle:StartEngle-1];
+    [path stroke];
+    NSShadow * shadow = [[NSShadow alloc] init];
+    [shadow setShadowColor:[NSColor whiteColor]];
+    [shadow setShadowBlurRadius:4.0];
+    [shadow set];
+    [path stroke];
+    
+    [path removeAllPoints];
+    [[NSColor whiteColor] setFill];
+    [path appendBezierPathWithArcWithCenter:center radius:1.5  startAngle:StartEngle endAngle:StartEngle-1];
+    [path fill];
+    [self.iconHighlighted unlockFocus];
+  }
+  
   if (self.controller.currentTask == nil || [self.controller.currentTask isFinished] || [self.controller.currentTask isCancelled]){
     [self.controller.statusItem setImage:self.icon];
   }else{
     [self.controller.statusItem setImage:self.iconActivated];
   }
+  
   [self.controller.statusItem setAlternateImage:self.iconHighlighted];
 }
 @end
