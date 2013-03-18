@@ -90,7 +90,7 @@
 - (void) updateIcon{
   NSLog(@"[StatusBarView] Updated Task Info");
   
-  self.iconActivated = [[NSImage alloc] initWithSize:NSMakeSize(StatusIconWidth, StatusIconWidth)];
+  self.iconActivated = [[NSImage alloc] initWithSize:NSMakeSize(StatusIconWidth, StatusIconHeight)];
   [self.iconActivated setFlipped:YES];
   
   NSPoint center = NSMakePoint(11, 11);
@@ -165,7 +165,7 @@
     [path stroke];
     NSShadow * shadow = [[NSShadow alloc] init];
     [shadow setShadowColor:[NSColor whiteColor]];
-    [shadow setShadowBlurRadius:4.0];
+    [shadow setShadowBlurRadius:5.0];
     [shadow set];
     [path stroke];
     
