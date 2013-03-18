@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		B60F2E5816EB48B100A41408 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = B60F2E5716EB48B100A41408 /* AppDelegate.m */; };
 		B60F2E5B16EB501B00A41408 /* AutomationController.m in Sources */ = {isa = PBXBuildFile; fileRef = B60F2E5A16EB501B00A41408 /* AutomationController.m */; };
-		B61F137216EC57DD00672649 /* StatusBarIconActivated.png in Resources */ = {isa = PBXBuildFile; fileRef = B61F137116EC57DD00672649 /* StatusBarIconActivated.png */; };
 		B61F372D16DE487C00E3257E /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B61F372C16DE487C00E3257E /* Cocoa.framework */; };
 		B61F373716DE487C00E3257E /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = B61F373516DE487C00E3257E /* InfoPlist.strings */; };
 		B61F373916DE487C00E3257E /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = B61F373816DE487C00E3257E /* main.m */; };
@@ -22,8 +21,6 @@
 		B6B39D2B16E4DBB800D76E6F /* StatusBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = B6B39D2A16E4DBB800D76E6F /* StatusBarController.m */; };
 		B6B39D3016E4E3C400D76E6F /* Task.m in Sources */ = {isa = PBXBuildFile; fileRef = B6B39D2F16E4E3C400D76E6F /* Task.m */; };
 		B6B883C116EF5AB60076D17E /* StatusBarView.m in Sources */ = {isa = PBXBuildFile; fileRef = B6B883C016EF5AB60076D17E /* StatusBarView.m */; };
-		B6D4781816EA3C6500EAAFD3 /* StatusBarIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = B6D4781616EA3C6500EAAFD3 /* StatusBarIcon.png */; };
-		B6D4781916EA3C6500EAAFD3 /* StatusBarIconHighlighted.png in Resources */ = {isa = PBXBuildFile; fileRef = B6D4781716EA3C6500EAAFD3 /* StatusBarIconHighlighted.png */; };
 		B6D4782016EADD5A00EAAFD3 /* CalendarEvent.m in Sources */ = {isa = PBXBuildFile; fileRef = B6D4781F16EADD5A00EAAFD3 /* CalendarEvent.m */; };
 		B6D4782216EAEA8B00EAAFD3 /* EventKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B6D4782116EAEA8B00EAAFD3 /* EventKit.framework */; };
 		B6D4782516EB18F300EAAFD3 /* WiFi.m in Sources */ = {isa = PBXBuildFile; fileRef = B6D4782416EB18F300EAAFD3 /* WiFi.m */; };
@@ -47,7 +44,6 @@
 		B60F2E5716EB48B100A41408 /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		B60F2E5916EB501B00A41408 /* AutomationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AutomationController.h; sourceTree = "<group>"; };
 		B60F2E5A16EB501B00A41408 /* AutomationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AutomationController.m; sourceTree = "<group>"; };
-		B61F137116EC57DD00672649 /* StatusBarIconActivated.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = StatusBarIconActivated.png; sourceTree = "<group>"; };
 		B61F372916DE487C00E3257E /* Timestamp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Timestamp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B61F372C16DE487C00E3257E /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		B61F372F16DE487C00E3257E /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
@@ -72,8 +68,6 @@
 		B6B39D2F16E4E3C400D76E6F /* Task.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Task.m; sourceTree = "<group>"; };
 		B6B883BF16EF5AB60076D17E /* StatusBarView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StatusBarView.h; sourceTree = "<group>"; };
 		B6B883C016EF5AB60076D17E /* StatusBarView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StatusBarView.m; sourceTree = "<group>"; };
-		B6D4781616EA3C6500EAAFD3 /* StatusBarIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = StatusBarIcon.png; sourceTree = "<group>"; };
-		B6D4781716EA3C6500EAAFD3 /* StatusBarIconHighlighted.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = StatusBarIconHighlighted.png; sourceTree = "<group>"; };
 		B6D4781E16EADD5A00EAAFD3 /* CalendarEvent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CalendarEvent.h; sourceTree = "<group>"; };
 		B6D4781F16EADD5A00EAAFD3 /* CalendarEvent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CalendarEvent.m; sourceTree = "<group>"; };
 		B6D4782116EAEA8B00EAAFD3 /* EventKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = EventKit.framework; path = System/Library/Frameworks/EventKit.framework; sourceTree = SDKROOT; };
@@ -161,9 +155,6 @@
 		B61F373216DE487C00E3257E /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				B6D4781616EA3C6500EAAFD3 /* StatusBarIcon.png */,
-				B61F137116EC57DD00672649 /* StatusBarIconActivated.png */,
-				B6D4781716EA3C6500EAAFD3 /* StatusBarIconHighlighted.png */,
 				B61F374116DE487D00E3257E /* Interfaces.xib */,
 				B61F373316DE487C00E3257E /* Supporting Files */,
 			);
@@ -320,9 +311,6 @@
 				B61F373716DE487C00E3257E /* InfoPlist.strings in Resources */,
 				B61F373D16DE487C00E3257E /* Credits.rtf in Resources */,
 				B61F374316DE487D00E3257E /* Interfaces.xib in Resources */,
-				B6D4781816EA3C6500EAAFD3 /* StatusBarIcon.png in Resources */,
-				B6D4781916EA3C6500EAAFD3 /* StatusBarIconHighlighted.png in Resources */,
-				B61F137216EC57DD00672649 /* StatusBarIconActivated.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
