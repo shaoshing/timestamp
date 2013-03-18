@@ -16,6 +16,7 @@
 @property (strong) NSImage *icon;
 @property (strong) NSImage *iconActivated;
 @property (strong) NSImage *iconHighlighted;
+@property (strong) NSImage *iconActivatedHighlighted;
 
 + (id) initWithStatusBarController:(StatusBarController *)controller;
 

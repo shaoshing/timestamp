@@ -3,6 +3,7 @@
 #import "Task.h"
 
 #define StartEngle 270
+#define OuterStrokeWidth 2.0
 
 @implementation StatusBarView
 
@@ -99,7 +100,6 @@
   CGFloat endAngel = ((int)(360.0*(duration.minutes/60.0)+StartEngle))%360;
   
   [self.iconActivated lockFocus];
-  
   NSBezierPath* path = [NSBezierPath bezierPath];
   [[self ColorWithR:109 G:123 B:132] setStroke];
   [path setLineWidth:1];
@@ -109,7 +109,7 @@
   [path removeAllPoints];
 
   [[NSColor blackColor] setStroke];  
-  [path setLineWidth:1.8];
+  [path setLineWidth:OuterStrokeWidth];
   [path setFlatness:0];
   [path appendBezierPathWithArcWithCenter:center radius:7  startAngle:endAngel endAngle:StartEngle-1];
   [path stroke];
@@ -118,12 +118,22 @@
   [path setLineWidth:0.1];
   [path appendBezierPathWithArcWithCenter:center radius:1.5  startAngle:StartEngle endAngle:StartEngle-1];
   [path fill];
-  
   [self.iconActivated unlockFocus];
-
-  
   [self.controller.statusItem setImage:self.iconActivated];
-  [self.controller.statusItem setAlternateImage:self.iconActivated];
+  
+  
+  
+  NSImage *compositeImg = [[NSImage alloc] initWithSize:NSMakeSize(StatusIconWidth, StatusIconHeight)];
+  [compositeImg lockFocus];
+  [[NSColor whiteColor] setFill];
+  NSRectFill(NSMakeRect(0, 0, StatusIconWidth, StatusIconHeight));
+  [compositeImg unlockFocus];
+  
+  self.iconActivatedHighlighted = [self.iconActivated copy];
+  [self.iconActivatedHighlighted lockFocus];
+  [compositeImg drawAtPoint:NSMakePoint(0, 0) fromRect:NSMakeRect(0, 0, StatusIconWidth, StatusIconHeight) operation:NSCompositeSourceIn fraction:1.0];
+  [self.iconActivatedHighlighted unlockFocus];
+  [self.controller.statusItem setAlternateImage:self.iconActivatedHighlighted];
 }
 
 - (NSColor *) ColorWithR:(int)red G:(int)gree B:(int)blue{
@@ -140,7 +150,7 @@
   if (self.icon == nil){
     NSPoint center = NSMakePoint(11, 11);
     NSBezierPath* path = [NSBezierPath bezierPath];
-    [path setLineWidth:1.8];
+    [path setLineWidth:OuterStrokeWidth];
     [path setFlatness:0];
     
     self.icon = [[NSImage alloc] initWithSize:NSMakeSize(StatusIconWidth, StatusIconHeight)];
