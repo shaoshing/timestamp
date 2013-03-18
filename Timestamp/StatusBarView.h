@@ -1,9 +1,10 @@
 #import <Cocoa/Cocoa.h>
 
-#define StatusIconWidth 22
+#define StatusIconWidth 28
 #define StatusIconHeight 21
 #define MenuItemUpdateInterval 10
 #define IconUpdateInterval 60
+#define IconCenter NSMakePoint(StatusIconWidth/2, (StatusIconHeight+1)/2)
 
 @class StatusBarController, Task;
 

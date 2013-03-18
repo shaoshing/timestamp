@@ -94,8 +94,6 @@
   self.iconActivated = [[NSImage alloc] initWithSize:NSMakeSize(StatusIconWidth, StatusIconHeight)];
   [self.iconActivated setFlipped:YES];
   
-  NSPoint center = NSMakePoint(11, 11);
-  
   TaskDuration *duration = [self.controller.currentTask duration];
   CGFloat endAngel = ((int)(360.0*(duration.minutes/60.0)+StartEngle))%360;
   
@@ -104,19 +102,19 @@
   [[self ColorWithR:109 G:123 B:132] setStroke];
   [path setLineWidth:1];
   [path setFlatness:0];
-  [path appendBezierPathWithArcWithCenter:center radius:7  startAngle:StartEngle endAngle:endAngel];
+  [path appendBezierPathWithArcWithCenter:IconCenter radius:7  startAngle:StartEngle endAngle:endAngel];
   [path stroke];
   [path removeAllPoints];
 
   [[NSColor blackColor] setStroke];  
   [path setLineWidth:OuterStrokeWidth];
   [path setFlatness:0];
-  [path appendBezierPathWithArcWithCenter:center radius:7  startAngle:endAngel endAngle:StartEngle-1];
+  [path appendBezierPathWithArcWithCenter:IconCenter radius:7  startAngle:endAngel endAngle:StartEngle-1];
   [path stroke];
   
   [path removeAllPoints];
   [path setLineWidth:0.1];
-  [path appendBezierPathWithArcWithCenter:center radius:1.5  startAngle:StartEngle endAngle:StartEngle-1];
+  [path appendBezierPathWithArcWithCenter:IconCenter radius:1.5  startAngle:StartEngle endAngle:StartEngle-1];
   [path fill];
   [self.iconActivated unlockFocus];
   [self.controller.statusItem setImage:self.iconActivated];
@@ -148,7 +146,6 @@
 
 - (void) toggleStatusIcon{
   if (self.icon == nil){
-    NSPoint center = NSMakePoint(11, 11);
     NSBezierPath* path = [NSBezierPath bezierPath];
     [path setLineWidth:OuterStrokeWidth];
     [path setFlatness:0];
@@ -157,11 +154,11 @@
     [self.icon setFlipped:YES];
     [self.icon lockFocus];
     [[self ColorWithR:109 G:123 B:132] setStroke];
-    [path appendBezierPathWithArcWithCenter:center radius:7  startAngle:StartEngle endAngle:StartEngle-1];
+    [path appendBezierPathWithArcWithCenter:IconCenter radius:7  startAngle:StartEngle endAngle:StartEngle-1];
     [path stroke];
     [path removeAllPoints];
     [[self ColorWithR:109 G:123 B:132] setFill];
-    [path appendBezierPathWithArcWithCenter:center radius:1.5  startAngle:StartEngle endAngle:StartEngle-1];
+    [path appendBezierPathWithArcWithCenter:IconCenter radius:1.5  startAngle:StartEngle endAngle:StartEngle-1];
     [path fill];
     [path removeAllPoints];
     [self.icon unlockFocus];
@@ -171,7 +168,7 @@
     [self.iconHighlighted setFlipped:YES];
     [self.iconHighlighted lockFocus];
     [[NSColor whiteColor] setStroke];
-    [path appendBezierPathWithArcWithCenter:center radius:7  startAngle:StartEngle endAngle:StartEngle-1];
+    [path appendBezierPathWithArcWithCenter:IconCenter radius:7  startAngle:StartEngle endAngle:StartEngle-1];
     [path stroke];
     NSShadow * shadow = [[NSShadow alloc] init];
     [shadow setShadowColor:[NSColor whiteColor]];
@@ -181,7 +178,7 @@
     
     [path removeAllPoints];
     [[NSColor whiteColor] setFill];
-    [path appendBezierPathWithArcWithCenter:center radius:1.5  startAngle:StartEngle endAngle:StartEngle-1];
+    [path appendBezierPathWithArcWithCenter:IconCenter radius:1.5  startAngle:StartEngle endAngle:StartEngle-1];
     [path fill];
     [self.iconHighlighted unlockFocus];
   }
