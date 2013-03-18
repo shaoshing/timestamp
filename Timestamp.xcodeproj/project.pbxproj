@@ -156,6 +156,7 @@
 			isa = PBXGroup;
 			children = (
 				B61F374116DE487D00E3257E /* Interfaces.xib */,
+				B61F373416DE487C00E3257E /* Timestamp-Info.plist */,
 				B61F373316DE487C00E3257E /* Supporting Files */,
 			);
 			name = Resources;
@@ -165,7 +166,6 @@
 		B61F373316DE487C00E3257E /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				B61F373416DE487C00E3257E /* Timestamp-Info.plist */,
 				B61F373516DE487C00E3257E /* InfoPlist.strings */,
 				B61F373816DE487C00E3257E /* main.m */,
 				B61F373A16DE487C00E3257E /* Timestamp-Prefix.pch */,
