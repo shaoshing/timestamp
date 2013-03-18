@@ -1,6 +1,7 @@
 #import <Cocoa/Cocoa.h>
 
-#define StatusIconWidth 21
+#define StatusIconWidth 22
+#define StatusIconHeight 21
 #define MenuItemUpdateInterval 10
 #define IconUpdateInterval 60
 

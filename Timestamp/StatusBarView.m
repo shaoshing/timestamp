@@ -143,7 +143,7 @@
     [path setLineWidth:1.8];
     [path setFlatness:0];
     
-    self.icon = [[NSImage alloc] initWithSize:NSMakeSize(StatusIconWidth, StatusIconWidth)];
+    self.icon = [[NSImage alloc] initWithSize:NSMakeSize(StatusIconWidth, StatusIconHeight)];
     [self.icon setFlipped:YES];
     [self.icon lockFocus];
     [[self ColorWithR:109 G:123 B:132] setStroke];
@@ -157,7 +157,7 @@
     [self.icon unlockFocus];
     
     
-    self.iconHighlighted = [[NSImage alloc] initWithSize:NSMakeSize(StatusIconWidth, StatusIconWidth)];
+    self.iconHighlighted = [[NSImage alloc] initWithSize:NSMakeSize(StatusIconWidth, StatusIconHeight)];
     [self.iconHighlighted setFlipped:YES];
     [self.iconHighlighted lockFocus];
     [[NSColor whiteColor] setStroke];
