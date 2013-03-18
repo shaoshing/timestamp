@@ -114,23 +114,10 @@
   [path appendBezierPathWithArcWithCenter:center radius:7  startAngle:endAngel endAngle:StartEngle-1];
   [path stroke];
   
-  if (duration.hours > 0){
-    NSFont* font= [NSFont fontWithName:@"Helvetica" size:10.0];
-    NSMutableParagraphStyle * paragraphStyle = [[NSParagraphStyle defaultParagraphStyle] mutableCopy];
-    [paragraphStyle setAlignment:NSCenterTextAlignment];
-    
-    NSMutableDictionary * attributes = [[NSMutableDictionary alloc] init];
-    [attributes setObject:font forKey:NSFontAttributeName];
-    [attributes setObject:paragraphStyle forKey:NSParagraphStyleAttributeName];
-    
-    NSString *strHour = [NSString stringWithFormat:@"%d", (int)duration.hours];
-    [strHour drawInRect:NSMakeRect(3, 4, 16, 16) withAttributes:attributes];
-  } else{
-    [path removeAllPoints];
-    [path setLineWidth:0.1];
-    [path appendBezierPathWithArcWithCenter:center radius:1.5  startAngle:StartEngle endAngle:StartEngle-1];
-    [path fill];
-  }
+  [path removeAllPoints];
+  [path setLineWidth:0.1];
+  [path appendBezierPathWithArcWithCenter:center radius:1.5  startAngle:StartEngle endAngle:StartEngle-1];
+  [path fill];
   
   [self.iconActivated unlockFocus];
 
