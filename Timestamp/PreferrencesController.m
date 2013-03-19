@@ -3,6 +3,7 @@
 #import "WiFi.h"
 #import "Preferrence.h"
 #import "AutomationController.h"
+#import "StatusBarController.h"
 
 @implementation PreferrencesController
 
@@ -63,5 +64,6 @@
 - (IBAction)enterTaskName:(id)sender {
   self.preferrence.taskName = [self.taskNameText stringValue];
   [self.preferrence save];
+  [self.statusBarController taskNameChanged:self];
 }
 @end

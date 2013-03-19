@@ -28,6 +28,7 @@
 - (void) resumeTask:(id)sender;
 - (void) shouldStartAutomatically:(id)sender;
 - (void) shouldStopAutomatically:(id)sender;
+- (void) taskNameChanged:(id)sender;
 
 
 @end

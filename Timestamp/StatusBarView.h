@@ -24,6 +24,7 @@
 - (void) initStatusBar;
 - (void) startTask;
 - (void) stopTask;
+- (void) updateTask;
 
 
 @end

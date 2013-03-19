@@ -1,7 +1,7 @@
 #import <Cocoa/Cocoa.h>
 
 
-@class Wifi, Preferrence, AutomationController;
+@class Wifi, Preferrence, AutomationController, StatusBarController;
 
 
 @interface PreferrencesController : NSWindowController
@@ -10,6 +10,7 @@
 @property (weak) IBOutlet NSPopUpButton *wifisPopUp;
 @property (weak) IBOutlet NSTextField *taskNameText;
 @property (weak) IBOutlet AutomationController *automationController;
+@property (weak) IBOutlet StatusBarController *statusBarController;
 
 @property (strong) Preferrence *preferrence;
 

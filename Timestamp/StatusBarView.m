@@ -49,6 +49,12 @@
   [self updateMenuItemsOfTaskInfo];
 }
 
+- (void) updateTask{
+  if (self.controller.currentTask){
+    [self updateMenuItemsOfTaskInfo];
+  }
+}
+
 - (void)updateMenuItemsOfTaskInfo{
   NSLog(@"[StatusBarView] Updated Task Info");
 

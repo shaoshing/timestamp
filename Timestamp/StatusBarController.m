@@ -60,7 +60,12 @@
   [self stopTaskAndSave:YES];
 }
 
-
+- (void) taskNameChanged:(id)sender{
+  if (self.currentTask){
+    self.currentTask.name = [(PreferrencesController*)sender preferrence].taskName;
+    [self.statusBarView updateTask];
+  }
+}
 
 
 #pragma mark - Private Methods
