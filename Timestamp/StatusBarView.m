@@ -16,7 +16,7 @@
 
 - (void) initStatusBar{
   [self toggleStatusIcon];
-  
+
   [self.controller.statusItem setHighlightMode:YES];
   [self.controller.statusItem setEnabled:YES];
   [self.controller.statusItem setToolTip:@"Timestamp"];
@@ -28,12 +28,12 @@
 - (void) startTask{
   [self.controller.taskNameMenuItem setHidden:false];
   [self.controller.taskTimeDescMenuItem setHidden:false];
-  
+
   [self toggleStatusIcon];
   [self toggleStartAndStopMenuItems];
   [self updateMenuItemsOfTaskInfo];
   [self updateIcon];
-  
+
   self.menuItemTimer = [NSTimer scheduledTimerWithTimeInterval:MenuItemUpdateInterval target:self selector:@selector(updateMenuItemsOfTaskInfo) userInfo:nil repeats:YES];
   self.iconTimer = [NSTimer scheduledTimerWithTimeInterval:IconUpdateInterval target:self selector:@selector(updateIcon) userInfo:nil repeats:YES];
 }
@@ -41,7 +41,7 @@
 - (void) stopTask{
   [self toggleStatusIcon];
   [self toggleStartAndStopMenuItems];
-  
+
   [self.menuItemTimer invalidate];
   self.menuItemTimer = nil;
   [self.iconTimer invalidate];
@@ -51,11 +51,11 @@
 
 - (void)updateMenuItemsOfTaskInfo{
   NSLog(@"[StatusBarView] Updated Task Info");
-  
+
   if (self.controller.currentTask == nil){
     @throw @"currentTask is nil";
   }
-  
+
   NSString *strfTaskName = @"Working on \"%@\"%@";
   if ([self.controller.currentTask isFinished] || [self.controller.currentTask isCancelled]){
     strfTaskName = @"Previously working on \"%@\"%@";
@@ -65,7 +65,7 @@
     automationStatus = @" (WiFi)";
   }
   [self.controller.taskNameMenuItem setTitle:[NSString stringWithFormat:strfTaskName, self.controller.currentTask.name, automationStatus]];
-  
+
   NSString *startedAt = [self.controller.currentTask.startedAt descriptionWithCalendarFormat:@"%H:%M" timeZone:nil locale:nil];
   TaskDuration *duration = [self.controller.currentTask duration];
   NSString *strTimeInfo = [NSString stringWithFormat:@"Just started at %@, Ganbatte!", startedAt];
@@ -74,14 +74,14 @@
   }else if (duration.minutes > 0){
     strTimeInfo = [NSString stringWithFormat:@"%ld mins passed, since %@", duration.minutes, startedAt];
   }
-  
+
   if (duration.hours == 1){
     strTimeInfo = [strTimeInfo stringByReplacingOccurrencesOfString:@"hrs" withString:@"hr"];
   }
   if (duration.minutes == 1){
     strTimeInfo = [strTimeInfo stringByReplacingOccurrencesOfString:@"mins" withString:@"min"];
   }
-  
+
   [self.controller.taskTimeDescMenuItem setTitle:strTimeInfo];
 }
 
@@ -90,13 +90,13 @@
 
 - (void) updateIcon{
   NSLog(@"[StatusBarView] Updated Task Info");
-  
+
   self.iconActivated = [[NSImage alloc] initWithSize:NSMakeSize(StatusIconWidth, StatusIconHeight)];
   [self.iconActivated setFlipped:YES];
-  
+
   TaskDuration *duration = [self.controller.currentTask duration];
   CGFloat endAngel = ((int)(360.0*(duration.minutes/60.0)+StartEngle))%360;
-  
+
   [self.iconActivated lockFocus];
   NSBezierPath* path = [NSBezierPath bezierPath];
   [[self ColorWithR:109 G:123 B:132] setStroke];
@@ -106,27 +106,46 @@
   [path stroke];
   [path removeAllPoints];
 
-  [[NSColor blackColor] setStroke];  
+  [[NSColor blackColor] setStroke];
   [path setLineWidth:OuterStrokeWidth];
   [path setFlatness:0];
   [path appendBezierPathWithArcWithCenter:IconCenter radius:7  startAngle:endAngel endAngle:StartEngle-1];
   [path stroke];
-  
-  [path removeAllPoints];
-  [path setLineWidth:0.1];
-  [path appendBezierPathWithArcWithCenter:IconCenter radius:1.5  startAngle:StartEngle endAngle:StartEngle-1];
-  [path fill];
+
+
+
+  if (duration.hours > 0){
+    int textHeight = 14;
+    int textWidth = 16;
+    NSPoint center = IconCenter;
+    
+    NSFont* font= [NSFont fontWithName:@"Helvetica" size:11.0];
+    NSMutableParagraphStyle * paragraphStyle = [[NSParagraphStyle defaultParagraphStyle] mutableCopy];
+    [paragraphStyle setAlignment:NSCenterTextAlignment];
+
+    NSMutableDictionary * attributes = [[NSMutableDictionary alloc] init];
+    [attributes setObject:font forKey:NSFontAttributeName];
+    [attributes setObject:paragraphStyle forKey:NSParagraphStyleAttributeName];
+
+    NSString *strHour = [NSString stringWithFormat:@"%d", (int)duration.hours];
+    [strHour drawInRect:NSMakeRect(center.x-(textWidth/2), center.y-(textHeight/2), textWidth, textHeight) withAttributes:attributes];
+  } else{
+    [path removeAllPoints];
+    [path setLineWidth:0.1];
+    [path appendBezierPathWithArcWithCenter:IconCenter radius:1.5  startAngle:StartEngle endAngle:StartEngle-1];
+    [path fill];
+  }
+
   [self.iconActivated unlockFocus];
   [self.controller.statusItem setImage:self.iconActivated];
-  
-  
-  
+
+
   NSImage *compositeImg = [[NSImage alloc] initWithSize:NSMakeSize(StatusIconWidth, StatusIconHeight)];
   [compositeImg lockFocus];
   [[NSColor whiteColor] setFill];
   NSRectFill(NSMakeRect(0, 0, StatusIconWidth, StatusIconHeight));
   [compositeImg unlockFocus];
-  
+
   self.iconActivatedHighlighted = [self.iconActivated copy];
   [self.iconActivatedHighlighted lockFocus];
   [compositeImg drawAtPoint:NSMakePoint(0, 0) fromRect:NSMakeRect(0, 0, StatusIconWidth, StatusIconHeight) operation:NSCompositeSourceIn fraction:1.0];
@@ -149,7 +168,7 @@
     NSBezierPath* path = [NSBezierPath bezierPath];
     [path setLineWidth:OuterStrokeWidth];
     [path setFlatness:0];
-    
+
     self.icon = [[NSImage alloc] initWithSize:NSMakeSize(StatusIconWidth, StatusIconHeight)];
     [self.icon setFlipped:YES];
     [self.icon lockFocus];
@@ -162,8 +181,8 @@
     [path fill];
     [path removeAllPoints];
     [self.icon unlockFocus];
-    
-    
+
+
     self.iconHighlighted = [[NSImage alloc] initWithSize:NSMakeSize(StatusIconWidth, StatusIconHeight)];
     [self.iconHighlighted setFlipped:YES];
     [self.iconHighlighted lockFocus];
@@ -175,20 +194,20 @@
     [shadow setShadowBlurRadius:5.0];
     [shadow set];
     [path stroke];
-    
+
     [path removeAllPoints];
     [[NSColor whiteColor] setFill];
     [path appendBezierPathWithArcWithCenter:IconCenter radius:1.5  startAngle:StartEngle endAngle:StartEngle-1];
     [path fill];
     [self.iconHighlighted unlockFocus];
   }
-  
+
   if (self.controller.currentTask == nil || [self.controller.currentTask isFinished] || [self.controller.currentTask isCancelled]){
     [self.controller.statusItem setImage:self.icon];
   }else{
     [self.controller.statusItem setImage:self.iconActivated];
   }
-  
+
   [self.controller.statusItem setAlternateImage:self.iconHighlighted];
 }
 @end
