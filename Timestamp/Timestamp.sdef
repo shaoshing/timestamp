@@ -14,5 +14,10 @@
     <command name="cancel task" code="taskCanc" description="">
 			<cocoa class="ScriptCommand"/>
 		</command>
+    
+    <command name="describe task" code="taskDesc" description="">
+			<cocoa class="ScriptCommand"/>
+      <result type="text" description=""/>
+		</command>
   </suite>
 </dictionary>
