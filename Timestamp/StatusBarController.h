@@ -19,6 +19,8 @@
 @property (strong) Task *currentTask;
 @property Boolean startedManually;
 
++ (StatusBarController *) sharedController;
+
 - (IBAction)clickStart:(id)sender;
 - (IBAction)clickStop:(id)sender;
 - (IBAction)clickCancel:(id)sender;
@@ -29,6 +31,5 @@
 - (void) shouldStartAutomatically:(id)sender;
 - (void) shouldStopAutomatically:(id)sender;
 - (void) taskNameChanged:(id)sender;
-
 
 @end

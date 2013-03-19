@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE dictionary SYSTEM "file://localhost/System/Library/DTDs/sdef.dtd">
+
+<dictionary xmlns:xi="http://www.w3.org/2003/XInclude">
+	<suite name="Task" code="task" description="">
+		<command name="start task" code="taskStar" description="">
+			<cocoa class="ScriptCommand"/>
+		</command>
+    
+    <command name="finish task" code="taskStop" description="">
+			<cocoa class="ScriptCommand"/>
+		</command>
+    
+    <command name="cancel task" code="taskCanc" description="">
+			<cocoa class="ScriptCommand"/>
+		</command>
+  </suite>
+</dictionary>

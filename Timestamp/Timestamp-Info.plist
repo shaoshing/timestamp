@@ -37,5 +37,9 @@
 	<string>NSApplication</string>
 	<key>LSUIElement</key>
 	<true/>
+  <key>NSAppleScriptEnabled</key>
+  <true/>
+  <key>OSAScriptingDefinition</key>
+  <string>Timestamp.sdef</string>
 </dict>
 </plist>
