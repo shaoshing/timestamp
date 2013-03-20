@@ -16,16 +16,13 @@ StatusBarController *shared;
 #pragma mark - Init
 
 - (void) awakeFromNib{    
-  self.statusItem = [[NSStatusBar systemStatusBar] statusItemWithLength:StatusIconWidth];
-  self.statusBarView = [StatusBarView initWithStatusBarController:self];
-  [self.statusBarView initStatusBar];
-  
+  self.statusBarView = [StatusBarView initWithStatusBarController:self];  
   shared = self;
 }
 
 #pragma mark - Actions
 - (IBAction)clickStart:(id)sender {
-  self.startedManually = true;
+  _startedManually = true;
   [self startTask];
 }
 
@@ -60,7 +57,7 @@ StatusBarController *shared;
 
 - (void) shouldStartAutomatically:(id)sender{
   if (!self.currentTask){
-    self.startedManually = false;
+    _startedManually = false;
     [self startTask];
   }
 }

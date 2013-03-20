@@ -4,7 +4,6 @@
 
 @interface StatusBarController : NSObject
 
-@property (strong) NSStatusItem *statusItem;
 @property (weak) IBOutlet NSMenu *statusMenu;
 @property (weak) IBOutlet PreferrencesController *preferrencesController;
 @property (weak) IBOutlet NSMenuItem *taskNameMenuItem;
@@ -15,9 +14,8 @@
 
 @property (weak) Preferrence *preferrence;
 @property (strong) StatusBarView *statusBarView;
-
 @property (strong) Task *currentTask;
-@property Boolean startedManually;
+@property (readonly) Boolean startedManually;
 
 + (StatusBarController *) sharedController;
 
@@ -26,6 +24,7 @@
 - (IBAction)clickCancel:(id)sender;
 - (IBAction)clickQuit:(id)sender;
 - (IBAction)clickPreferrences:(id)sender;
+
 - (void) pauseTask:(id)sender;
 - (void) resumeTask:(id)sender;
 - (void) shouldStartAutomatically:(id)sender;

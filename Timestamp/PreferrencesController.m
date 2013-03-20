@@ -10,7 +10,7 @@
 - (id) init{
   self = [super init];
   if (self){
-    self.preferrence = [[Preferrence alloc] init];
+    _preferrence = [[Preferrence alloc] init];
     if (![self.preferrence load]) @throw @"Could not load preferrence";
   }
 
