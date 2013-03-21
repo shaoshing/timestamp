@@ -4,13 +4,22 @@
 @implementation Task
 
 + (Task *) startWithCurrentTimeAndName:(NSString*)name SaveInCalendar:(NSString *)calendarName{
-  Task *task = [[Task alloc] init];
-  task.name = name;
-  task.startedAt = [NSDate date];
-  
-  NSString *calendarEventTitle = [NSString stringWithFormat:@"[Timestamp] Working on \"%@\"", task.name];
-  task.calendarEvent = [CalendarEvent createEventWithTitle:calendarEventTitle From:task.startedAt InCalendar:calendarName];
+  Task *task = [[Task alloc] initWithName:name SaveInCalendar:calendarName];
   return task;
+}
+
+- (id) initWithName:(NSString*)name SaveInCalendar:(NSString *)calendarName{
+  self = [super init];
+  
+  if (self){
+    self.name = name;
+    self.startedAt = [NSDate date];
+    
+    NSString *calendarEventTitle = [NSString stringWithFormat:@"[Timestamp] Working on \"%@\"", self.name];
+    _calendarEvent = [CalendarEvent createEventWithTitle:calendarEventTitle From:self.startedAt InCalendar:calendarName];
+  }
+  
+  return self;
 }
 
 - (void) finish{
@@ -19,16 +28,16 @@
     self.endedAt = self.pausedAt;
   }
   
-  self.calendarEvent.endedAt = self.endedAt;
-  self.calendarEvent.title = [NSString stringWithFormat:@"[Timestamp] %@", self.name];
-  [self.calendarEvent createOrUpdateEventInCalendar];
+  _calendarEvent.endedAt = self.endedAt;
+  _calendarEvent.title = [NSString stringWithFormat:@"[Timestamp] %@", self.name];
+  [_calendarEvent createOrUpdateEventInCalendar];
   NSLog(@"[Task] Finished at: %@", self.endedAt);
 }
 
 - (void) cancel{
   self.endedAt = [NSDate date];
-  self.cancelled = true;
-  [self.calendarEvent deleteInCalendar];
+  _cancelled = true;
+  [_calendarEvent deleteInCalendar];
   NSLog(@"[Task] Canceled at: %@", self.endedAt);
 }
 
@@ -47,7 +56,7 @@
 }
 
 - (Boolean) isCancelled{
-  return self.cancelled;
+  return _cancelled;
 }
 
 - (TaskDuration *) duration{
