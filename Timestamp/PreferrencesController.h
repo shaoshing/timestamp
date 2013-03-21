@@ -12,7 +12,7 @@
 @property (weak) IBOutlet AutomationController *automationController;
 @property (weak) IBOutlet StatusBarController *statusBarController;
 
-@property (strong, readonly) Preferrence *preferrence;
+@property (readonly) Preferrence *preferrence;
 
 - (IBAction)selectCalendar:(id)sender;
 - (IBAction)selectWiFi:(id)sender;

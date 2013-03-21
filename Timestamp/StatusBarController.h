@@ -13,8 +13,8 @@
 @property (weak) IBOutlet NSMenuItem *cancelMenuItem;
 
 @property (weak) Preferrence *preferrence;
-@property (strong) StatusBarView *statusBarView;
-@property (strong) Task *currentTask;
+@property StatusBarView *statusBarView;
+@property Task *currentTask;
 @property (readonly) Boolean startedManually;
 
 + (StatusBarController *) sharedController;

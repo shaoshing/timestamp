@@ -5,14 +5,14 @@
 @interface Task : NSObject
 {
   @private
-  __strong CalendarEvent *_calendarEvent;
+  CalendarEvent *_calendarEvent;
   Boolean _cancelled;
 }
 
-@property (strong) NSDate *startedAt;
-@property (strong) NSDate *endedAt;
-@property (strong) NSDate *pausedAt;
-@property (strong) NSString *name;
+@property NSDate *startedAt;
+@property NSDate *endedAt;
+@property NSDate *pausedAt;
+@property NSString *name;
 
 + (Task *) startWithCurrentTimeAndName:(NSString*)name SaveInCalendar:(NSString *)calendarName;
 - (id) initWithName:(NSString*)name SaveInCalendar:(NSString *)calendarName;
