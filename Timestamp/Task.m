@@ -16,7 +16,9 @@
     self.startedAt = [NSDate date];
     
     NSString *calendarEventTitle = [NSString stringWithFormat:@"[Timestamp] Working on \"%@\"", self.name];
-    _calendarEvent = [CalendarEvent createEventWithTitle:calendarEventTitle From:self.startedAt InCalendar:calendarName];
+    _calendarEvent = [CalendarEvent createEventWithTitle:calendarEventTitle
+                                                    From:self.startedAt
+                                              InCalendar:calendarName];
   }
   
   return self;

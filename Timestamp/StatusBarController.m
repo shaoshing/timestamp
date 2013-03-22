@@ -85,7 +85,8 @@ StatusBarController *shared;
     self.preferrence = self.preferrencesController.preferrence;
   }
   
-  self.currentTask = [Task startWithCurrentTimeAndName:self.preferrence.taskName SaveInCalendar:self.preferrence.calendarName];
+  self.currentTask = [Task startWithCurrentTimeAndName:self.preferrence.taskName
+                                        SaveInCalendar:self.preferrence.calendarName];
   
   [self.statusBarView startTask];
 }

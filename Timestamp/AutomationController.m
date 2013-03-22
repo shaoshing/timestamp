@@ -9,12 +9,29 @@
 - (void) awakeFromNib{
   _preferrence = self.preferrencesController.preferrence;
   _previousChangedWifiName = @"";
+
+  NSNotificationCenter *notificationCenter = [[NSWorkspace sharedWorkspace] notificationCenter];
   
-  [[[NSWorkspace sharedWorkspace] notificationCenter] addObserver: self selector: @selector(systemDidWake:) name: NSWorkspaceDidWakeNotification object: NULL];
-  [[[NSWorkspace sharedWorkspace] notificationCenter] addObserver: self selector: @selector(systemWillSleep:) name: NSWorkspaceWillSleepNotification object: NULL];
-  [[[NSWorkspace sharedWorkspace] notificationCenter] addObserver: self selector: @selector(systemWillPowerOff:) name: NSWorkspaceWillPowerOffNotification object: NULL];
+  [notificationCenter addObserver:self
+                         selector:@selector(systemDidWake:)
+                             name:NSWorkspaceDidWakeNotification
+                           object:NULL];
   
-  [NSTimer scheduledTimerWithTimeInterval:3.0 target:self selector:@selector(monitorWiFiChanges) userInfo:nil repeats:NO];
+  [notificationCenter addObserver:self
+                         selector:@selector(systemWillSleep:)
+                             name:NSWorkspaceWillSleepNotification
+                           object:NULL];
+
+  [notificationCenter addObserver:self
+                         selector:@selector(systemWillPowerOff:)
+                             name:NSWorkspaceWillPowerOffNotification
+                           object:NULL];
+  
+  [NSTimer scheduledTimerWithTimeInterval:3.0
+                                   target:self
+                                 selector:@selector(monitorWiFiChanges)
+                                 userInfo:nil
+                                  repeats:NO];
 }
 
 -(void) wifiChanged:(id)sender NewName:(NSString *)newName{

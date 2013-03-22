@@ -12,8 +12,8 @@
 
 
 // Detailed example can be found at:
-// http://developer.apple.com/library/mac/#samplecode/CoreWLANWirelessManager/Introduction/Intro.html#//apple_ref/doc/uid/DTS40008921-Intro-DontLinkElementID_2
-
+// http://goo.gl/21w3Y
+//
 // todo: should return known WiFis
 + (NSArray *) getNamesOfAvaiableWifi{
   // Get the primary network interface (en0, en1, etc.)
@@ -21,7 +21,9 @@
   
   // todo: replace the deprecated method call.
   #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
-  NSArray *networks = [NSMutableArray arrayWithArray:[currentInterface scanForNetworksWithParameters:nil error:nil]];
+  NSArray *networks = [NSMutableArray arrayWithArray:[currentInterface
+                                                      scanForNetworksWithParameters:nil
+                                                      error:nil]];
   
   
   NSMutableArray *names = [NSMutableArray array];

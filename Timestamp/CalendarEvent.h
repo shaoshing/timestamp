@@ -11,7 +11,9 @@
 
 + (EKEventStore *) getEventStore;
 + (NSArray *) getEditableCalendarNames;
-+ (CalendarEvent *) createEventWithTitle:(NSString *)title From:(NSDate *)from InCalendar:(NSString *)calendarName;
++ (CalendarEvent *) createEventWithTitle:(NSString *)title
+                                    From:(NSDate *)from
+                              InCalendar:(NSString *)calendarName;
 
 - (void) createOrUpdateEventInCalendar;
 - (void) deleteInCalendar;

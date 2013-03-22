@@ -25,7 +25,9 @@ EKEventStore *store;
   return calendarNames;
 }
 
-+ (CalendarEvent *) createEventWithTitle:(NSString *)title From:(NSDate *)from InCalendar:(NSString *)calendarName{
++ (CalendarEvent *) createEventWithTitle:(NSString *)title
+                                    From:(NSDate *)from
+                              InCalendar:(NSString *)calendarName{
   CalendarEvent *event = [[CalendarEvent alloc] init];
   event.title = title;
   event.startedAt = from;
