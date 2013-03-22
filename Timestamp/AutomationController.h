@@ -5,7 +5,7 @@
 @interface AutomationController : NSObject
 {
   @private
-  Boolean _systemInSleep;
+  BOOL _systemInSleep;
   NSString *_previousChangedWifiName;
   __weak Preferrence *_preferrence;
 }

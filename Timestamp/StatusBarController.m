@@ -22,7 +22,7 @@ StatusBarController *shared;
 
 #pragma mark - Actions
 - (IBAction)clickStart:(id)sender {
-  _startedManually = true;
+  _startedManually = YES;
   [self startTask];
 }
 
@@ -57,7 +57,7 @@ StatusBarController *shared;
 
 - (void) shouldStartAutomatically:(id)sender{
   if (!self.currentTask){
-    _startedManually = false;
+    _startedManually = NO;
     [self startTask];
   }
 }
@@ -91,7 +91,7 @@ StatusBarController *shared;
   [self.statusBarView startTask];
 }
 
-- (void) stopTaskAndSave:(Boolean)save{
+- (void) stopTaskAndSave:(BOOL)save{
   if (!self.currentTask){
     return;
   }

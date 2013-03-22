@@ -4,11 +4,11 @@
 
 @interface Preferrence : NSObject
 
-@property NSString *calendarName;
-@property NSString *wifiName;
-@property NSString *taskName;
+@property (copy) NSString *calendarName;
+@property (copy) NSString *wifiName;
+@property (copy) NSString *taskName;
 
-- (Boolean) load;
-- (Boolean) save;
+- (BOOL) load;
+- (BOOL) save;
 
 @end

@@ -11,7 +11,7 @@
   self = [super init];
   if (self){
     _preferrence = [[Preferrence alloc] init];
-    if (![self.preferrence load]) @throw @"Could not load preferrence";
+    if (![_preferrence load]) @throw @"Could not load preferrence";
   }
 
   return self;
@@ -25,7 +25,7 @@
     [self.calendarsPopUp insertItemWithTitle:calendarName atIndex:0];
   }
   
-  Boolean isPreferredWiFiAdded = NO;
+  BOOL isPreferredWiFiAdded = NO;
   for (NSString *wifiName in [WiFi getNamesOfAvaiableWifi]) {
     [self.wifisPopUp insertItemWithTitle:wifiName atIndex:0];
     if ([wifiName isEqualToString:self.preferrence.wifiName]){

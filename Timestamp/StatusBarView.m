@@ -32,8 +32,8 @@
 }
 
 - (void) startTask{
-  [_controller.taskNameMenuItem setHidden:false];
-  [_controller.taskTimeDescMenuItem setHidden:false];
+  [_controller.taskNameMenuItem setHidden:NO];
+  [_controller.taskTimeDescMenuItem setHidden:NO];
 
   [self toggleStatusIcon];
   [self toggleStartAndStopMenuItems];

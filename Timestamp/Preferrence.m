@@ -6,10 +6,10 @@
 //
 @implementation Preferrence
 
-- (Boolean) load{
+- (BOOL) load{
   NSUserDefaults *standardUserDefaults = [NSUserDefaults standardUserDefaults];
   if (standardUserDefaults == nil) {
-    return false;
+    return NO;
   }
   
   self.calendarName = [standardUserDefaults stringForKey:@"Calendar Name"];
@@ -20,20 +20,20 @@
   if (!self.wifiName) self.wifiName = @"";
   if (!self.taskName) self.taskName = @"Cool Stuff";
   
-  return true;
+  return YES;
 }
 
-- (Boolean) save{
+- (BOOL) save{
   NSUserDefaults *standardUserDefaults = [NSUserDefaults standardUserDefaults];
 	if (standardUserDefaults == nil){
-    return false;
+    return NO;
 	}
   
   [standardUserDefaults setObject:self.calendarName forKey:@"Calendar Name"];
   [standardUserDefaults setObject:self.wifiName forKey:@"WiFi Name"];
   [standardUserDefaults setObject:self.taskName forKey:@"Task Name"];
   [standardUserDefaults synchronize];
-  return true;
+  return YES;
 }
 
 @end

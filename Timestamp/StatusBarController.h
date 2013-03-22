@@ -15,7 +15,7 @@
 @property (weak) Preferrence *preferrence;
 @property StatusBarView *statusBarView;
 @property Task *currentTask;
-@property (readonly) Boolean startedManually;
+@property (readonly) BOOL startedManually;
 
 + (StatusBarController *) sharedController;
 

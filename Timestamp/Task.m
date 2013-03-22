@@ -12,12 +12,12 @@
   self = [super init];
   
   if (self){
-    self.name = name;
-    self.startedAt = [NSDate date];
+    _name = name;
+    _startedAt = [NSDate date];
     
-    NSString *calendarEventTitle = [NSString stringWithFormat:@"[Timestamp] Working on \"%@\"", self.name];
+    NSString *calendarEventTitle = [NSString stringWithFormat:@"[Timestamp] Working on \"%@\"", _name];
     _calendarEvent = [CalendarEvent createEventWithTitle:calendarEventTitle
-                                                    From:self.startedAt
+                                                    From:_startedAt
                                               InCalendar:calendarName];
   }
   
@@ -38,7 +38,7 @@
 
 - (void) cancel{
   self.endedAt = [NSDate date];
-  _cancelled = true;
+  _cancelled = YES;
   [_calendarEvent deleteInCalendar];
   NSLog(@"[Task] Canceled at: %@", self.endedAt);
 }
@@ -53,11 +53,11 @@
   NSLog(@"[Task] Resumed");
 }
 
-- (Boolean) isFinished{
+- (BOOL) isFinished{
   return self.endedAt != nil && ![self isCancelled];
 }
 
-- (Boolean) isCancelled{
+- (BOOL) isCancelled{
   return _cancelled;
 }
 

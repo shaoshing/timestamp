@@ -76,7 +76,7 @@
       [self.statusBarController shouldStopAutomatically:self];
     }
   }else if (![_previousChangedWifiName isEqualToString:name]){
-    _previousChangedWifiName = name;
+    _previousChangedWifiName = [name copy];
     if ([_preferrence.wifiName isEqualToString:name]){
       NSLog(@"[Automation] should start");
       [self.statusBarController shouldStartAutomatically:self];

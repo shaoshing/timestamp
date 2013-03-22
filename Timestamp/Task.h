@@ -6,13 +6,13 @@
 {
   @private
   CalendarEvent *_calendarEvent;
-  Boolean _cancelled;
+  BOOL _cancelled;
 }
 
 @property NSDate *startedAt;
 @property NSDate *endedAt;
 @property NSDate *pausedAt;
-@property NSString *name;
+@property (copy) NSString *name;
 
 + (Task *) startWithCurrentTimeAndName:(NSString*)name SaveInCalendar:(NSString *)calendarName;
 - (id) initWithName:(NSString*)name SaveInCalendar:(NSString *)calendarName;
@@ -22,8 +22,8 @@
 - (void) pause;
 - (void) resume;
 - (TaskDuration *) duration;
-- (Boolean) isFinished;
-- (Boolean) isCancelled;
+- (BOOL) isFinished;
+- (BOOL) isCancelled;
 
 @end
 

@@ -3,11 +3,11 @@
 
 @interface CalendarEvent : NSObject
 
-@property NSString *title;
+@property (copy) NSString *title;
 @property NSDate *startedAt;
 @property NSDate *endedAt;
 @property EKEvent *ekEvent;
-@property NSString *calendarName;
+@property (copy) NSString *calendarName;
 
 + (EKEventStore *) getEventStore;
 + (NSArray *) getEditableCalendarNames;
