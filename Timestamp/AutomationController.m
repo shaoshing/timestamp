@@ -55,6 +55,16 @@
 
 -(void) systemDidWake:(id)sender{
   NSLog(@"[Automation] system did awak");
+  // Delay the responding to systemDidWake event to wait for WiFi connection
+  [NSTimer scheduledTimerWithTimeInterval:5.0
+                                   target:self
+                                 selector:@selector(respondToSystemDidWakeOnDelay)
+                                 userInfo:nil
+                                  repeats:NO];
+}
+
+-(void) respondToSystemDidWakeOnDelay{
+  NSLog(@"[Automation] respond to system did wake event");
   [self determineWhetherToStartWithWiFiName:[WiFi getNameOfCurrentWifi]];
   _systemInSleep = NO;
 }

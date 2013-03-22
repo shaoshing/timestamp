@@ -91,12 +91,12 @@ StatusBarController *shared;
   [self.statusBarView startTask];
 }
 
-- (void) stopTaskAndSave:(BOOL)save{
+- (void) stopTaskAndSave:(BOOL)saveTask{
   if (!self.currentTask){
     return;
   }
   
-  if (save){
+  if (saveTask){
     [self.currentTask finish];
   }else{
     [self.currentTask cancel];
