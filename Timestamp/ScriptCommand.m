@@ -6,19 +6,32 @@
 
 -(id)performDefaultImplementation {
   NSString *command = [[self commandDescription] commandName];
-  if ([command isEqualToString:@"start task"]){
-    [[StatusBarController sharedController] clickStart:self];
-  }else if ([command isEqualToString:@"finish task"]){
-    [[StatusBarController sharedController] clickStop:self];
-  }else if ([command isEqualToString:@"cancel task"]){
-    [[StatusBarController sharedController] clickCancel:self];
-  }else if ([command isEqualToString:@"describe task"]){
-    Task *currentTask = [StatusBarController sharedController].currentTask;
-    if (currentTask){
-      return [NSString stringWithFormat:@"Working on \"%@\"", currentTask.name];
-    }else{
-      return @"No task running currently.";
+  StatusBarController *statusBarController = [StatusBarController sharedController];
+  
+  if ([command isEqual:@"start task"]){
+    [statusBarController clickStart:self];
+    return nil;
+  }
+
+  if ([command isEqual:@"finish task"]){
+    [statusBarController clickStop:self];
+    return nil;
+  }
+
+  if ([command isEqual:@"cancel task"]){
+    [statusBarController clickCancel:self];
+    return nil;
+  }
+
+  if ([command isEqual:@"describe task"]){
+    Task *currentTask = statusBarController.currentTask;
+    if (!currentTask){
+      return @"You have no task working on currently.";
     }
+
+    return [NSString stringWithFormat:@"You are working on [%@].\n%@",
+            currentTask.name,
+            [[currentTask duration] humanizedPassedTime]];
   }
 
   return nil;
