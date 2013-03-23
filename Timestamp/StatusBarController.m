@@ -12,13 +12,22 @@ StatusBarController *shared;
   return shared;
 }
 
-
 #pragma mark - Init
 
-- (void) awakeFromNib{    
-  self.statusBarView = [StatusBarView initWithStatusBarController:self];  
-  shared = self;
+- (id) init{
+  self = [super init];
+  if (self){
+    shared = self;
+  }
+  return self;
 }
+
+- (void) awakeFromNib{
+  if (!self.currentTask){
+    [self statusBarView];
+  }
+}
+
 
 #pragma mark - Actions
 - (IBAction)clickStart:(id)sender {
@@ -105,6 +114,13 @@ StatusBarController *shared;
   [self.statusBarView stopTask];
   
   self.currentTask = nil;
+}
+
+- (StatusBarView *) statusBarView{
+  if (!_statusBarView){
+    _statusBarView = [StatusBarView initWithStatusBarController:self];
+  }
+  return _statusBarView;
 }
 
 @end

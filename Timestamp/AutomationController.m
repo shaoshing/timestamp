@@ -26,12 +26,8 @@
                          selector:@selector(systemWillPowerOff:)
                              name:NSWorkspaceWillPowerOffNotification
                            object:NULL];
-  
-  [NSTimer scheduledTimerWithTimeInterval:3.0
-                                   target:self
-                                 selector:@selector(monitorWiFiChanges)
-                                 userInfo:nil
-                                  repeats:NO];
+
+  [self monitorWiFiChanges];
 }
 
 -(void) wifiChanged:(id)sender NewName:(NSString *)newName{

@@ -3,6 +3,9 @@
 @class Task, PreferrencesController, Preferrence, StatusBarView;
 
 @interface StatusBarController : NSObject
+{
+  StatusBarView *_statusBarView;
+}
 
 @property (weak) IBOutlet NSMenu *statusMenu;
 @property (weak) IBOutlet PreferrencesController *preferrencesController;
@@ -13,7 +16,6 @@
 @property (weak) IBOutlet NSMenuItem *cancelMenuItem;
 
 @property (weak) Preferrence *preferrence;
-@property StatusBarView *statusBarView;
 @property Task *currentTask;
 @property (readonly) BOOL startedManually;
 
