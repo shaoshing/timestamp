@@ -19,5 +19,6 @@
 - (void)showWindow:(id)sender;
 // On task name changed
 - (void)controlTextDidChange:(NSNotification *)aNotification;
+- (IBAction)importAlfredWorkflow:(id)sender;
 
 @end

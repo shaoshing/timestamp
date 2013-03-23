@@ -68,4 +68,10 @@
   [self.preferrence save];
   [self.statusBarController taskNameChanged:self];
 }
+
+- (IBAction)importAlfredWorkflow:(id)sender {
+  NSBundle *bundle = [NSBundle mainBundle];
+  NSString *path = [bundle pathForResource:@"Timestamp" ofType:@"alfredworkflow"];
+  [[NSWorkspace sharedWorkspace] openFile:path];
+}
 @end

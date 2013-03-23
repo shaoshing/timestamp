@@ -20,6 +20,7 @@
 		B61F375716DE487D00E3257E /* TimestampTests.m in Sources */ = {isa = PBXBuildFile; fileRef = B61F375616DE487D00E3257E /* TimestampTests.m */; };
 		B66A1FF016F8AE9C00221530 /* Timestamp.sdef in Resources */ = {isa = PBXBuildFile; fileRef = B66A1FEF16F8AE9C00221530 /* Timestamp.sdef */; };
 		B66A1FF316F8AF3B00221530 /* ScriptCommand.m in Sources */ = {isa = PBXBuildFile; fileRef = B66A1FF216F8AF3B00221530 /* ScriptCommand.m */; };
+		B67B82F916FDC05600D3110E /* Timestamp.alfredworkflow in Resources */ = {isa = PBXBuildFile; fileRef = B67B82F816FDC05600D3110E /* Timestamp.alfredworkflow */; };
 		B6B39D2B16E4DBB800D76E6F /* StatusBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = B6B39D2A16E4DBB800D76E6F /* StatusBarController.m */; };
 		B6B39D3016E4E3C400D76E6F /* Task.m in Sources */ = {isa = PBXBuildFile; fileRef = B6B39D2F16E4E3C400D76E6F /* Task.m */; };
 		B6B883C116EF5AB60076D17E /* StatusBarView.m in Sources */ = {isa = PBXBuildFile; fileRef = B6B883C016EF5AB60076D17E /* StatusBarView.m */; };
@@ -67,6 +68,7 @@
 		B66A1FEF16F8AE9C00221530 /* Timestamp.sdef */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Timestamp.sdef; sourceTree = "<group>"; };
 		B66A1FF116F8AF3B00221530 /* ScriptCommand.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ScriptCommand.h; sourceTree = "<group>"; };
 		B66A1FF216F8AF3B00221530 /* ScriptCommand.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ScriptCommand.m; sourceTree = "<group>"; };
+		B67B82F816FDC05600D3110E /* Timestamp.alfredworkflow */ = {isa = PBXFileReference; lastKnownFileType = file; path = Timestamp.alfredworkflow; sourceTree = SOURCE_ROOT; };
 		B6B39D2916E4DBB800D76E6F /* StatusBarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StatusBarController.h; sourceTree = "<group>"; };
 		B6B39D2A16E4DBB800D76E6F /* StatusBarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StatusBarController.m; sourceTree = "<group>"; };
 		B6B39D2E16E4E3C400D76E6F /* Task.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Task.h; sourceTree = "<group>"; };
@@ -161,6 +163,7 @@
 		B61F373216DE487C00E3257E /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				B67B82F816FDC05600D3110E /* Timestamp.alfredworkflow */,
 				B61F374116DE487D00E3257E /* Interfaces.xib */,
 				B66A1FEF16F8AE9C00221530 /* Timestamp.sdef */,
 				B61F373416DE487C00E3257E /* Timestamp-Info.plist */,
@@ -329,6 +332,7 @@
 				B61F373D16DE487C00E3257E /* Credits.rtf in Resources */,
 				B61F374316DE487D00E3257E /* Interfaces.xib in Resources */,
 				B66A1FF016F8AE9C00221530 /* Timestamp.sdef in Resources */,
+				B67B82F916FDC05600D3110E /* Timestamp.alfredworkflow in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
