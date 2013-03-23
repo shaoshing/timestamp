@@ -8,13 +8,13 @@
 
 StatusBarController *shared;
 
-+ (StatusBarController *) sharedController{
++ (StatusBarController *)sharedController{
   return shared;
 }
 
 #pragma mark - Init
 
-- (id) init{
+- (id)init{
   self = [super init];
   if (self){
     shared = self;
@@ -22,7 +22,7 @@ StatusBarController *shared;
   return self;
 }
 
-- (void) awakeFromNib{
+- (void)awakeFromNib{
   if (!self.currentTask){
     [self statusBarView];
   }
@@ -52,30 +52,30 @@ StatusBarController *shared;
   [self.preferrencesController showWindow:self];
 }
 
-- (void) pauseTask:(id)sender{
+- (void)pauseTask:(id)sender{
   if(self.currentTask){
     [self.currentTask pause];
   }
 }
 
-- (void) resumeTask:(id)sender{
+- (void)resumeTask:(id)sender{
   if(self.currentTask){
     [self.currentTask resume];
   }
 }
 
-- (void) shouldStartAutomatically:(id)sender{
+- (void)shouldStartAutomatically:(id)sender{
   if (!self.currentTask){
     _startedManually = NO;
     [self startTask];
   }
 }
 
-- (void) shouldStopAutomatically:(id)sender{
+- (void)shouldStopAutomatically:(id)sender{
   [self stopTaskAndSave:YES];
 }
 
-- (void) taskNameChanged:(id)sender{
+- (void)taskNameChanged:(id)sender{
   if (self.currentTask){
     self.currentTask.name = [(PreferrencesController*)sender preferrence].taskName;
     [self.statusBarView updateTask];
@@ -85,7 +85,7 @@ StatusBarController *shared;
 
 #pragma mark - Private Methods
 
-- (void) startTask{
+- (void)startTask{
   if (self.currentTask){
     return;
   }
@@ -100,7 +100,7 @@ StatusBarController *shared;
   [self.statusBarView startTask];
 }
 
-- (void) stopTaskAndSave:(BOOL)saveTask{
+- (void)stopTaskAndSave:(BOOL)saveTask{
   if (!self.currentTask){
     return;
   }
@@ -116,7 +116,7 @@ StatusBarController *shared;
   self.currentTask = nil;
 }
 
-- (StatusBarView *) statusBarView{
+- (StatusBarView *)statusBarView{
   if (!_statusBarView){
     _statusBarView = [StatusBarView initWithStatusBarController:self];
   }

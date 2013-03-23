@@ -15,7 +15,7 @@
                                     From:(NSDate *)from
                               InCalendar:(NSString *)calendarName;
 
-- (void) createOrUpdateEventInCalendar;
-- (void) deleteInCalendar;
+- (void)createOrUpdateEventInCalendar;
+- (void)deleteInCalendar;
 
 @end

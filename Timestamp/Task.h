@@ -14,16 +14,16 @@
 @property NSDate *pausedAt;
 @property (copy) NSString *name;
 
-+ (Task *) startWithCurrentTimeAndName:(NSString*)name SaveInCalendar:(NSString *)calendarName;
-- (id) initWithName:(NSString*)name SaveInCalendar:(NSString *)calendarName;
++ (Task *)startWithCurrentTimeAndName:(NSString*)name SaveInCalendar:(NSString *)calendarName;
+- (id)initWithName:(NSString*)name SaveInCalendar:(NSString *)calendarName;
 
-- (void) finish;
-- (void) cancel;
-- (void) pause;
-- (void) resume;
-- (TaskDuration *) duration;
-- (BOOL) isFinished;
-- (BOOL) isCancelled;
+- (void)finish;
+- (void)cancel;
+- (void)pause;
+- (void)resume;
+- (TaskDuration *)duration;
+- (BOOL)isFinished;
+- (BOOL)isCancelled;
 
 @end
 
@@ -36,6 +36,6 @@
 @property NSInteger minutes;
 @property NSInteger seconds;
 
-+ (TaskDuration *) initWithStartedDate:(NSDate *)startedAt AndEndedDate:(NSDate *)endedAt;
++ (TaskDuration *)initWithStartedDate:(NSDate *)startedAt AndEndedDate:(NSDate *)endedAt;
 
 @end

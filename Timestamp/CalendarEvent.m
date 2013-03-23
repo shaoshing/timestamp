@@ -10,7 +10,7 @@ EKEventStore *store;
   return store;
 }
 
-+ (NSArray *) getEditableCalendarNames{
++ (NSArray *)getEditableCalendarNames{
   EKEventStore *store = [self getEventStore];
   
   NSMutableArray *calendarNames = [NSMutableArray array];
@@ -25,7 +25,7 @@ EKEventStore *store;
   return calendarNames;
 }
 
-+ (CalendarEvent *) createEventWithTitle:(NSString *)title
++ (CalendarEvent *)createEventWithTitle:(NSString *)title
                                     From:(NSDate *)from
                               InCalendar:(NSString *)calendarName{
   CalendarEvent *event = [[CalendarEvent alloc] init];
@@ -37,7 +37,7 @@ EKEventStore *store;
   return event;
 }
 
-- (void) createOrUpdateEventInCalendar{
+- (void)createOrUpdateEventInCalendar{
   EKEvent *ekEvent;
   if (self.ekEvent == nil){
     self.ekEvent = [EKEvent eventWithEventStore:[CalendarEvent getEventStore]];
@@ -61,7 +61,7 @@ EKEventStore *store;
   [[CalendarEvent getEventStore] saveEvent:ekEvent span:EKSpanThisEvent commit:YES error:nil];
 }
 
-- (void) deleteInCalendar{
+- (void)deleteInCalendar{
   if (!self.ekEvent){
     return;
   }

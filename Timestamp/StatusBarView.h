@@ -22,11 +22,11 @@
   __weak StatusBarController *_controller;
 }
 
-+ (id) initWithStatusBarController:(StatusBarController *)controller;
-- (id) init:(StatusBarController *)controller;
++ (id)initWithStatusBarController:(StatusBarController *)controller;
+- (id)init:(StatusBarController *)controller;
 
-- (void) startTask;
-- (void) stopTask;
-- (void) updateTask;
+- (void)startTask;
+- (void)stopTask;
+- (void)updateTask;
 
 @end

@@ -6,7 +6,7 @@
 
 @implementation AutomationController
 
-- (void) awakeFromNib{
+- (void)awakeFromNib{
   _preferrence = self.preferrencesController.preferrence;
   _previousChangedWifiName = @"";
 
@@ -30,7 +30,7 @@
   [self monitorWiFiChanges];
 }
 
--(void) wifiChanged:(id)sender NewName:(NSString *)newName{
+-(void)wifiChanged:(id)sender NewName:(NSString *)newName{
   if ([_preferrence.wifiName length] == 0 || _systemInSleep){
     NSLog(@"[Automation] event wifiChanged is ignored%@", _systemInSleep ? @", in Sleep Mode" : @"");
     return;
@@ -38,18 +38,18 @@
   [self determineWhetherToStartWithWiFiName:newName];
 }
 
--(void) wifiPreferrenceChanged:(id)sender{
+-(void)wifiPreferrenceChanged:(id)sender{
   _previousChangedWifiName = @"";
   [self determineWhetherToStartWithWiFiName:[WiFi getNameOfCurrentWifi]];
 }
 
--(void) systemWillSleep:(id)sender{
+-(void)systemWillSleep:(id)sender{
   NSLog(@"[Automation] system will sleep");
   _systemInSleep = YES;
   [self.statusBarController pauseTask:self];
 }
 
--(void) systemDidWake:(id)sender{
+-(void)systemDidWake:(id)sender{
   NSLog(@"[Automation] system did awak");
   // Delay the responding to systemDidWake event to wait for WiFi connection
   [NSTimer scheduledTimerWithTimeInterval:5.0
@@ -59,20 +59,20 @@
                                   repeats:NO];
 }
 
--(void) respondToSystemDidWakeOnDelay{
+-(void)respondToSystemDidWakeOnDelay{
   NSLog(@"[Automation] respond to system did wake event");
   [self determineWhetherToStartWithWiFiName:[WiFi getNameOfCurrentWifi]];
   _systemInSleep = NO;
 }
 
--(void) systemWillPowerOff:(id)sender{
+-(void)systemWillPowerOff:(id)sender{
   NSLog(@"[Automation] system will power off");
   [self.statusBarController shouldStopAutomatically:self];
 }
 
 #pragma mark - Private Methods
 
--(void) determineWhetherToStartWithWiFiName:(NSString *)name{
+-(void)determineWhetherToStartWithWiFiName:(NSString *)name{
   if (_systemInSleep){
     if ([_preferrence.wifiName isEqualToString:name]){
       NSLog(@"[Automation] should resume");
@@ -95,7 +95,7 @@
   }
 }
 
--(void) monitorWiFiChanges{
+-(void)monitorWiFiChanges{
   AutomationController *controller = self;
   [WiFi monitorWiFiConnectionAndCall:^(NSString *newWiFiName){
     [controller wifiChanged:nil NewName:newWiFiName];

@@ -3,12 +3,12 @@
 
 @implementation Task
 
-+ (Task *) startWithCurrentTimeAndName:(NSString*)name SaveInCalendar:(NSString *)calendarName{
++ (Task *)startWithCurrentTimeAndName:(NSString*)name SaveInCalendar:(NSString *)calendarName{
   Task *task = [[Task alloc] initWithName:name SaveInCalendar:calendarName];
   return task;
 }
 
-- (id) initWithName:(NSString*)name SaveInCalendar:(NSString *)calendarName{
+- (id)initWithName:(NSString*)name SaveInCalendar:(NSString *)calendarName{
   self = [super init];
   
   if (self){
@@ -24,7 +24,7 @@
   return self;
 }
 
-- (void) finish{
+- (void)finish{
   self.endedAt = [NSDate date];
   if (self.pausedAt){
     self.endedAt = self.pausedAt;
@@ -36,32 +36,32 @@
   NSLog(@"[Task] Finished at: %@", self.endedAt);
 }
 
-- (void) cancel{
+- (void)cancel{
   self.endedAt = [NSDate date];
   _cancelled = YES;
   [_calendarEvent deleteInCalendar];
   NSLog(@"[Task] Canceled at: %@", self.endedAt);
 }
 
-- (void) pause{
+- (void)pause{
   self.pausedAt = [NSDate date];
   NSLog(@"[Task] Paused at: %@", self.pausedAt);
 }
 
-- (void) resume{
+- (void)resume{
   self.pausedAt = nil;
   NSLog(@"[Task] Resumed");
 }
 
-- (BOOL) isFinished{
+- (BOOL)isFinished{
   return self.endedAt != nil && ![self isCancelled];
 }
 
-- (BOOL) isCancelled{
+- (BOOL)isCancelled{
   return _cancelled;
 }
 
-- (TaskDuration *) duration{
+- (TaskDuration *)duration{
   NSDate *date = [NSDate date];
   if (self.endedAt != nil){
     date = self.endedAt;
@@ -78,7 +78,7 @@
 
 
 @implementation TaskDuration
-+ (TaskDuration *) initWithStartedDate:(NSDate *)startedAt AndEndedDate:(NSDate *)endedAt{
++ (TaskDuration *)initWithStartedDate:(NSDate *)startedAt AndEndedDate:(NSDate *)endedAt{
   NSTimeInterval startedInterval = [startedAt timeIntervalSince1970];
   NSTimeInterval endedInterval = [endedAt timeIntervalSince1970];
   int intervalDifference = endedInterval - startedInterval;

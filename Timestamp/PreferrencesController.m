@@ -7,7 +7,7 @@
 
 @implementation PreferrencesController
 
-- (id) init{
+- (id)init{
   self = [super init];
   if (self){
     _preferrence = [[Preferrence alloc] init];
@@ -17,7 +17,7 @@
   return self;
 }
 
-- (void) awakeFromNib{
+- (void)awakeFromNib{
   assert(self.taskNameText);
   [self.taskNameText setDelegate:self];
 }

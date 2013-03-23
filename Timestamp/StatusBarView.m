@@ -31,7 +31,7 @@
   return self;
 }
 
-- (void) startTask{
+- (void)startTask{
   [_controller.taskNameMenuItem setHidden:NO];
   [_controller.taskTimeDescMenuItem setHidden:NO];
 
@@ -52,7 +52,7 @@
                                               userInfo:nil repeats:YES];
 }
 
-- (void) stopTask{
+- (void)stopTask{
   [self toggleStatusIcon];
   [self toggleStartAndStopMenuItems];
 
@@ -63,7 +63,7 @@
   [self updateMenuItemsOfTaskInfo];
 }
 
-- (void) updateTask{
+- (void)updateTask{
   if (_controller.currentTask){
     [self updateMenuItemsOfTaskInfo];
   }
@@ -114,7 +114,7 @@
 
 
 
-- (void) updateIcon{
+- (void)updateIcon{
   NSLog(@"[StatusBarView] Updated Task Info");
 
   _iconActivated = [[NSImage alloc] initWithSize:NSMakeSize(StatusIconWidth, StatusIconHeight)];
@@ -192,17 +192,17 @@
   [_statusItem setAlternateImage:_iconActivatedHighlighted];
 }
 
-- (NSColor *) ColorWithR:(int)red G:(int)gree B:(int)blue{
+- (NSColor *)ColorWithR:(int)red G:(int)gree B:(int)blue{
   return [NSColor colorWithCalibratedRed:red/255.0 green:gree/255.0 blue:blue/255.0 alpha:1.0];
 }
 
-- (void) toggleStartAndStopMenuItems{
+- (void)toggleStartAndStopMenuItems{
   [_controller.stopMenuItem setHidden:![_controller.stopMenuItem isHidden]];
   [_controller.startMenuItem setHidden:![_controller.startMenuItem isHidden]];
   [_controller.cancelMenuItem setHidden:![_controller.cancelMenuItem isHidden]];
 }
 
-- (void) toggleStatusIcon{
+- (void)toggleStatusIcon{
   if (_icon == nil){
     NSBezierPath* path = [NSBezierPath bezierPath];
     [path setLineWidth:OuterStrokeWidth];
@@ -254,7 +254,7 @@
   [_statusItem setAlternateImage:_iconHighlighted];
 }
 
-- (void) drawCircleWithPath:(NSBezierPath *)path radius:(float)radius{
+- (void)drawCircleWithPath:(NSBezierPath *)path radius:(float)radius{
   [path appendBezierPathWithArcWithCenter:IconCenter
                                    radius:radius
                                startAngle:StartEngle

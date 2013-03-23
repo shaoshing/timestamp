@@ -5,7 +5,7 @@
 @implementation WiFi
 
 
-+ (NSString *) getNameOfCurrentWifi{
++ (NSString *)getNameOfCurrentWifi{
   CWInterface *wif = [CWInterface interface];
   return wif.ssid;
 }
@@ -15,7 +15,7 @@
 // http://goo.gl/21w3Y
 //
 // todo: should return known WiFis
-+ (NSArray *) getNamesOfAvaiableWifi{
++ (NSArray *)getNamesOfAvaiableWifi{
   // Get the primary network interface (en0, en1, etc.)
   CWInterface *currentInterface = [CWInterface interfaceWithName:nil];
   
@@ -37,7 +37,7 @@
 
 // Reachability Doc:
 // https://github.com/tonymillion/Reachability
-+ (void) monitorWiFiConnectionAndCall:(void(^)(NSString *newWiFiName))callback{
++ (void)monitorWiFiConnectionAndCall:(void(^)(NSString *newWiFiName))callback{
   void (^onConnectionChanged)(Reachability*) = ^(Reachability *reach){
     dispatch_sync(dispatch_get_main_queue(), ^{
       callback([WiFi getNameOfCurrentWifi]);

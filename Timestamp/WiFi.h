@@ -4,9 +4,9 @@
 
 @interface WiFi : NSObject
 
-+ (NSArray *) getNamesOfAvaiableWifi;
-+ (NSString *) getNameOfCurrentWifi;
-+ (void) monitorWiFiConnectionAndCall:(void(^)(NSString *newWiFiName))callback;
++ (NSArray *)getNamesOfAvaiableWifi;
++ (NSString *)getNameOfCurrentWifi;
++ (void)monitorWiFiConnectionAndCall:(void(^)(NSString *newWiFiName))callback;
 
 
 @end

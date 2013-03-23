@@ -27,10 +27,10 @@
 - (IBAction)clickQuit:(id)sender;
 - (IBAction)clickPreferrences:(id)sender;
 
-- (void) pauseTask:(id)sender;
-- (void) resumeTask:(id)sender;
-- (void) shouldStartAutomatically:(id)sender;
-- (void) shouldStopAutomatically:(id)sender;
-- (void) taskNameChanged:(id)sender;
+- (void)pauseTask:(id)sender;
+- (void)resumeTask:(id)sender;
+- (void)shouldStartAutomatically:(id)sender;
+- (void)shouldStopAutomatically:(id)sender;
+- (void)taskNameChanged:(id)sender;
 
 @end

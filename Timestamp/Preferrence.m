@@ -6,7 +6,7 @@
 //
 @implementation Preferrence
 
-- (BOOL) load{
+- (BOOL)load{
   NSUserDefaults *standardUserDefaults = [NSUserDefaults standardUserDefaults];
   if (standardUserDefaults == nil) {
     return NO;
@@ -23,7 +23,7 @@
   return YES;
 }
 
-- (BOOL) save{
+- (BOOL)save{
   NSUserDefaults *standardUserDefaults = [NSUserDefaults standardUserDefaults];
 	if (standardUserDefaults == nil){
     return NO;

@@ -8,7 +8,7 @@
 @property (copy) NSString *wifiName;
 @property (copy) NSString *taskName;
 
-- (BOOL) load;
-- (BOOL) save;
+- (BOOL)load;
+- (BOOL)save;
 
 @end
