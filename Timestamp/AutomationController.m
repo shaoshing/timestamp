@@ -84,11 +84,19 @@
   }else if (![_previousChangedWifiName isEqualToString:name]){
     _previousChangedWifiName = [name copy];
     if ([_preferrence.wifiName isEqualToString:name]){
-      NSLog(@"[Automation] should start");
-      [self.statusBarController shouldStartAutomatically:self];
+      if (!self.statusBarController.currentTask){
+        NSLog(@"[Automation] should start");
+        [self.statusBarController shouldStartAutomatically:self];
+        [self sendNotificationWithTitle:@"Start working.."
+                                   info:@"Connected to preferred WiFi."];
+      }
     }else{
-      NSLog(@"[Automation] should stop");
-      [self.statusBarController shouldStopAutomatically:self];
+      if (self.statusBarController.currentTask){
+        NSLog(@"[Automation] should stop");
+        [self.statusBarController shouldStopAutomatically:self];
+        [self sendNotificationWithTitle:@"Stop working.."
+                                   info:@"Disconnected from preferred WiFi."];
+      }
     }
   }else{
     NSLog(@"[Automation] ignored. WiFi name is same as previous");
@@ -100,6 +108,15 @@
   [WiFi monitorWiFiConnectionAndCall:^(NSString *newWiFiName){
     [controller wifiChanged:nil NewName:newWiFiName];
   }];
+}
+
+- (void)sendNotificationWithTitle:(NSString *)title info:(NSString *)info{
+  NSUserNotification *notification = [[NSUserNotification alloc] init];
+  notification.title = title;
+  notification.informativeText = info;
+  notification.soundName = NSUserNotificationDefaultSoundName;
+
+  [[NSUserNotificationCenter defaultUserNotificationCenter] deliverNotification:notification];
 }
 
 @end
