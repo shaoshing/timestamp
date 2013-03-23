@@ -116,11 +116,11 @@
   NSString *strTime = [NSString stringWithFormat:@"Just started at %@, Ganbatte!", startedAt];
 
   if (self.hours > 0) {
-    strTime = [NSString stringWithFormat:@"%ld hrs and %ld mins passed, since %@",
+    strTime = [NSString stringWithFormat:@"%ld hrs and %ld mins have passed since %@",
                    (long)self.hours, self.minutes, startedAt];
 
   }else if (self.minutes > 0){
-    strTime = [NSString stringWithFormat:@"%ld mins passed, since %@", self.minutes, startedAt];
+    strTime = [NSString stringWithFormat:@"%ld mins have passed since %@", self.minutes, startedAt];
   }
 
   if (self.hours == 1){

@@ -29,7 +29,7 @@
       return @"You have no task working on currently.";
     }
 
-    return [NSString stringWithFormat:@"You are working on [%@].\n%@",
+    return [NSString stringWithFormat:@"Working on [%@]\n%@",
             currentTask.name,
             [[currentTask duration] humanizedPassedTime]];
   }
