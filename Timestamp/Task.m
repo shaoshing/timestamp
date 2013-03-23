@@ -79,25 +79,56 @@
 
 @implementation TaskDuration
 + (TaskDuration *)initWithStartedDate:(NSDate *)startedAt AndEndedDate:(NSDate *)endedAt{
+  return [[TaskDuration alloc] initWithStartedDate:startedAt AndEndedDate:endedAt];
+}
+
+- (id)initWithStartedDate:(NSDate *)startedAt AndEndedDate:(NSDate *)endedAt{
+  self = [super init];
+  if (!self){
+    return nil;
+  }
+  
   NSTimeInterval startedInterval = [startedAt timeIntervalSince1970];
   NSTimeInterval endedInterval = [endedAt timeIntervalSince1970];
   int intervalDifference = endedInterval - startedInterval;
-  
-  TaskDuration *taskDuration = [[TaskDuration alloc] init];  
-  taskDuration.seconds = intervalDifference%60;
-  intervalDifference -= taskDuration.seconds;
-  
-  taskDuration.minutes = 0;
+
+  _since = startedAt;
+
+  _seconds = intervalDifference%60;
+  intervalDifference -= _seconds;
+
+  _minutes = 0;
   if (intervalDifference > 0){
-    taskDuration.minutes = (intervalDifference/60)%60;
-    intervalDifference -= taskDuration.minutes*60;
+    _minutes = (intervalDifference/60)%60;
+    intervalDifference -= _minutes*60;
   }
-  
-  taskDuration.hours = 0;
+
+  _hours = 0;
   if (intervalDifference > 0){
-    taskDuration.hours = (intervalDifference/3600);
+    _hours = (intervalDifference/3600);
   }
-  
-  return taskDuration;
+
+  return self;
+}
+
+- (NSString *)humanizedPassedTime{
+  NSString *startedAt = [_since descriptionWithCalendarFormat:@"%H:%M" timeZone:nil locale:nil];
+  NSString *strTime = [NSString stringWithFormat:@"Just started at %@, Ganbatte!", startedAt];
+
+  if (self.hours > 0) {
+    strTime = [NSString stringWithFormat:@"%ld hrs and %ld mins passed, since %@",
+                   (long)self.hours, self.minutes, startedAt];
+
+  }else if (self.minutes > 0){
+    strTime = [NSString stringWithFormat:@"%ld mins passed, since %@", self.minutes, startedAt];
+  }
+
+  if (self.hours == 1){
+    strTime = [strTime stringByReplacingOccurrencesOfString:@"hrs" withString:@"hr"];
+  }
+  if (self.minutes == 1){
+    strTime = [strTime stringByReplacingOccurrencesOfString:@"mins" withString:@"min"];
+  }
+  return strTime;
 }
 @end

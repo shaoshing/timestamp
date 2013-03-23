@@ -87,28 +87,8 @@
   [_controller.taskNameMenuItem setTitle:[NSString stringWithFormat:strfTaskName,
                                           _controller.currentTask.name, automationStatus]];
 
-  NSString *startedAt = [_controller.currentTask.startedAt descriptionWithCalendarFormat:@"%H:%M"
-                                                                                timeZone:nil
-                                                                                  locale:nil];
   TaskDuration *duration = [_controller.currentTask duration];
-  NSString *strTimeInfo = [NSString stringWithFormat:@"Just started at %@, Ganbatte!", startedAt];
-  if (duration.hours > 0) {
-    strTimeInfo = [NSString stringWithFormat:@"%ld hrs and %ld mins passed, since %@",
-                   (long)duration.hours, duration.minutes, startedAt];
-    
-  }else if (duration.minutes > 0){
-    strTimeInfo = [NSString stringWithFormat:@"%ld mins passed, since %@",
-                   duration.minutes, startedAt];
-  }
-
-  if (duration.hours == 1){
-    strTimeInfo = [strTimeInfo stringByReplacingOccurrencesOfString:@"hrs" withString:@"hr"];
-  }
-  if (duration.minutes == 1){
-    strTimeInfo = [strTimeInfo stringByReplacingOccurrencesOfString:@"mins" withString:@"min"];
-  }
-
-  [_controller.taskTimeDescMenuItem setTitle:strTimeInfo];
+  [_controller.taskTimeDescMenuItem setTitle:[duration humanizedPassedTime]];
 }
 
 

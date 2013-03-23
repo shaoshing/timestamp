@@ -31,11 +31,18 @@
 
 
 @interface TaskDuration : NSObject
+{
+  @private
+  NSDate* _since;
+}
 
 @property NSInteger hours;
 @property NSInteger minutes;
 @property NSInteger seconds;
 
 + (TaskDuration *)initWithStartedDate:(NSDate *)startedAt AndEndedDate:(NSDate *)endedAt;
+
+- (id)initWithStartedDate:(NSDate *)startedAt AndEndedDate:(NSDate *)endedAt;
+- (NSString *)humanizedPassedTime;
 
 @end
