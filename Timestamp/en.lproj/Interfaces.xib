@@ -624,14 +624,6 @@
 					<int key="connectionID">1148</int>
 				</object>
 				<object class="IBConnectionRecord">
-					<object class="IBActionConnection" key="connection">
-						<string key="label">enterTaskName:</string>
-						<reference key="source" ref="585573399"/>
-						<reference key="destination" ref="549305706"/>
-					</object>
-					<int key="connectionID">1149</int>
-				</object>
-				<object class="IBConnectionRecord">
 					<object class="IBOutletConnection" key="connection">
 						<string key="label">app</string>
 						<reference key="source" ref="585573399"/>
@@ -1038,21 +1030,21 @@
 					<string key="className">PreferrencesController</string>
 					<string key="superclassName">NSWindowController</string>
 					<dictionary class="NSMutableDictionary" key="actions">
-						<string key="enterTaskName:">id</string>
 						<string key="selectCalendar:">id</string>
 						<string key="selectWiFi:">id</string>
+						<string key="showWindow:">id</string>
 					</dictionary>
 					<dictionary class="NSMutableDictionary" key="actionInfosByName">
-						<object class="IBActionInfo" key="enterTaskName:">
-							<string key="name">enterTaskName:</string>
-							<string key="candidateClassName">id</string>
-						</object>
 						<object class="IBActionInfo" key="selectCalendar:">
 							<string key="name">selectCalendar:</string>
 							<string key="candidateClassName">id</string>
 						</object>
 						<object class="IBActionInfo" key="selectWiFi:">
 							<string key="name">selectWiFi:</string>
+							<string key="candidateClassName">id</string>
+						</object>
+						<object class="IBActionInfo" key="showWindow:">
+							<string key="name">showWindow:</string>
 							<string key="candidateClassName">id</string>
 						</object>
 					</dictionary>

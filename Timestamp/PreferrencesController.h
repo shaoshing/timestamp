@@ -4,7 +4,7 @@
 @class Wifi, Preferrence, AutomationController, StatusBarController;
 
 
-@interface PreferrencesController : NSWindowController
+@interface PreferrencesController : NSWindowController <NSTextFieldDelegate>
 
 @property (weak) IBOutlet NSPopUpButton *calendarsPopUp;
 @property (weak) IBOutlet NSPopUpButton *wifisPopUp;
@@ -16,7 +16,8 @@
 
 - (IBAction)selectCalendar:(id)sender;
 - (IBAction)selectWiFi:(id)sender;
-- (IBAction)enterTaskName:(id)sender;
 - (void)showWindow:(id)sender;
+// On task name changed
+- (void)controlTextDidChange:(NSNotification *)aNotification;
 
 @end

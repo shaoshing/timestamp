@@ -17,6 +17,11 @@
   return self;
 }
 
+- (void) awakeFromNib{
+  assert(self.taskNameText);
+  [self.taskNameText setDelegate:self];
+}
+
 - (void)showWindow:(id)sender{
   for (NSString *calendarName in [CalendarEvent getEditableCalendarNames]) {
     [self.calendarsPopUp insertItemWithTitle:calendarName atIndex:0];
@@ -58,7 +63,7 @@
   [self.automationController wifiPreferrenceChanged:self];
 }
 
-- (IBAction)enterTaskName:(id)sender {
+- (void)controlTextDidChange:(NSNotification *)aNotification{
   self.preferrence.taskName = [self.taskNameText stringValue];
   [self.preferrence save];
   [self.statusBarController taskNameChanged:self];
