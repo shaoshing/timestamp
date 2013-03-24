@@ -1,5 +1,6 @@
-
 # Timestamp
+
+![icon](Timestamp/Timestamp.iconset/icon.png)
 
 ## Development
 
