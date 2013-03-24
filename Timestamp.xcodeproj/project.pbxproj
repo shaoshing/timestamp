@@ -18,6 +18,7 @@
 		B61F374C16DE487D00E3257E /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B61F372C16DE487C00E3257E /* Cocoa.framework */; };
 		B61F375416DE487D00E3257E /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = B61F375216DE487D00E3257E /* InfoPlist.strings */; };
 		B61F375716DE487D00E3257E /* TimestampTests.m in Sources */ = {isa = PBXBuildFile; fileRef = B61F375616DE487D00E3257E /* TimestampTests.m */; };
+		B64B37CE16FEE10000201B4D /* Timestamp.iconset in Resources */ = {isa = PBXBuildFile; fileRef = B64B37CD16FEE10000201B4D /* Timestamp.iconset */; };
 		B66A1FF016F8AE9C00221530 /* Timestamp.sdef in Resources */ = {isa = PBXBuildFile; fileRef = B66A1FEF16F8AE9C00221530 /* Timestamp.sdef */; };
 		B66A1FF316F8AF3B00221530 /* ScriptCommand.m in Sources */ = {isa = PBXBuildFile; fileRef = B66A1FF216F8AF3B00221530 /* ScriptCommand.m */; };
 		B67B82F916FDC05600D3110E /* Timestamp.alfredworkflow in Resources */ = {isa = PBXBuildFile; fileRef = B67B82F816FDC05600D3110E /* Timestamp.alfredworkflow */; };
@@ -65,6 +66,7 @@
 		B61F375316DE487D00E3257E /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		B61F375516DE487D00E3257E /* TimestampTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TimestampTests.h; sourceTree = "<group>"; };
 		B61F375616DE487D00E3257E /* TimestampTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TimestampTests.m; sourceTree = "<group>"; };
+		B64B37CD16FEE10000201B4D /* Timestamp.iconset */ = {isa = PBXFileReference; lastKnownFileType = folder.iconset; path = Timestamp.iconset; sourceTree = "<group>"; };
 		B66A1FEF16F8AE9C00221530 /* Timestamp.sdef */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Timestamp.sdef; sourceTree = "<group>"; };
 		B66A1FF116F8AF3B00221530 /* ScriptCommand.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ScriptCommand.h; sourceTree = "<group>"; };
 		B66A1FF216F8AF3B00221530 /* ScriptCommand.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ScriptCommand.m; sourceTree = "<group>"; };
@@ -163,6 +165,7 @@
 		B61F373216DE487C00E3257E /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				B64B37CD16FEE10000201B4D /* Timestamp.iconset */,
 				B67B82F816FDC05600D3110E /* Timestamp.alfredworkflow */,
 				B61F374116DE487D00E3257E /* Interfaces.xib */,
 				B66A1FEF16F8AE9C00221530 /* Timestamp.sdef */,
@@ -333,6 +336,7 @@
 				B61F374316DE487D00E3257E /* Interfaces.xib in Resources */,
 				B66A1FF016F8AE9C00221530 /* Timestamp.sdef in Resources */,
 				B67B82F916FDC05600D3110E /* Timestamp.alfredworkflow in Resources */,
+				B64B37CE16FEE10000201B4D /* Timestamp.iconset in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

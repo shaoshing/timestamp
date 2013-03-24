@@ -8,8 +8,6 @@
 	<string>Timestamp</string>
 	<key>CFBundleExecutable</key>
 	<string>${EXECUTABLE_NAME}</string>
-	<key>CFBundleIconFile</key>
-	<string>StatusBarIcon2</string>
 	<key>CFBundleIdentifier</key>
 	<string>com.shaoshing.${PRODUCT_NAME:rfc1034identifier}</string>
 	<key>CFBundleInfoDictionaryVersion</key>
@@ -41,5 +39,7 @@
 	<string>NSApplication</string>
 	<key>OSAScriptingDefinition</key>
 	<string>Timestamp.sdef</string>
+	<key>CFBundleIconFile</key>
+	<string>Timestamp</string>
 </dict>
 </plist>
