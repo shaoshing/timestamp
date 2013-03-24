@@ -32,7 +32,7 @@ StatusBarController *shared;
 #pragma mark - Actions
 - (IBAction)clickStart:(id)sender {
   _startedManually = YES;
-  [self startTask];
+  [self startTask:nil];
 }
 
 - (IBAction)clickStop:(id)sender {
@@ -67,7 +67,7 @@ StatusBarController *shared;
 - (void)shouldStartAutomatically:(id)sender{
   if (!self.currentTask){
     _startedManually = NO;
-    [self startTask];
+    [self startTask:nil];
   }
 }
 
@@ -82,10 +82,15 @@ StatusBarController *shared;
   }
 }
 
+- (void)startTaskWithName:(NSString *)name{
+  _startedManually = YES;
+  [self startTask:name];
+}
+
 
 #pragma mark - Private Methods
 
-- (void)startTask{
+- (void)startTask:(NSString *)name{
   if (self.currentTask){
     return;
   }
@@ -93,8 +98,11 @@ StatusBarController *shared;
   if (!self.preferrence){
     self.preferrence = self.preferrencesController.preferrence;
   }
-  
-  self.currentTask = [Task startWithCurrentTimeAndName:self.preferrence.taskName
+
+  if (!name){
+    name = self.preferrence.taskName;
+  }
+  self.currentTask = [Task startWithCurrentTimeAndName:name
                                         SaveInCalendar:self.preferrence.calendarName];
   
   [self.statusBarView startTask];

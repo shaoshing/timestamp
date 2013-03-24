@@ -33,4 +33,6 @@
 - (void)shouldStopAutomatically:(id)sender;
 - (void)taskNameChanged:(id)sender;
 
+- (void)startTaskWithName:(NSString *)name;
+
 @end

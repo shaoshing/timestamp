@@ -121,7 +121,7 @@
 				B6B883C216EF5AC30076D17E /* Views */,
 				B6B39D2C16E4E32000D76E6F /* Controllers */,
 				B6B39D2D16E4E36300D76E6F /* Models */,
-				B66A1FF416F8AF4B00221530 /* Others */,
+				B66A1FF416F8AF4B00221530 /* AppleScript */,
 				B61F373216DE487C00E3257E /* Resources */,
 				B61F374F16DE487D00E3257E /* Tests */,
 				B61F372B16DE487C00E3257E /* Frameworks */,
@@ -168,7 +168,6 @@
 				B64B37CD16FEE10000201B4D /* Timestamp.iconset */,
 				B67B82F816FDC05600D3110E /* Timestamp.alfredworkflow */,
 				B61F374116DE487D00E3257E /* Interfaces.xib */,
-				B66A1FEF16F8AE9C00221530 /* Timestamp.sdef */,
 				B61F373416DE487C00E3257E /* Timestamp-Info.plist */,
 				B61F373316DE487C00E3257E /* Supporting Files */,
 			);
@@ -207,13 +206,14 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		B66A1FF416F8AF4B00221530 /* Others */ = {
+		B66A1FF416F8AF4B00221530 /* AppleScript */ = {
 			isa = PBXGroup;
 			children = (
+				B66A1FEF16F8AE9C00221530 /* Timestamp.sdef */,
 				B66A1FF116F8AF3B00221530 /* ScriptCommand.h */,
 				B66A1FF216F8AF3B00221530 /* ScriptCommand.m */,
 			);
-			name = Others;
+			name = AppleScript;
 			path = Timestamp;
 			sourceTree = "<group>";
 		};

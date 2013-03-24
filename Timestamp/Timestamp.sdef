@@ -5,6 +5,10 @@
 	<suite name="Task" code="task" description="">
 		<command name="start task" code="taskStar" description="">
 			<cocoa class="ScriptCommand"/>
+      <parameter name="with name" code="name" type="text" optional="yes"
+				description="Name of the task">
+				<cocoa key="name"/>
+			</parameter>
 		</command>
     
     <command name="finish task" code="taskStop" description="">

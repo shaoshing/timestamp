@@ -6,10 +6,13 @@
 
 -(id)performDefaultImplementation {
   NSString *command = [[self commandDescription] commandName];
+  NSDictionary * args = [self evaluatedArguments];
   StatusBarController *statusBarController = [StatusBarController sharedController];
-  
+
   if ([command isEqual:@"start task"]){
-    [statusBarController clickStart:self];
+    NSString *taskName = [args valueForKey:@"name"];
+    [statusBarController startTaskWithName:taskName];
+
     return nil;
   }
 
