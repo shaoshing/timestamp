@@ -37,10 +37,14 @@
 
 // Reachability Doc:
 // https://github.com/tonymillion/Reachability
+//
+// callback [newWiFiName] will be [nil] if the computer is offline.
 + (void)monitorWiFiConnectionAndCall:(void(^)(NSString *newWiFiName))callback{
   void (^onConnectionChanged)(Reachability*) = ^(Reachability *reach){
     dispatch_sync(dispatch_get_main_queue(), ^{
-      callback([WiFi getNameOfCurrentWifi]);
+      NSString *newWiFi = [WiFi getNameOfCurrentWifi];
+      NSLog(@"[WiFi] changed to %@", newWiFi);
+      callback(newWiFi);
     });
   };
   
@@ -52,8 +56,6 @@
   // Invoke the callback manually for the first time, because Reachability won't
   // first the callback if the current internet connection is available.
   callback([WiFi getNameOfCurrentWifi]);
-  
-  
 }
 
 
