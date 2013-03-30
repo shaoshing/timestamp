@@ -126,7 +126,6 @@
 				B61F374F16DE487D00E3257E /* Tests */,
 				B61F372B16DE487C00E3257E /* Frameworks */,
 				B61F372A16DE487C00E3257E /* Build */,
-				F8F175DB4EB8432097AC63D8 /* Pods.xcconfig */,
 			);
 			sourceTree = "<group>";
 		};
@@ -165,6 +164,7 @@
 		B61F373216DE487C00E3257E /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				F8F175DB4EB8432097AC63D8 /* Pods.xcconfig */,
 				B64B37CD16FEE10000201B4D /* Timestamp.iconset */,
 				B67B82F816FDC05600D3110E /* Timestamp.alfredworkflow */,
 				B61F374116DE487D00E3257E /* Interfaces.xib */,

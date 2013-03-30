@@ -113,7 +113,6 @@
   NSUserNotification *notification = [[NSUserNotification alloc] init];
   notification.title = title;
   notification.informativeText = info;
-  notification.soundName = NSUserNotificationDefaultSoundName;
 
   [[NSUserNotificationCenter defaultUserNotificationCenter] deliverNotification:notification];
 }
