@@ -5,7 +5,8 @@
 @interface Preferrence : NSObject
 
 @property (copy) NSString *calendarName;
-@property (copy) NSString *wifiName;
+@property (copy, nonatomic) NSString *wifiName;
+@property (copy) NSString *previousWifiName;
 @property (copy) NSString *taskName;
 
 - (BOOL)load;

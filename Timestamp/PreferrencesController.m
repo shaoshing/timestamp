@@ -26,18 +26,16 @@
   for (NSString *calendarName in [CalendarEvent getEditableCalendarNames]) {
     [self.calendarsPopUp insertItemWithTitle:calendarName atIndex:0];
   }
-  
-  BOOL isPreferredWiFiAdded = NO;
-  for (NSString *wifiName in [WiFi getNamesOfAvaiableWifi]) {
-    [self.wifisPopUp insertItemWithTitle:wifiName atIndex:0];
-    if ([wifiName isEqualToString:self.preferrence.wifiName]){
-      isPreferredWiFiAdded = YES;
+
+  NSMutableArray *wifiNames =[[WiFi getNamesOfAvaiableWifi] mutableCopy];
+  [wifiNames addObject:self.preferrence.wifiName];
+  [wifiNames addObject:self.preferrence.previousWifiName];
+  for (NSString *wifiName in wifiNames) {
+    if (wifiName){
+      [self.wifisPopUp insertItemWithTitle:wifiName atIndex:0];
     }
   }
-  if (!isPreferredWiFiAdded){
-    [self.wifisPopUp insertItemWithTitle:self.preferrence.wifiName atIndex:0];
-  }
-  
+
   [self.calendarsPopUp selectItemWithTitle:self.preferrence.calendarName];
   [self.wifisPopUp selectItemWithTitle:self.preferrence.wifiName];
   [self.taskNameText setStringValue:self.preferrence.taskName];
