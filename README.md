@@ -1,4 +1,5 @@
 # Timestamp
+-----------
 
 Timestamp is an OSX app that aims to record your working time automatically by creating events in the system's Calendar app. It is simple, unobtrusive, and perfectly fit for:
 
@@ -7,7 +8,8 @@ Timestamp is an OSX app that aims to record your working time automatically by c
 
 ![main](README/m.png)
 
-### Working Time at a glance
+## Working Time at a glance
+
 
 Want to know how long you have been working? Just look up at the menu icon.
 
@@ -15,11 +17,11 @@ Want to know how long you have been working? Just look up at the menu icon.
 
 From left to right, each icon represents the time have passed since working: 20 minutes, 35 minutes, and 1 hour and 10 minutes.
 
-### Automation
+## Automation
 
 Instead of clicking the menu to start/stop, if you are working in the office or in a coffee shop with fixed WiFi, you can set it as the preferred WiFi from the preferences window. After doing that, Timestamp will automatically start/stop when you connected to / disconnected from the preferred WiFi.
 
-### Alfred Workflow support
+## Alfred Workflow support
 
 Timestamp comes with [Alfred Workflow](http://www.alfredapp.com/) support, so that you can control Timestamp quickly and freely without moving the cursor around. To get the workflow, simply import it from the preferences window.
 
@@ -27,7 +29,7 @@ Timestamp comes with [Alfred Workflow](http://www.alfredapp.com/) support, so th
 
 ![workflow](README/a-2.png)
 
-### FAQ
+## FAQ
 
 ###### Can I use it with other Calendar?
 
@@ -43,11 +45,12 @@ If you are using Google Calendars, then you can use some online tools to report 
 
 [www.gtimereport.com](https://www.gtimereport.com/)
 
-### Requirement
+## Requirement
 
 Can only be run in OSX 10.8 (details: it is using the EKEvent APIs, which are only available in OSX 10.8)
 
-## Development 
+# Development 
+-------------
 
 Your machine should have these tools installed:
 
