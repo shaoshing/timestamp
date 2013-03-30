@@ -31,7 +31,8 @@
     [names addObject:[network ssid]];
   }
 
-  return names;
+  [names sortUsingSelector:@selector(caseInsensitiveCompare:)];
+  return [[names reverseObjectEnumerator] allObjects];;
 }
 
 

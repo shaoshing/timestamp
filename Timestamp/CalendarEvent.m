@@ -21,8 +21,9 @@ EKEventStore *store;
     NSString *calendarName = calendar.title;
     [calendarNames addObject:calendarName];
   }
-  
-  return calendarNames;
+
+  [calendarNames sortUsingSelector:@selector(caseInsensitiveCompare:)];
+  return [[calendarNames reverseObjectEnumerator] allObjects];
 }
 
 + (CalendarEvent *)createEventWithTitle:(NSString *)title
