@@ -1,6 +1,11 @@
 #import "Preferrence.h"
 #import "CalendarEvent.h"
 
+#define DataCalendarName @"Calendar Name"
+#define DataWiFiName @"WiFi Name"
+#define DataPreviousWiFiName @"Previous WiFi Name"
+#define DataTaskName @"Task Name"
+
 // Tutorial <How to save and load (user) preferences in Objective c>
 // http://goo.gl/5xuwF
 //
@@ -12,10 +17,10 @@
     return NO;
   }
   
-  self.calendarName = [standardUserDefaults stringForKey:@"Calendar Name"];
-  self.wifiName = [standardUserDefaults stringForKey:@"WiFi Name"];
-  self.previousWifiName = [standardUserDefaults stringForKey:@"Previous WiFi Name"];
-  self.taskName = [standardUserDefaults stringForKey:@"Task Name"];
+  self.calendarName = [standardUserDefaults stringForKey:DataCalendarName];
+  self.wifiName = [standardUserDefaults stringForKey:DataWiFiName];
+  self.previousWifiName = [standardUserDefaults stringForKey:DataPreviousWiFiName];
+  self.taskName = [standardUserDefaults stringForKey:DataTaskName];
   
   if (!self.calendarName) self.calendarName = [CalendarEvent getEditableCalendarNames][0];
   if (!self.wifiName) self.wifiName = @"";
@@ -35,10 +40,10 @@
     return NO;
 	}
 
-  [standardUserDefaults setObject:self.calendarName forKey:@"Calendar Name"];
-  [standardUserDefaults setObject:self.wifiName forKey:@"WiFi Name"];
-  [standardUserDefaults setObject:self.previousWifiName forKey:@"Previous WiFi Name"];
-  [standardUserDefaults setObject:self.taskName forKey:@"Task Name"];
+  [standardUserDefaults setObject:self.calendarName forKey:DataCalendarName];
+  [standardUserDefaults setObject:self.wifiName forKey:DataWiFiName];
+  [standardUserDefaults setObject:self.previousWifiName forKey:DataPreviousWiFiName];
+  [standardUserDefaults setObject:self.taskName forKey:DataTaskName];
   [standardUserDefaults synchronize];
   return YES;
 }
