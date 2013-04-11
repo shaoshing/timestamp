@@ -59,10 +59,27 @@
 	<key>objects</key>
 	<array>
 		<dict>
+			<key>config</key>
+			<dict>
+				<key>lastpathcomponent</key>
+				<false/>
+				<key>onlyshowifquerypopulated</key>
+				<true/>
+				<key>output</key>
+				<integer>0</integer>
+				<key>removeextension</key>
+				<false/>
+				<key>sticky</key>
+				<false/>
+				<key>text</key>
+				<string>{query}</string>
+				<key>title</key>
+				<string>Timestamp</string>
+			</dict>
 			<key>type</key>
-			<string>alfred.workflow.output.largetype</string>
+			<string>alfred.workflow.output.notification</string>
 			<key>uid</key>
-			<string>858A6A14-5C6B-4D55-8D5A-5F7C0322BCAB</string>
+			<string>7A563397-B0F3-4A8C-AFA1-8629ABB217EF</string>
 		</dict>
 		<dict>
 			<key>config</key>
@@ -117,27 +134,10 @@ ruby ./run.rb "{query}" "describe"</string>
 			<string>22EFF920-0ADA-42EF-9A20-E560B2AE2F83</string>
 		</dict>
 		<dict>
-			<key>config</key>
-			<dict>
-				<key>lastpathcomponent</key>
-				<false/>
-				<key>onlyshowifquerypopulated</key>
-				<true/>
-				<key>output</key>
-				<integer>0</integer>
-				<key>removeextension</key>
-				<false/>
-				<key>sticky</key>
-				<false/>
-				<key>text</key>
-				<string>{query}</string>
-				<key>title</key>
-				<string>Timestamp</string>
-			</dict>
 			<key>type</key>
-			<string>alfred.workflow.output.notification</string>
+			<string>alfred.workflow.output.largetype</string>
 			<key>uid</key>
-			<string>7A563397-B0F3-4A8C-AFA1-8629ABB217EF</string>
+			<string>858A6A14-5C6B-4D55-8D5A-5F7C0322BCAB</string>
 		</dict>
 	</array>
 	<key>readme</key>
