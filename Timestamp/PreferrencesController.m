@@ -28,8 +28,12 @@
   }
 
   NSMutableArray *wifiNames =[[WiFi getNamesOfAvaiableWifi] mutableCopy];
-  [wifiNames addObject:self.preferrence.wifiName];
-  [wifiNames addObject:self.preferrence.previousWifiName];
+  if (self.preferrence.wifiName){
+    [wifiNames addObject:self.preferrence.wifiName];
+  }
+  if (self.preferrence.previousWifiName){
+    [wifiNames addObject:self.preferrence.previousWifiName];
+  }
   for (NSString *wifiName in wifiNames) {
     if (wifiName){
       [self.wifisPopUp insertItemWithTitle:wifiName atIndex:0];
