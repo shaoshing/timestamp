@@ -19,13 +19,7 @@
   // Get the primary network interface (en0, en1, etc.)
   CWInterface *currentInterface = [CWInterface interfaceWithName:nil];
   
-  // todo: replace the deprecated method call.
-  #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
-  NSArray *networks = [NSMutableArray arrayWithArray:[currentInterface
-                                                      scanForNetworksWithParameters:nil
-                                                      error:nil]];
-  
-  
+  NSSet *networks = [currentInterface scanForNetworksWithName:nil error:nil];
   NSMutableArray *names = [NSMutableArray array];
   for (CWNetwork *network in networks) {
     [names addObject:[network ssid]];
