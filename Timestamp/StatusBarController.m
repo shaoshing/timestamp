@@ -4,6 +4,10 @@
 #import "Preferrence.h"
 #import "StatusBarView.h"
 
+@interface StatusBarController()
+  @property (strong, nonatomic) StatusBarView *statusBarView;
+@end
+
 @implementation StatusBarController
 
 StatusBarController *shared;

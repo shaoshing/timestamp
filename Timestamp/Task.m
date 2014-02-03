@@ -1,14 +1,18 @@
 #import "Task.h"
 #import "CalendarEvent.h"
 
+@interface Task()
+  @property (strong, nonatomic) CalendarEvent *calendarEvent;
+@end
+
 @implementation Task
 
-+ (Task *)startWithCurrentTimeAndName:(NSString*)name SaveInCalendar:(NSString *)calendarName{
++ (instancetype)startWithCurrentTimeAndName:(NSString*)name SaveInCalendar:(NSString *)calendarName{
   Task *task = [[Task alloc] initWithName:name SaveInCalendar:calendarName];
   return task;
 }
 
-- (id)initWithName:(NSString*)name SaveInCalendar:(NSString *)calendarName{
+- (instancetype)initWithName:(NSString*)name SaveInCalendar:(NSString *)calendarName{
   self = [super init];
   
   if (self){
@@ -16,7 +20,7 @@
     _startedAt = [NSDate date];
     
     NSString *calendarEventTitle = [NSString stringWithFormat:@"[Timestamp] Working on \"%@\"", _name];
-    _calendarEvent = [CalendarEvent createEventWithTitle:calendarEventTitle
+    self.calendarEvent = [CalendarEvent createEventWithTitle:calendarEventTitle
                                                     From:_startedAt
                                               InCalendar:calendarName];
   }
@@ -30,16 +34,16 @@
     self.endedAt = self.pausedAt;
   }
   
-  _calendarEvent.endedAt = self.endedAt;
-  _calendarEvent.title = [NSString stringWithFormat:@"[Timestamp] %@", self.name];
-  [_calendarEvent createOrUpdateEventInCalendar];
+  self.calendarEvent.endedAt = self.endedAt;
+  self.calendarEvent.title = [NSString stringWithFormat:@"[Timestamp] %@", self.name];
+  [self.calendarEvent createOrUpdateEventInCalendar];
   NSLog(@"[Task] Finished at: %@", self.endedAt);
 }
 
 - (void)cancel{
   self.endedAt = [NSDate date];
   _cancelled = YES;
-  [_calendarEvent deleteInCalendar];
+  [self.calendarEvent deleteInCalendar];
   NSLog(@"[Task] Canceled at: %@", self.endedAt);
 }
 
@@ -54,11 +58,7 @@
 }
 
 - (BOOL)isFinished{
-  return self.endedAt != nil && ![self isCancelled];
-}
-
-- (BOOL)isCancelled{
-  return _cancelled;
+  return self.endedAt != nil && !self.isCancelled;
 }
 
 - (TaskDuration *)duration{
@@ -74,11 +74,13 @@
 
 
 
-
+@interface TaskDuration()
+  @property (strong, nonatomic) NSDate* since;
+@end
 
 
 @implementation TaskDuration
-+ (TaskDuration *)initWithStartedDate:(NSDate *)startedAt AndEndedDate:(NSDate *)endedAt{
++ (instancetype)initWithStartedDate:(NSDate *)startedAt AndEndedDate:(NSDate *)endedAt{
   return [[TaskDuration alloc] initWithStartedDate:startedAt AndEndedDate:endedAt];
 }
 
@@ -92,7 +94,7 @@
   NSTimeInterval endedInterval = [endedAt timeIntervalSince1970];
   int intervalDifference = endedInterval - startedInterval;
 
-  _since = startedAt;
+  self.since = startedAt;
 
   _seconds = intervalDifference%60;
   intervalDifference -= _seconds;
@@ -112,7 +114,7 @@
 }
 
 - (NSString *)humanizedPassedTime{
-  NSString *startedAt = [_since descriptionWithCalendarFormat:@"%H:%M" timeZone:nil locale:nil];
+  NSString *startedAt = [self.since descriptionWithCalendarFormat:@"%H:%M" timeZone:nil locale:nil];
   NSString *strTime = [NSString stringWithFormat:@"Just started at %@, Ganbatte!", startedAt];
 
   if (self.hours > 0) {

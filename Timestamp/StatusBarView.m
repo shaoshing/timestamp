@@ -4,49 +4,65 @@
 
 #define StartEngle 270
 #define OuterStrokeWidth 2.0
+#define StatusIconWidth 28
+#define StatusIconHeight 21
+#define MenuItemUpdateInterval 10
+#define IconUpdateInterval 60
+#define IconCenter NSMakePoint(StatusIconWidth/2, (StatusIconHeight+1)/2)
+
+@interface StatusBarView()
+  @property (strong, nonatomic) NSTimer *menuItemTimer;
+  @property (strong, nonatomic) NSTimer *iconTimer;
+  @property (strong, nonatomic) NSImage *icon;
+  @property (strong, nonatomic) NSImage *iconActivated;
+  @property (strong, nonatomic) NSImage *iconHighlighted;
+  @property (strong, nonatomic) NSImage *iconActivatedHighlighted;
+  @property (strong, nonatomic) NSStatusItem *statusItem;
+  @property (weak, nonatomic) StatusBarController *controller;
+@end
 
 @implementation StatusBarView
 
 
-+ (id) initWithStatusBarController:(StatusBarController *)controller{
++ (instancetype) initWithStatusBarController:(StatusBarController *)controller{
   StatusBarView *view = [[StatusBarView alloc] init:controller];
   return view;
 }
 
-- (id) init:(StatusBarController *)controller{
+- (instancetype) init:(StatusBarController *)controller{
   self = [super init];
   if (self){
-    _controller = controller;
-    _statusItem = [[NSStatusBar systemStatusBar] statusItemWithLength:StatusIconWidth];
+    self.controller = controller;
+    self.statusItem = [[NSStatusBar systemStatusBar] statusItemWithLength:StatusIconWidth];
     
     [self toggleStatusIcon];
     
-    [_statusItem setHighlightMode:YES];
-    [_statusItem setEnabled:YES];
-    [_statusItem setToolTip:@"Timestamp"];
-    [_statusItem setTarget:self];
-    [_statusItem setTitle:@""];
-    [_statusItem setMenu:_controller.statusMenu];
+    [self.statusItem setHighlightMode:YES];
+    [self.statusItem setEnabled:YES];
+    [self.statusItem setToolTip:@"Timestamp"];
+    [self.statusItem setTarget:self];
+    [self.statusItem setTitle:@""];
+    [self.statusItem setMenu:self.controller.statusMenu];
   }
   return self;
 }
 
 - (void)startTask{
-  [_controller.taskNameMenuItem setHidden:NO];
-  [_controller.taskTimeDescMenuItem setHidden:NO];
+  [self.controller.taskNameMenuItem setHidden:NO];
+  [self.controller.taskTimeDescMenuItem setHidden:NO];
 
   [self toggleStatusIcon];
   [self toggleStartAndStopMenuItems];
   [self updateMenuItemsOfTaskInfo];
   [self updateIcon];
 
-  _menuItemTimer = [NSTimer scheduledTimerWithTimeInterval:MenuItemUpdateInterval
+  self.menuItemTimer = [NSTimer scheduledTimerWithTimeInterval:MenuItemUpdateInterval
                                                     target:self
                                                   selector:@selector(updateMenuItemsOfTaskInfo)
                                                   userInfo:nil
                                                    repeats:YES];
   
-  _iconTimer = [NSTimer scheduledTimerWithTimeInterval:IconUpdateInterval
+  self.iconTimer = [NSTimer scheduledTimerWithTimeInterval:IconUpdateInterval
                                                 target:self 
                                               selector:@selector(updateIcon)
                                               userInfo:nil repeats:YES];
@@ -56,15 +72,15 @@
   [self toggleStatusIcon];
   [self toggleStartAndStopMenuItems];
 
-  [_menuItemTimer invalidate];
-  _menuItemTimer = nil;
-  [_iconTimer invalidate];
-  _iconTimer = nil;
+  [self.menuItemTimer invalidate];
+  self.menuItemTimer = nil;
+  [self.iconTimer invalidate];
+  self.iconTimer = nil;
   [self updateMenuItemsOfTaskInfo];
 }
 
 - (void)updateTask{
-  if (_controller.currentTask){
+  if (self.controller.currentTask){
     [self updateMenuItemsOfTaskInfo];
   }
 }
@@ -72,23 +88,23 @@
 - (void)updateMenuItemsOfTaskInfo{
   NSLog(@"[StatusBarView] Updated Task Info");
 
-  if (_controller.currentTask == nil){
+  if (self.controller.currentTask == nil){
     @throw @"currentTask is nil";
   }
 
   NSString *strfTaskName = @"Working on \"%@\"%@";
-  if ([_controller.currentTask isFinished] || [_controller.currentTask isCancelled]){
+  if ([self.controller.currentTask isFinished] || [self.controller.currentTask isCancelled]){
     strfTaskName = @"Previously working on \"%@\"%@";
   }
   NSString *automationStatus = @"";
-  if (!_controller.startedManually){
+  if (!self.controller.startedManually){
     automationStatus = @" (WiFi)";
   }
-  [_controller.taskNameMenuItem setTitle:[NSString stringWithFormat:strfTaskName,
-                                          _controller.currentTask.name, automationStatus]];
+  [self.controller.taskNameMenuItem setTitle:[NSString stringWithFormat:strfTaskName,
+                                          self.controller.currentTask.name, automationStatus]];
 
-  TaskDuration *duration = [_controller.currentTask duration];
-  [_controller.taskTimeDescMenuItem setTitle:[duration humanizedPassedTime]];
+  TaskDuration *duration = [self.controller.currentTask duration];
+  [self.controller.taskTimeDescMenuItem setTitle:[duration humanizedPassedTime]];
 }
 
 
@@ -97,13 +113,13 @@
 - (void)updateIcon{
   NSLog(@"[StatusBarView] Updated Task Info");
 
-  _iconActivated = [[NSImage alloc] initWithSize:NSMakeSize(StatusIconWidth, StatusIconHeight)];
-  [_iconActivated setFlipped:YES];
+  self.iconActivated = [[NSImage alloc] initWithSize:NSMakeSize(StatusIconWidth, StatusIconHeight)];
+  [self.iconActivated setFlipped:YES];
 
-  TaskDuration *duration = [_controller.currentTask duration];
+  TaskDuration *duration = [self.controller.currentTask duration];
   CGFloat endAngel = ((int)(360.0*(duration.minutes/60.0)+StartEngle))%360;
 
-  [_iconActivated lockFocus];
+  [self.iconActivated lockFocus];
   NSBezierPath* path = [NSBezierPath bezierPath];
   [[self ColorWithR:109 G:123 B:132] setStroke];
   [path setLineWidth:1];
@@ -152,8 +168,8 @@
     [path fill];
   }
 
-  [_iconActivated unlockFocus];
-  [_statusItem setImage:_iconActivated];
+  [self.iconActivated unlockFocus];
+  [self.statusItem setImage:self.iconActivated];
 
 
   NSImage *compositeImg = [[NSImage alloc] initWithSize:NSMakeSize(StatusIconWidth, StatusIconHeight)];
@@ -162,14 +178,14 @@
   NSRectFill(NSMakeRect(0, 0, StatusIconWidth, StatusIconHeight));
   [compositeImg unlockFocus];
 
-  _iconActivatedHighlighted = [_iconActivated copy];
-  [_iconActivatedHighlighted lockFocus];
+  self.iconActivatedHighlighted = [self.iconActivated copy];
+  [self.iconActivatedHighlighted lockFocus];
   [compositeImg drawAtPoint:NSMakePoint(0, 0)
                    fromRect:NSMakeRect(0, 0, StatusIconWidth, StatusIconHeight)
                   operation:NSCompositeSourceIn
                    fraction:1.0];
-  [_iconActivatedHighlighted unlockFocus];
-  [_statusItem setAlternateImage:_iconActivatedHighlighted];
+  [self.iconActivatedHighlighted unlockFocus];
+  [self.statusItem setAlternateImage:self.iconActivatedHighlighted];
 }
 
 - (NSColor *)ColorWithR:(int)red G:(int)gree B:(int)blue{
@@ -177,20 +193,20 @@
 }
 
 - (void)toggleStartAndStopMenuItems{
-  [_controller.stopMenuItem setHidden:![_controller.stopMenuItem isHidden]];
-  [_controller.startMenuItem setHidden:![_controller.startMenuItem isHidden]];
-  [_controller.cancelMenuItem setHidden:![_controller.cancelMenuItem isHidden]];
+  [self.controller.stopMenuItem setHidden:![self.controller.stopMenuItem isHidden]];
+  [self.controller.startMenuItem setHidden:![self.controller.startMenuItem isHidden]];
+  [self.controller.cancelMenuItem setHidden:![self.controller.cancelMenuItem isHidden]];
 }
 
 - (void)toggleStatusIcon{
-  if (_icon == nil){
+  if (self.icon == nil){
     NSBezierPath* path = [NSBezierPath bezierPath];
     [path setLineWidth:OuterStrokeWidth];
     [path setFlatness:0];
 
-    _icon = [[NSImage alloc] initWithSize:NSMakeSize(StatusIconWidth, StatusIconHeight)];
-    [_icon setFlipped:YES];
-    [_icon lockFocus];
+    self.icon = [[NSImage alloc] initWithSize:NSMakeSize(StatusIconWidth, StatusIconHeight)];
+    [self.icon setFlipped:YES];
+    [self.icon lockFocus];
     [[self ColorWithR:109 G:123 B:132] setStroke];
     [self drawCircleWithPath:path radius:7];
     [path stroke];
@@ -200,12 +216,12 @@
     [self drawCircleWithPath:path radius:1.5];
     [path fill];
     [path removeAllPoints];
-    [_icon unlockFocus];
+    [self.icon unlockFocus];
 
 
-    _iconHighlighted = [[NSImage alloc] initWithSize:NSMakeSize(StatusIconWidth, StatusIconHeight)];
-    [_iconHighlighted setFlipped:YES];
-    [_iconHighlighted lockFocus];
+    self.iconHighlighted = [[NSImage alloc] initWithSize:NSMakeSize(StatusIconWidth, StatusIconHeight)];
+    [self.iconHighlighted setFlipped:YES];
+    [self.iconHighlighted lockFocus];
     [[NSColor whiteColor] setStroke];
     [self drawCircleWithPath:path radius:7];
     [path stroke];
@@ -220,18 +236,18 @@
     [[NSColor whiteColor] setFill];
     [self drawCircleWithPath:path radius:1.5];
     [path fill];
-    [_iconHighlighted unlockFocus];
+    [self.iconHighlighted unlockFocus];
   }
 
-  if (_controller.currentTask == nil ||
-      [_controller.currentTask isFinished] ||
-      [_controller.currentTask isCancelled]){
-    [_statusItem setImage:_icon];
+  if (self.controller.currentTask == nil ||
+      [self.controller.currentTask isFinished] ||
+      [self.controller.currentTask isCancelled]){
+    [self.statusItem setImage:self.icon];
   }else{
-    [_statusItem setImage:_iconActivated];
+    [self.statusItem setImage:self.iconActivated];
   }
 
-  [_statusItem setAlternateImage:_iconHighlighted];
+  [self.statusItem setAlternateImage:self.iconHighlighted];
 }
 
 - (void)drawCircleWithPath:(NSBezierPath *)path radius:(float)radius{

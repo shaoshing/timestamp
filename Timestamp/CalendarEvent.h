@@ -1,17 +1,17 @@
-#import <Foundation/Foundation.h>
-#import <EventKit/EventKit.h>
+@import Foundation;
+@import EventKit;
 
 @interface CalendarEvent : NSObject
 
-@property (copy) NSString *title;
-@property NSDate *startedAt;
-@property NSDate *endedAt;
-@property EKEvent *ekEvent;
-@property (copy) NSString *calendarName;
+@property (copy, nonatomic) NSString *title;
+@property (strong, nonatomic) NSDate *startedAt;
+@property (strong, nonatomic) NSDate *endedAt;
+@property (strong, nonatomic) EKEvent *ekEvent;
+@property (copy, nonatomic) NSString *calendarName;
 
 + (EKEventStore *) getEventStore;
 + (NSArray *) getEditableCalendarNames;
-+ (CalendarEvent *) createEventWithTitle:(NSString *)title
++ (instancetype) createEventWithTitle:(NSString *)title
                                     From:(NSDate *)from
                               InCalendar:(NSString *)calendarName;
 

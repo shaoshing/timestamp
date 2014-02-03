@@ -1,8 +1,6 @@
-#import <Cocoa/Cocoa.h>
-
+@import Cocoa;
 
 @class Wifi, Preferrence, AutomationController, StatusBarController;
-
 
 @interface PreferrencesController : NSWindowController <NSTextFieldDelegate>
 

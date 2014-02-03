@@ -1,14 +1,8 @@
-#import <Foundation/Foundation.h>
+@import Foundation;
 
 @class WiFi, Preferrence, PreferrencesController, StatusBarController;
 
 @interface AutomationController : NSObject
-{
-  @private
-  BOOL _systemInSleep;
-  NSString *_previousChangedWifiName;
-  __weak Preferrence *_preferrence;
-}
 
 @property (weak) IBOutlet PreferrencesController *preferrencesController;
 @property (weak) IBOutlet StatusBarController *statusBarController;

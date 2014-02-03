@@ -4,10 +4,16 @@
 #import "PreferrencesController.h"
 #import "StatusBarController.h"
 
+@interface AutomationController()
+  @property (getter = isSystemInSleep) BOOL systemInSleep;
+  @property (copy, nonatomic) NSString *previousChangedWifiName;
+  @property (weak, nonatomic) Preferrence *preferrence;
+@end
+
 @implementation AutomationController
 
 - (void)awakeFromNib{
-  _preferrence = self.preferrencesController.preferrence;
+  self.preferrence = self.preferrencesController.preferrence;
 
   NSNotificationCenter *notificationCenter = [[NSWorkspace sharedWorkspace] notificationCenter];
 
@@ -30,12 +36,12 @@
 }
 
 -(void)wifiChanged:(id)sender NewName:(NSString *)newName{
-  if ([_preferrence.wifiName length] == 0 || _systemInSleep){
-    NSLog(@"[Automation] event wifiChanged is ignored%@", _systemInSleep ? @", in Sleep Mode" : @"");
+  if ([self.preferrence.wifiName length] == 0 || self.isSystemInSleep){
+    NSLog(@"[Automation] event wifiChanged is ignored%@", self.isSystemInSleep ? @", in Sleep Mode" : @"");
   }else{
     [self determineWhetherToStartWithWiFiName:newName];
   }
-  _previousChangedWifiName = [newName copy];
+  self.previousChangedWifiName = [newName copy];
 }
 
 -(void)wifiPreferrenceChanged:(id)sender{
@@ -44,7 +50,7 @@
 
 -(void)systemWillSleep:(id)sender{
   NSLog(@"[Automation] system will sleep");
-  _systemInSleep = YES;
+  self.systemInSleep = YES;
   [self.statusBarController pauseTask:self];
 }
 
@@ -61,7 +67,7 @@
 -(void)respondToSystemDidWakeOnDelay{
   NSLog(@"[Automation] respond to system did wake event");
   [self determineWhetherToStartWithWiFiName:[WiFi getNameOfCurrentWifi]];
-  _systemInSleep = NO;
+  self.systemInSleep = NO;
 }
 
 -(void)systemWillPowerOff:(id)sender{
@@ -72,8 +78,8 @@
 #pragma mark - Private Methods
 
 -(void)determineWhetherToStartWithWiFiName:(NSString *)name{
-  if (_systemInSleep){
-    if ([_preferrence.wifiName isEqualToString:name]){
+  if (self.isSystemInSleep){
+    if ([self.preferrence.wifiName isEqualToString:name]){
       NSLog(@"[Automation] should resume");
       [self.statusBarController resumeTask:self];
     }else{
@@ -83,7 +89,7 @@
     return ;
   }
 
-  if ([_preferrence.wifiName isEqualToString:name]){
+  if ([self.preferrence.wifiName isEqualToString:name]){
     if (!self.statusBarController.currentTask){
       NSLog(@"[Automation] should start");
       [self.statusBarController shouldStartAutomatically:self];
@@ -91,8 +97,8 @@
                                  info:@"Connected to preferred WiFi."];
     }
   }else{
-    NSLog(@"Previous WiFi %@", _previousChangedWifiName);
-    if ([_previousChangedWifiName isEqualToString:_preferrence.wifiName]
+    NSLog(@"Previous WiFi %@", self.previousChangedWifiName);
+    if ([self.previousChangedWifiName isEqualToString:self.preferrence.wifiName]
         && self.statusBarController.currentTask){
       NSLog(@"[Automation] should stop");
       [self.statusBarController shouldStopAutomatically:self];

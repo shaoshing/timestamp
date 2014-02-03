@@ -26,10 +26,10 @@ EKEventStore *store;
   return [[calendarNames reverseObjectEnumerator] allObjects];
 }
 
-+ (CalendarEvent *)createEventWithTitle:(NSString *)title
++ (instancetype)createEventWithTitle:(NSString *)title
                                     From:(NSDate *)from
                               InCalendar:(NSString *)calendarName{
-  CalendarEvent *event = [[CalendarEvent alloc] init];
+  CalendarEvent *event = [super init];
   event.title = title;
   event.startedAt = from;
   event.endedAt = from;

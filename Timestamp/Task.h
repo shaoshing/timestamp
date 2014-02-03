@@ -1,21 +1,17 @@
-#import <Foundation/Foundation.h>
+@import Foundation;
 
 @class TaskDuration, CalendarEvent;
 
 @interface Task : NSObject
-{
-  @private
-  CalendarEvent *_calendarEvent;
-  BOOL _cancelled;
-}
 
-@property NSDate *startedAt;
-@property NSDate *endedAt;
-@property NSDate *pausedAt;
-@property (copy) NSString *name;
+@property (strong, nonatomic) NSDate *startedAt;
+@property (strong, nonatomic) NSDate *endedAt;
+@property (strong, nonatomic) NSDate *pausedAt;
+@property (copy, nonatomic) NSString *name;
+@property (readonly, getter = isCancelled) BOOL cancelled;
 
-+ (Task *)startWithCurrentTimeAndName:(NSString*)name SaveInCalendar:(NSString *)calendarName;
-- (id)initWithName:(NSString*)name SaveInCalendar:(NSString *)calendarName;
++ (instancetype)startWithCurrentTimeAndName:(NSString*)name SaveInCalendar:(NSString *)calendarName;
+- (instancetype)initWithName:(NSString*)name SaveInCalendar:(NSString *)calendarName;
 
 - (void)finish;
 - (void)cancel;
@@ -31,16 +27,12 @@
 
 
 @interface TaskDuration : NSObject
-{
-  @private
-  NSDate* _since;
-}
 
-@property NSInteger hours;
-@property NSInteger minutes;
-@property NSInteger seconds;
+@property (nonatomic) NSInteger hours;
+@property (nonatomic) NSInteger minutes;
+@property (nonatomic) NSInteger seconds;
 
-+ (TaskDuration *)initWithStartedDate:(NSDate *)startedAt AndEndedDate:(NSDate *)endedAt;
++ (instancetype)initWithStartedDate:(NSDate *)startedAt AndEndedDate:(NSDate *)endedAt;
 
 - (id)initWithStartedDate:(NSDate *)startedAt AndEndedDate:(NSDate *)endedAt;
 - (NSString *)humanizedPassedTime;

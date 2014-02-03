@@ -1,11 +1,8 @@
-#import <Foundation/Foundation.h>
+@import Foundation;
 
 @class Task, PreferrencesController, Preferrence, StatusBarView;
 
 @interface StatusBarController : NSObject
-{
-  StatusBarView *_statusBarView;
-}
 
 @property (weak) IBOutlet NSMenu *statusMenu;
 @property (weak) IBOutlet PreferrencesController *preferrencesController;
@@ -15,8 +12,8 @@
 @property (weak) IBOutlet NSMenuItem *stopMenuItem;
 @property (weak) IBOutlet NSMenuItem *cancelMenuItem;
 
-@property (weak) Preferrence *preferrence;
-@property Task *currentTask;
+@property (weak, nonatomic) Preferrence *preferrence;
+@property (strong, nonatomic) Task *currentTask;
 @property (readonly) BOOL startedManually;
 
 + (StatusBarController *) sharedController;
